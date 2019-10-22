@@ -1,0 +1,15 @@
+{
+  "name": "dr-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "dr-portfolio"
+  },
+  "author": "Dave Regg <drregg6@gmail.com>",
+  "license": "MIT"
+}
