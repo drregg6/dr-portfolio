@@ -12,6 +12,7 @@ app.use(express.json({ extended: false }));
 
 // Get the routes
 app.use('/api/portfolios', require('./routes/api/portfolios'));
+app.use('/api/resumes', require('./routes/api/resumes'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 
