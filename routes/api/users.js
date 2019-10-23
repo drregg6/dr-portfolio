@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
@@ -22,7 +24,7 @@ router.post('/', [
 
   try {
     // Check if user exists
-    const user = await User.findOne({ email });
+    let user = await User.findOne({ email });
     if (user) res.status(400).json({ errors: [{ msg: 'User already exists!' }] });
 
     // Save user as entered in the database
