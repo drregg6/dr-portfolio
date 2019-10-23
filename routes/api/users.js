@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const { check, validationResult } = require('express-validator');
+const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
@@ -62,7 +63,7 @@ router.post('/', [
 // ROUTE  /api/users/:email
 // DESC   Deletes a user
 // ACCESS Private
-router.delete('/:email', async (req, res) => {
+router.delete('/:email', auth, async (req, res) => {
   try {
     const email = req.params.email;
     let user = User.findOne({ email });
