@@ -59,4 +59,23 @@ router.post('/', [
   }
 });
 
+// ROUTE  /api/users/:email
+// DESC   Deletes a user
+// ACCESS Private
+router.delete('/:email', async (req, res) => {
+  try {
+    const email = req.params.email;
+    let user = User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ msg: 'User not found' });
+    }
+    await User.findOneAndRemove({ email });
+
+    res.json({ msg: 'User deleted' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
 module.exports = router;
