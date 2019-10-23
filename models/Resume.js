@@ -1,5 +1,3 @@
-// Placed on hold
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -15,7 +13,24 @@ const resumeSchema = new Schema({
     type: String
   },
   address: {
-    type: String
+    number: {
+      type: String
+    },
+    street: {
+      type: String
+    },
+    apartment: {
+      type: String
+    },
+    city: {
+      type: String
+    },
+    state: {
+      type: String
+    },
+    zip: {
+      type: String
+    }
   },
   website: {
     type: String
@@ -48,7 +63,8 @@ const resumeSchema = new Schema({
         type: Date
       },
       current: {
-        type: Boolean
+        type: Boolean,
+        default: false
       },
       desc: {
         type: String
@@ -81,13 +97,13 @@ const resumeSchema = new Schema({
         type: String,
         required: true
       },
-      date: {
-        type: Date
+      year: {
+        type: String
       },
       desc: {
         type: String
       },
-      tech: {
+      technologies: {
         type: [String]
       }
     }

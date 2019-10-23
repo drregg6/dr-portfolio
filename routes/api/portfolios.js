@@ -5,16 +5,14 @@ const express = require('express');
 const router = express.Router();
 
 // @route  GET /api/portfolios
-// @desc   Get portfolio
+// @desc   Get all portfolios
 // @access Public
 router.get('/', async (req, res) => {
   try {
-    let portfolio = await Portfolio.findOne({ user });
-    if (!portfolio) {
-      return res.status(400).json({ msg: 'Portfolio does not exist' });
-    }
+    // This will be sent to populate a state arr
+    let portfolios = await Portfolio.find();
 
-    res.json(portfolio);
+    res.json(portfolios);
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
@@ -68,6 +66,24 @@ router.post('/', [auth, [
     portfolio = new Portfolio(newPortfolio);
     await portfolio.save();
     res.json({ portfolio });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
+
+// @route  DELETE /api/portfolios/:id
+// @desc   Delete a portfolio
+// @access Private
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    let portfolio = await Portfolio.findById(req.params.id);
+    if (!portfolio) {
+      return res.status(400).json({ msg: 'Portfolio does not exist' });
+    }
+
+    await portfolio.remove();
+    res.json({ msg: 'Portfolio deleted' });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
