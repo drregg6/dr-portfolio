@@ -114,10 +114,27 @@ router.put('/employment', [auth, [
   };
 
   try {
-    let portfolio = Portfolio.findOne({ user: req.user.id });
-    portfolio.employment.unshift(newEmployment);
-    await portfolio.save();
-    res.json({ portfolio });
+    let resume = Resume.findOne({ user: req.user.id });
+    resume.employment.unshift(newEmployment);
+    await resume.save();
+    res.json({ resume });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
+
+// @route  DELETE /api/resumes/employment/:id
+// @desc   Remove an employment
+// @access Private
+router.delete('/employment/:emp_id', auth, async (req, res) => {
+  try {
+    const resume = Resume.findOne({ user: req.user.id });
+    const index = resume.employment.map(item => item.id).indexOf(req.params.emp_id);
+    resume.employment.splice(index, 1);
+
+    await resume.save();
+    res.json({ resume });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
@@ -151,10 +168,27 @@ router.put('/education', [auth, [
   };
 
   try {
-    let portfolio = Portfolio.findOne({ user: req.user.id });
-    portfolio.education.unshift(newEducation);
-    await portfolio.save();
-    res.json({ portfolio });
+    let resume = Resume.findOne({ user: req.user.id });
+    resume.education.unshift(newEducation);
+    await resume.save();
+    res.json({ resume });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
+
+// @route  DELETE /api/resumes/education/:id
+// @desc   Remove an education
+// @access Private
+router.delete('/education/:ed_id', auth, async (req, res) => {
+  try {
+    const resume = Resume.findOne({ user: req.user.id });
+    const index = resume.education.map(item => item.id).indexOf(req.params.ed_id);
+    resume.education.splice(index, 1);
+
+    await resume.save();
+    res.json({ resume });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
@@ -188,10 +222,27 @@ router.put('/experience', [auth, [
   };
 
   try {
-    let portfolio = Portfolio.findOne({ user: req.user.id });
-    portfolio.experience.unshift(newExperience);
-    await portfolio.save();
-    res.json({ portfolio });    
+    let resume = Resume.findOne({ user: req.user.id });
+    resume.experience.unshift(newExperience);
+    await resume.save();
+    res.json({ resume });    
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
+
+// @route  DELETE /api/resumes/experience/:id
+// @desc   Remove an experience
+// @access Private
+router.delete('/experience/:exp_id', auth, async (req, res) => {
+  try {
+    const resume = Resume.findOne({ user: req.user.id });
+    const index = resume.experience.map(item => item.id).indexOf(req.params.exp_id);
+    resume.experience.splice(index, 1);
+
+    await resume.save();
+    res.json({ resume });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
