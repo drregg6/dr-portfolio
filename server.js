@@ -11,7 +11,9 @@ app.get('/', (req, res) => {
 app.use(express.json({ extended: false }));
 
 // Get the routes
+app.use('/api/portfolios', require('./routes/api/portfolios'));
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 // Launch
 const PORT = process.env.PORT || 5000;
