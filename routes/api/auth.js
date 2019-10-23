@@ -7,9 +7,9 @@ const bcrypt = require('bcryptjs');
 const express = require('express');
 const router = express.Router();
 
-// ROUTE  /api/auth
-// DESC   Log in user
-// ACCESS Public
+// @route  POST /api/auth
+// @desc   Log in user
+// @access Public
 router.post('/', [
   check('email', 'Valid email required')
   .isEmail(),

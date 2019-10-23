@@ -8,9 +8,9 @@ const bcrypt = require('bcryptjs');
 const express = require('express');
 const router = express.Router();
 
-// ROUTE  /api/users
-// DESC   Create user
-// ACCESS Private
+// @route  POST /api/users
+// @desc   Create user
+// @access Private
 router.post('/', [
   check('email', 'Please include valid email')
   .isEmail(),
@@ -60,9 +60,9 @@ router.post('/', [
   }
 });
 
-// ROUTE  /api/users/:email
-// DESC   Deletes a user
-// ACCESS Private
+// @route  DELETE /api/users/:email
+// @desc   Deletes a user
+// @access Private
 router.delete('/:email', auth, async (req, res) => {
   try {
     const email = req.params.email;
