@@ -1,3 +1,17 @@
+/*
+
+USER_LOGIN
+redirects to /
+
+then
+AUTH_ERROR
+
+problem in 
+setAuthToken(?)
+or
+loadUser()(?)
+
+*/
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import './App.css';
@@ -18,14 +32,15 @@ function App() {
       setAuthToken(localStorage.token);
     }
     store.dispatch(loadUser());
-  }, [])
+  }, []);
+
   return (
     <Router>
       <div className="App">
         <Header />
         <Switch>
-          <Route path='/' exact component={Portfolio} />
-          <Route path='/login' exact component={Login} />
+          <Route exact path='/' component={Portfolio} />
+          <Route exact path='/login' component={Login} />
         </Switch>
         <Footer />
       </div>

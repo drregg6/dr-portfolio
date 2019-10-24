@@ -1,3 +1,4 @@
+// Used to set the token when user is logged in
 import axios from 'axios';
 
 const setAuthToken = (token) => {

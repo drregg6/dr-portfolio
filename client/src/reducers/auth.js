@@ -11,7 +11,7 @@ const initialState = {
   user: null,
   isAuthenticated: null,
   loading: true
-}
+};
 
 export default function(state = initialState, action) {
   const { type, payload } = action;
