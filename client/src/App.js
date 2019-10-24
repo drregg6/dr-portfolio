@@ -22,6 +22,8 @@ import Alert from './components/layout/Alert';
 import Footer from './components/layout/Footer';
 
 import Portfolio from './components/portfolio/Portfolio';
+import Contact from './components/contact/Contact';
+import Resume from './components/resume/Resume';
 import Login from './components/auth/Login';
 
 import CreatePortfolio from './components/portfolio-forms/CreatePortfolio';
@@ -50,6 +52,8 @@ function App() {
         <Alert />
         <Switch>
           <Route exact path='/' component={Portfolio} />
+          <Route exact path='/resume' component={Resume} />
+          <Route exact path='/contact' component={Contact} />
           <Route exact path='/login' component={Login} />
           <PrivateRoute exact path='/new-portfolio' component={CreatePortfolio} />
           <PrivateRoute path='/portfolios/:id/edit' component={EditPortfolio} />
