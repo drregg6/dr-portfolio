@@ -10,6 +10,6 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 
 // Portfolio types
-
+export const GET_PORTFOLIOS = 'GET_PORTFOLIOS';
 
 // Resume types
