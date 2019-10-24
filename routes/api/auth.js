@@ -1,12 +1,26 @@
 require('dotenv').config();
 
 const { check, validationResult } = require('express-validator');
+const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const JWT_SECRET = process.env.JWT_SECRET;
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const express = require('express');
 const router = express.Router();
+
+// @route  GET /api/auth
+// @desc   Get user token
+// @access PRIVATE
+router.get('/', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
 
 // @route  POST /api/auth
 // @desc   Log in user
