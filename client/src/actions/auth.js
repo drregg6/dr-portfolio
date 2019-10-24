@@ -20,7 +20,7 @@ import { setAlert } from './alert';
 
 // Load user
 export const loadUser = () => async dispatch => {
-  if (localStorage.getItem('token')) {
+  if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
 
