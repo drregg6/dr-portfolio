@@ -16,6 +16,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import './App.css';
 
+import Nav from './components/layout/Nav';
 import Header from './components/layout/Header';
 import Alert from './components/layout/Alert';
 import Footer from './components/layout/Footer';
@@ -44,6 +45,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Nav />
         <Header />
         <Alert />
         <Switch>

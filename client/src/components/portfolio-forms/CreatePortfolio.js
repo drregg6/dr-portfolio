@@ -19,6 +19,16 @@ const CreatePortfolio = props => {
   const handleSubmit = event => {
     event.preventDefault();
     console.log(formData);
+    // Send formData to createPortfolio
+
+    // Reset formData
+    setFormData({
+      title: '',
+      url: '',
+      image: '',
+      desc: '',
+      technologies: ''
+    });
   }
   return (
     <div className="portfolio-form">
@@ -27,6 +37,7 @@ const CreatePortfolio = props => {
           <label htmlFor="title">Title</label>
           <input
             name="title"
+            placeholder="Title"
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}
@@ -36,6 +47,7 @@ const CreatePortfolio = props => {
           <label htmlFor="url">Url</label>
           <input
             name="url"
+            placeholder="URL"
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}
@@ -45,6 +57,7 @@ const CreatePortfolio = props => {
           <label htmlFor="image">Image</label>
           <input
             name="image"
+            placeholder="Image"
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}
@@ -54,6 +67,7 @@ const CreatePortfolio = props => {
           <label htmlFor="desc">Description</label>
           <input
             name="desc"
+            placeholder="Description"
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}
@@ -63,11 +77,14 @@ const CreatePortfolio = props => {
           <label htmlFor="technologies">Technologies</label>
           <input
             name="technologies"
+            placeholder="Technologies"
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}
           />
+          <small>Please split technologies with commas(,)</small>
         </div>
+        <input type="submit" value="Submit" />
       </form>
     </div>
   )
