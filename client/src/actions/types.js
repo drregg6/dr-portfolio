@@ -11,5 +11,6 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 
 // Portfolio types
 export const GET_PORTFOLIOS = 'GET_PORTFOLIOS';
+export const UPDATE_PORTFOLIO = 'UPDATED_PORTFOLIO';
 
 // Resume types

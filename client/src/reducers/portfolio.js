@@ -1,4 +1,7 @@
-import { GET_PORTFOLIOS } from '../actions/types';
+import {
+  GET_PORTFOLIOS,
+  UPDATE_PORTFOLIO
+} from '../actions/types';
 
 const initialState = {
   portfolios: [],
@@ -12,6 +15,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         portfolios: [...payload],
+        loading: false
+      };
+    case UPDATE_PORTFOLIO:
+      return {
+        ...state,
+        portfolios: [...state.portfolios, ...payload],
         loading: false
       }
     default:

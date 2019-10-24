@@ -1,15 +1,7 @@
 /*
 
-USER_LOGIN
-redirects to /
-
-then
-AUTH_ERROR
-
-problem in 
-setAuthToken(?)
-or
-loadUser()(?)
+=== TODOS ===
+- Resume should change to CV
 
 */
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
