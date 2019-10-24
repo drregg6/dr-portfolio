@@ -14,12 +14,34 @@ body {
   margin: 0 auto;
 }
 
+
+
+/* === Reset === */
 h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
   font-weight: normal;
   margin: 0;
   padding: 0;
 }
+
+a {
+  color: #333;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 1rem;
+}
+a:visited {
+  color: #333;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
 
 /* === Custom === */
 .btn {
@@ -38,16 +60,43 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
+
+
+/* === Navigation === */
+.nav ul {
+  display: flex;
+  justify-content: space-around;
+
+  margin: 1rem 0;
+}
+
+.nav ul li a {
+  border-bottom: none;
+  padding-bottom: 5px;
+}
+.nav ul li a:hover {
+  border-bottom: 1px solid #333;
+}
+
+
+
+/* === Header === */
 .header {
   padding: 5rem 0;
   background: lightsalmon;
 }
 
+
+
+/* === Portfolio === */
 .portfolio {
   margin: 1rem auto;
   padding: 8rem 0; /* temporary */
 }
 
+
+
+/* === Footer === */
 .footer {
   padding: 2.5rem 0;
   background: darkorange;
@@ -56,6 +105,9 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-around;
 }
 
+
+
+/* === Mobile === */
 @media screen and (max-width: 600px) {
   .footer {
     display: flex;

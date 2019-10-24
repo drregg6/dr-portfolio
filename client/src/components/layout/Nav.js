@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const Nav = ({ isAuthenticated }) => {
   return (
-    <div>
+    <div className="nav">
       <nav>
         <ul>
           <li>
