@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Project from './Project';
 
 import { fetchUserPorts } from '../../actions/portfolio';
 import { connect } from 'react-redux';
@@ -15,7 +16,20 @@ const Portfolio = ({ portfolio, fetchUserPorts }) => {
       { loading ? (
         <h1>Loading</h1>
       ) : (
-        <h1>Portfolios have loaded</h1>
+        <Fragment>
+          <h1>My Portfolio</h1>
+          {
+            userPortfolios.map(project => {
+              return <Project
+                title={project.title}
+                url={project.url}
+                desc={project.desc}
+                image={project.image}
+                technologies={project.technologies}
+              />
+            })
+          }
+        </Fragment>
       ) }
     </div>
   )
