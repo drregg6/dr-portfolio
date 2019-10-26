@@ -1,5 +1,6 @@
 import {
   GET_PORTFOLIOS,
+  GET_USER_PORTFOLIOS,
   UPDATE_PORTFOLIO
 } from './types';
 import { setAlert } from './alert';
@@ -11,6 +12,20 @@ export const fetchPortfolios = () => async dispatch => {
     const res = await axios.get(`/api/portfolios`);
     dispatch({
       type: GET_PORTFOLIOS,
+      payload: res.data
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Get user portfolios
+export const fetchUserPorts = (id) => async dispatch => {
+  try {
+    const res = await axios.get(`/api/portfolios/${id}`);
+    console.log(res.data);
+    dispatch({
+      type: GET_USER_PORTFOLIOS,
       payload: res.data
     });
   } catch (error) {

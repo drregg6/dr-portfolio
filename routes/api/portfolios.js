@@ -20,6 +20,24 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route  GET /api/portfolios/:id
+// @desc   Get user portfolios
+// @access Public
+router.get('/:id', async (req, res) => {
+  try {
+    let userPortfolio = await Portfolio.findOne({ user: req.params.id });
+    if (!userPortfolio) {
+      return res.json({ msg: 'Portfolio not found' });
+    }
+
+    let portfolios = userPortfolio.portfolios;
+    res.json(portfolios);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
+});
+
 // @route  POST /api/portfolios
 // @desc   Create or update portfolio
 // @access Private
