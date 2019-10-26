@@ -19,20 +19,24 @@ export const fetchPortfolios = () => async dispatch => {
 }
 
 // Create / edit a portfolio
-export const createPortfolio = (newPortfolio) => async dispatch => {
+export const createPortfolio = (newPortfolio, history, id=null) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  if (id) {
+    newPortfolio._id = id;
+  }
   try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
-    
-    const res = await axios.get(`/api/portfolios`, newPortfolio, config);
+    const res = await axios.post(`/api/portfolios`, newPortfolio, config);
     dispatch({
       type: UPDATE_PORTFOLIO,
       payload: res.data
     });
     dispatch(setAlert('Portfolio Created!', 'success'));
+
+    history.push('/');
   } catch (error) {
     console.error(error);
   }

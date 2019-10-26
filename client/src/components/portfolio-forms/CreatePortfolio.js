@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const CreatePortfolio = props => {
+import { createPortfolio } from '../../actions/portfolio';
+import { connect } from 'react-redux';
+
+const CreatePortfolio = ({ createPortfolio, history }) => {
   const [ formData, setFormData ] = useState({
     title: '',
     url: '',
@@ -13,13 +16,14 @@ const CreatePortfolio = props => {
   const handleChange = event => {
     setFormData({
       ...formData,
-      [event.target.name]: [event.target.value]
+      [event.target.name]: event.target.value
     });
   }
   const handleSubmit = event => {
     event.preventDefault();
     console.log(formData);
     // Send formData to createPortfolio
+    createPortfolio(formData, history);
 
     // Reset formData
     setFormData({
@@ -37,6 +41,7 @@ const CreatePortfolio = props => {
           <label htmlFor="title">Title</label>
           <input
             name="title"
+            value={title}
             placeholder="Title"
             className="form-input"
             type="text"
@@ -47,6 +52,7 @@ const CreatePortfolio = props => {
           <label htmlFor="url">Url</label>
           <input
             name="url"
+            value={url}
             placeholder="URL"
             className="form-input"
             type="text"
@@ -57,6 +63,7 @@ const CreatePortfolio = props => {
           <label htmlFor="image">Image</label>
           <input
             name="image"
+            value={image}
             placeholder="Image"
             className="form-input"
             type="text"
@@ -67,6 +74,7 @@ const CreatePortfolio = props => {
           <label htmlFor="desc">Description</label>
           <input
             name="desc"
+            value={desc}
             placeholder="Description"
             className="form-input"
             type="text"
@@ -77,6 +85,7 @@ const CreatePortfolio = props => {
           <label htmlFor="technologies">Technologies</label>
           <input
             name="technologies"
+            value={technologies}
             placeholder="Technologies"
             className="form-input"
             type="text"
@@ -91,7 +100,10 @@ const CreatePortfolio = props => {
 }
 
 CreatePortfolio.propTypes = {
-
+  createPortfolio: PropTypes.func.isRequired
 }
 
-export default CreatePortfolio;
+export default connect(
+  null,
+  { createPortfolio }
+)(CreatePortfolio);
