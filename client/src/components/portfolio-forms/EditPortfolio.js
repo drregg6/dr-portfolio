@@ -1,3 +1,11 @@
+/*
+
+fetchPort will grab the portfolio
+but it will not populate editPort
+therefore will not populate form until reload
+
+*/
+
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
@@ -28,15 +36,13 @@ const EditPortfolio = ({
     if (editPort.technologies) {
       newTechs = editPort.technologies.join(',');
     }
-    if (!loading) {
-      setFormData({
-        title: !editPort.title ? '' : editPort.title,
-        url: !editPort.url ? '' : editPort.url,
-        image: !editPort.image ? '' : editPort.image,
-        desc: !editPort.desc ? '' : editPort.desc,
-        technologies: !editPort.technologies ? '' : newTechs,
-      })
-    }
+    setFormData({
+      title: loading || !editPort.title ? '' : editPort.title,
+      url: loading || !editPort.url ? '' : editPort.url,
+      image: loading || !editPort.image ? '' : editPort.image,
+      desc: loading || !editPort.desc ? '' : editPort.desc,
+      technologies: loading || !editPort.technologies ? '' : newTechs,
+    });
   }, []);
 
   const { title, url, image, desc, technologies } = formData;

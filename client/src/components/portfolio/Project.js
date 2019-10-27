@@ -1,8 +1,25 @@
+/*
+
+Why isn't isAuthenticated working for the button?
+Fuck this.
+
+*/
+
 import { Link } from 'react-router-dom';
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const Project = ({ id, title, url, image, desc, technologies }) => {
+import { connect } from 'react-redux';
+
+const Project = ({
+  isAuthenticated,
+  id,
+  title,
+  url,
+  image,
+  desc,
+  technologies
+}) => {
   return (
     <div>
       { !id ? (
@@ -10,9 +27,13 @@ const Project = ({ id, title, url, image, desc, technologies }) => {
       ) : (
         <Fragment>
           <h1>{ title }</h1>
-          <button className="btn">
-            <Link to={`/portfolios/${id}/edit`}>Edit</Link>
-          </button>
+          { isAuthenticated && (
+            <Fragment>
+              <button className="btn">
+                <Link to={`/portfolios/${id}/edit`}>Edit</Link>
+              </button>
+            </Fragment>
+          )}
         </Fragment>
       ) }
     </div>
@@ -24,7 +45,14 @@ Project.propTypes = {
   url: PropTypes.string,
   image: PropTypes.string,
   desc: PropTypes.string,
-  technologies: PropTypes.array
+  technologies: PropTypes.array,
+  isAuthenticated: PropTypes.bool
 }
 
-export default Project;
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth
+});
+
+export default connect(
+  mapStateToProps
+)(Project);
