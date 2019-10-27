@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { fetchPort } from '../../actions/portfolio';
+import { fetchPort, createPortfolio } from '../../actions/portfolio';
 import { connect } from 'react-redux';
 
 const EditPortfolio = ({
+  createPortfolio,
   fetchPort,
+  history,
   portfolio: {
     loading,
-    portfolio
+    editPort
   },
   match
 }) => {
@@ -20,32 +22,35 @@ const EditPortfolio = ({
     technologies: ''
   });
 
-  const { title, url, image, desc, technologies } = formData;
-
   useEffect(() => {
     fetchPort(match.params.id);
-    if (portfolio) {
-      console.log(portfolio);
+    let newTechs = '';
+    if (editPort.technologies) {
+      newTechs = editPort.technologies.join(',');
     }
-    setFormData({
-      title: loading || !portfolio.title ? '' : portfolio.title,
-      url: loading || !portfolio.url ? '' : portfolio.url,
-      image: loading || !portfolio.image ? '' : portfolio.image,
-      desc: loading || !portfolio.desc ? '' : portfolio.desc,
-      technologies: loading || !portfolio.technologies ? '' : portfolio.technologies
-    });
-  }, [fetchPort, portfolio, loading, match.params.id]);
+    if (!loading) {
+      setFormData({
+        title: !editPort.title ? '' : editPort.title,
+        url: !editPort.url ? '' : editPort.url,
+        image: !editPort.image ? '' : editPort.image,
+        desc: !editPort.desc ? '' : editPort.desc,
+        technologies: !editPort.technologies ? '' : newTechs,
+      })
+    }
+  }, []);
 
+  const { title, url, image, desc, technologies } = formData;
   const handleChange = event => {
     setFormData({
       ...formData,
-      [event.target.name]: [event.target.value]
+      [event.target.name]: event.target.value
     });
   }
   const handleSubmit = event => {
     event.preventDefault();
     console.log(formData);
     // Send formData to createPortfolio
+    createPortfolio(formData, history, match.params.id, true);
 
     // Reset formData
     setFormData({
@@ -122,6 +127,7 @@ const EditPortfolio = ({
 }
 
 EditPortfolio.propTypes = {
+  createPortfolio: PropTypes.func.isRequired,
   fetchPort: PropTypes.func.isRequired,
   portfolio: PropTypes.object
 };
@@ -132,5 +138,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchPort }
+  { fetchPort, createPortfolio }
 )(EditPortfolio);

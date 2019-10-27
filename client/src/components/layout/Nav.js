@@ -10,7 +10,7 @@ const Nav = ({ isAuthenticated }) => {
       <nav>
         <ul>
           <li>
-            <Link to="/portfolio">Portfolio</Link>
+            <Link to="/">Portfolio</Link>
           </li>
           <li>
             <Link to="/resume">Resume</Link>

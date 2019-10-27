@@ -48,7 +48,7 @@ router.get('/portfolio/:id/', auth, async (req, res) => {
     if (!userPortfolio) {
       return res.json({ msg: 'User portfolio is not found' });
     }
-    const portfolio = userPortfolio.portfolios.filter(project => project.id === req.params.id);
+    const portfolio = userPortfolio.portfolios.filter(project => project.id === req.params.id)[0];
     console.log(portfolio);
     if (!portfolio) {
       return res.json({ msg: 'Portfolio could not be found' });
@@ -112,7 +112,7 @@ router.post('/', [auth, [
       
       userPortfolio.portfolios.splice(index, 1, newPortfolio);
       await userPortfolio.save();
-      return res.json({ userPortfolio });
+      return res.json(userPortfolio.portfolios);
     }
 
     // Update userPortfolio portfolios arr with newPortfolio

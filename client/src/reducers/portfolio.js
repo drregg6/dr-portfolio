@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   portfolios: [],
-  portfolio: {},
+  editPort: {},
   userPortfolios: [],
   loading: true
 }
@@ -25,7 +25,7 @@ export default function(state = initialState, action) {
     case GET_PORTFOLIO:
       return {
         ...state,
-        portfolio: payload,
+        editPort: {...payload},
         loading: false
       }
     case GET_USER_PORTFOLIOS:
@@ -37,13 +37,14 @@ export default function(state = initialState, action) {
     case UPDATE_PORTFOLIO:
       return {
         ...state,
-        portfolios: [...state.portfolios, ...payload],
+        portfolios: [...payload],
         loading: false
       };
     case CLEAR_PORTFOLIO:
       return {
         ...state,
-        portfolio: {}
+        editPort: {},
+        loading: true
       };
     default:
       return state;

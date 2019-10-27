@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Project = ({ id, title, url, image, desc, technologies }) => {
   return (
     <div>
-      { id ? (
+      { !id ? (
         <h1>Loading</h1>
       ) : (
         <Fragment>

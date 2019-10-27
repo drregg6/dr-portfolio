@@ -36,13 +36,12 @@ export const fetchUserPorts = (id) => async dispatch => {
 
 // Get one portfolio
 export const fetchPort = (id) => async dispatch => {
-  dispatch({ type: CLEAR_PORTFOLIO });
   try {
     const res = await axios.get(`/api/portfolios/portfolio/${id}`);
     console.log(res);
     dispatch({
       type: GET_PORTFOLIO,
-      payload: res.data
+      payload: res.data.portfolio
     });
   } catch (err) {
     console.error(err);
@@ -50,7 +49,7 @@ export const fetchPort = (id) => async dispatch => {
 }
 
 // Create / edit a portfolio
-export const createPortfolio = (newPortfolio, history, id=null) => async dispatch => {
+export const createPortfolio = (newPortfolio, history, id=null, isEdit=false) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json'
@@ -65,7 +64,8 @@ export const createPortfolio = (newPortfolio, history, id=null) => async dispatc
       type: UPDATE_PORTFOLIO,
       payload: res.data
     });
-    dispatch(setAlert('Portfolio Created!', 'success'));
+    dispatch(setAlert((isEdit ? 'Portfolio Edited' : 'Portfolio Created!'), 'success'));
+    if (isEdit) dispatch({ type: CLEAR_PORTFOLIO });
 
     history.push('/');
   } catch (error) {
