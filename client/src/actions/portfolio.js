@@ -1,7 +1,9 @@
 import {
   GET_PORTFOLIOS,
+  GET_PORTFOLIO,
   GET_USER_PORTFOLIOS,
-  UPDATE_PORTFOLIO
+  UPDATE_PORTFOLIO,
+  CLEAR_PORTFOLIO
 } from './types';
 import { setAlert } from './alert';
 import axios from 'axios';
@@ -23,13 +25,27 @@ export const fetchPortfolios = () => async dispatch => {
 export const fetchUserPorts = (id) => async dispatch => {
   try {
     const res = await axios.get(`/api/portfolios/${id}`);
-    console.log(res.data);
     dispatch({
       type: GET_USER_PORTFOLIOS,
       payload: res.data
     });
   } catch (error) {
     console.error(error);
+  }
+}
+
+// Get one portfolio
+export const fetchPort = (id) => async dispatch => {
+  dispatch({ type: CLEAR_PORTFOLIO });
+  try {
+    const res = await axios.get(`/api/portfolios/portfolio/${id}`);
+    console.log(res);
+    dispatch({
+      type: GET_PORTFOLIO,
+      payload: res.data
+    });
+  } catch (err) {
+    console.error(err);
   }
 }
 

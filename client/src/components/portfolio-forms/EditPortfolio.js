@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const EditPortfolio = () => {
+import { fetchPort } from '../../actions/portfolio';
+import { connect } from 'react-redux';
+
+const EditPortfolio = ({
+  fetchPort,
+  portfolio: {
+    loading,
+    portfolio
+  },
+  match
+}) => {
   const [ formData, setFormData ] = useState({
     title: '',
     url: '',
@@ -11,6 +21,21 @@ const EditPortfolio = () => {
   });
 
   const { title, url, image, desc, technologies } = formData;
+
+  useEffect(() => {
+    fetchPort(match.params.id);
+    if (portfolio) {
+      console.log(portfolio);
+    }
+    setFormData({
+      title: loading || !portfolio.title ? '' : portfolio.title,
+      url: loading || !portfolio.url ? '' : portfolio.url,
+      image: loading || !portfolio.image ? '' : portfolio.image,
+      desc: loading || !portfolio.desc ? '' : portfolio.desc,
+      technologies: loading || !portfolio.technologies ? '' : portfolio.technologies
+    });
+  }, [fetchPort, portfolio, loading, match.params.id]);
+
   const handleChange = event => {
     setFormData({
       ...formData,
@@ -97,7 +122,15 @@ const EditPortfolio = () => {
 }
 
 EditPortfolio.propTypes = {
+  fetchPort: PropTypes.func.isRequired,
+  portfolio: PropTypes.object
+};
 
-}
+const mapStateToProps = state => ({
+  portfolio: state.portfolio
+});
 
-export default EditPortfolio;
+export default connect(
+  mapStateToProps,
+  { fetchPort }
+)(EditPortfolio);

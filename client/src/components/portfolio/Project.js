@@ -1,11 +1,20 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const Project = ({ title, url, image, desc, technologies }) => {
+const Project = ({ id, title, url, image, desc, technologies }) => {
   return (
     <div>
-      <h1>{ title }</h1>
-      
+      { id ? (
+        <h1>Loading</h1>
+      ) : (
+        <Fragment>
+          <h1>{ title }</h1>
+          <button className="btn">
+            <Link to={`/portfolios/${id}/edit`}>Edit</Link>
+          </button>
+        </Fragment>
+      ) }
     </div>
   )
 }
