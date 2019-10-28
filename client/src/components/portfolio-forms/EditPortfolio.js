@@ -3,10 +3,14 @@
 fetchPort will grab the portfolio
 but it will not populate editPort
 therefore will not populate form until reload
+---
+useEffect is constantly running unless there's a dependent that stops it
+I'm trying to use loading, but loading won't work for me
 
 */
 
 import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { fetchPort, createPortfolio } from '../../actions/portfolio';
@@ -43,7 +47,7 @@ const EditPortfolio = ({
       desc: loading || !editPort.desc ? '' : editPort.desc,
       technologies: loading || !editPort.technologies ? '' : newTechs,
     });
-  }, []);
+  }, [editPort]);
 
   const { title, url, image, desc, technologies } = formData;
   const handleChange = event => {
@@ -145,4 +149,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { fetchPort, createPortfolio }
-)(EditPortfolio);
+)(withRouter(EditPortfolio));

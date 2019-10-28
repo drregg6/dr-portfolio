@@ -102,7 +102,7 @@ router.post('/', [auth, [
       });
       userPortfolio.portfolios.unshift(newPortfolio);
       await userPortfolio.save();
-      return res.json({ userPortfolio });
+      return res.json(userPortfolio.portfolios);
     }
 
     // If the portfolio is being updated
@@ -118,7 +118,7 @@ router.post('/', [auth, [
     // Update userPortfolio portfolios arr with newPortfolio
     userPortfolio.portfolios.unshift(newPortfolio);
     await userPortfolio.save();
-    res.json({ userPortfolio })
+    res.json(userPortfolio.portfolios)
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');

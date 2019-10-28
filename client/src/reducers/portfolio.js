@@ -25,7 +25,7 @@ export default function(state = initialState, action) {
     case GET_PORTFOLIO:
       return {
         ...state,
-        editPort: {...payload},
+        editPort: payload,
         loading: false
       }
     case GET_USER_PORTFOLIOS:
@@ -44,7 +44,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         editPort: {},
-        loading: true
+        loading: false
       };
     default:
       return state;

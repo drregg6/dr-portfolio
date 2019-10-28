@@ -9,7 +9,7 @@ import {
 const initialState = {
   token: localStorage.getItem('token'),
   user: null,
-  isAuthenticated: null,
+  isAuthenticated: false,
   loading: true
 };
 
@@ -39,7 +39,7 @@ export default function(state = initialState, action) {
         ...state,
         token: null,
         user: null,
-        isAuthenticated: null,
+        isAuthenticated: false,
         loading: false
       }
     default:

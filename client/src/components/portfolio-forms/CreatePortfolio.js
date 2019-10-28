@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { createPortfolio } from '../../actions/portfolio';
@@ -106,4 +107,4 @@ CreatePortfolio.propTypes = {
 export default connect(
   null,
   { createPortfolio }
-)(CreatePortfolio);
+)(withRouter(CreatePortfolio));

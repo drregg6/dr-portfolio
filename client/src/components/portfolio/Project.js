@@ -1,10 +1,3 @@
-/*
-
-Why isn't isAuthenticated working for the button?
-Fuck this.
-
-*/
-
 import { Link } from 'react-router-dom';
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
@@ -50,7 +43,7 @@ Project.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(
