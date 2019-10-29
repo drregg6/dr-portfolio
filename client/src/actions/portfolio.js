@@ -3,6 +3,7 @@ import {
   GET_PORTFOLIO,
   GET_USER_PORTFOLIOS,
   UPDATE_PORTFOLIO,
+  DELETE_PORTFOLIO,
   CLEAR_PORTFOLIO
 } from './types';
 import { setAlert } from './alert';
@@ -69,5 +70,23 @@ export const createPortfolio = (newPortfolio, history, id=null, isEdit=false) =>
     history.push('/');
   } catch (error) {
     console.error(error);
+  }
+}
+
+// Delete Portfolio
+export const deletePortfolio = (id) => async dispatch => {
+  console.log(id);
+  console.log(typeof id);
+  if (window.confirm("Are you sure? This action CANNOT be undone!")) {
+    try {
+      await axios.delete(`/api/portfolios/${id}`);
+      dispatch({
+        type: DELETE_PORTFOLIO,
+        payload: id
+      });
+      dispatch(setAlert('Portfolio deleted'));
+    } catch (err) {
+      console.error(err);
+    }
   }
 }

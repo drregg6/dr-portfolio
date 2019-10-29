@@ -132,12 +132,14 @@ router.delete('/:id', auth, async (req, res) => {
   try {
     let userPortfolio = await Portfolio.findOne({ user: req.user.id });
     if (!userPortfolio) {
-      return res.status(400).json({ msg: 'Portfolio does not exist' });
+      return res.status(400).json({ msg: 'User cannot be found' });
     }
-    let index = userPortfolio.portfolios.map(project => project.id).indexOf(req.params.id);
-    if (!index) {
-      return res.status(400).json({ msg: 'Portfolio does not exist' });
+    let index = userPortfolio.portfolios.map(project => mongoose.Types.ObjectId(project.id)).indexOf(req.params.id);
+    console.log(userPortfolio);
+    if (!index) { // this is the error
+      return res.status(400).json({ msg: 'Portfolio cannot be found' });
     }
+    console.log(index);
 
     userPortfolio.portfolios.splice(index, 1);
     await userPortfolio.save();

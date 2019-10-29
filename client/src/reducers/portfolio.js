@@ -3,6 +3,7 @@ import {
   GET_PORTFOLIO,
   GET_USER_PORTFOLIOS,
   UPDATE_PORTFOLIO,
+  DELETE_PORTFOLIO,
   CLEAR_PORTFOLIO
 } from '../actions/types';
 
@@ -37,9 +38,15 @@ export default function(state = initialState, action) {
     case UPDATE_PORTFOLIO:
       return {
         ...state,
-        portfolios: [...payload],
+        userPortfolios: [...payload],
         loading: false
       };
+    case DELETE_PORTFOLIO:
+      return {
+        ...state,
+        userPortfolios: state.userPortfolios.filter(project => project.id !== payload),
+        loading: false
+      }
     case CLEAR_PORTFOLIO:
       return {
         ...state,

@@ -7,6 +7,15 @@ therefore will not populate form until reload
 useEffect is constantly running unless there's a dependent that stops it
 I'm trying to use loading, but loading won't work for me
 
+---
+SOLUTION
+---
+useEffect is constantly running and stops once the dependent is equal
+In this case, editPort is the dependent
+
+fetchPort would CLEAR editPort when called, and then recall to fill that obj
+I had to remove the action that would clear editPort
+
 */
 
 import React, { useEffect, useState } from 'react';

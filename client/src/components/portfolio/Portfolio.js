@@ -21,6 +21,7 @@ const Portfolio = ({ portfolio, fetchUserPorts }) => {
           {
             userPortfolios.map(project => {
               return <Project
+                key={project._id}
                 id={project._id}
                 title={project.title}
                 url={project.url}

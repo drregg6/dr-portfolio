@@ -3,9 +3,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
+import { deletePortfolio } from '../../actions/portfolio';
 
 const Project = ({
   isAuthenticated,
+  deletePortfolio,
   id,
   title,
   url,
@@ -25,6 +27,9 @@ const Project = ({
               <button className="btn">
                 <Link to={`/portfolios/${id}/edit`}>Edit</Link>
               </button>
+              <button className="btn" onClick={() => deletePortfolio(id)}>
+                Delete
+              </button>
             </Fragment>
           )}
         </Fragment>
@@ -39,7 +44,8 @@ Project.propTypes = {
   image: PropTypes.string,
   desc: PropTypes.string,
   technologies: PropTypes.array,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
+  deletePortfolio: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -47,5 +53,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  { deletePortfolio }
 )(Project);
