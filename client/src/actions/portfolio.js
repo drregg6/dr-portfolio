@@ -1,7 +1,7 @@
 import {
-  GET_PORTFOLIOS,
+  GET_USERS,
   GET_PORTFOLIO,
-  GET_USER_PORTFOLIOS,
+  GET_PORTFOLIOS,
   UPDATE_PORTFOLIO,
   DELETE_PORTFOLIO,
   CLEAR_PORTFOLIO
@@ -10,11 +10,11 @@ import { setAlert } from './alert';
 import axios from 'axios';
 
 // Get all portfolios
-export const fetchPortfolios = () => async dispatch => {
+export const fetchUsers = () => async dispatch => {
   try {
     const res = await axios.get(`/api/portfolios`);
     dispatch({
-      type: GET_PORTFOLIOS,
+      type: GET_USERS,
       payload: res.data
     });
   } catch (error) {
@@ -23,11 +23,11 @@ export const fetchPortfolios = () => async dispatch => {
 }
 
 // Get user portfolios
-export const fetchUserPorts = (id) => async dispatch => {
+export const fetchPortfolios = (id) => async dispatch => {
   try {
     const res = await axios.get(`/api/portfolios/${id}`);
     dispatch({
-      type: GET_USER_PORTFOLIOS,
+      type: GET_PORTFOLIOS,
       payload: res.data
     });
   } catch (error) {

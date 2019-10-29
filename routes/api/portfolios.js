@@ -135,11 +135,6 @@ router.delete('/:id', auth, async (req, res) => {
       return res.status(400).json({ msg: 'User cannot be found' });
     }
     let index = userPortfolio.portfolios.map(project => mongoose.Types.ObjectId(project.id)).indexOf(req.params.id);
-    console.log(userPortfolio);
-    if (!index) { // this is the error
-      return res.status(400).json({ msg: 'Portfolio cannot be found' });
-    }
-    console.log(index);
 
     userPortfolio.portfolios.splice(index, 1);
     await userPortfolio.save();

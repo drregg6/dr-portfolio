@@ -2,15 +2,15 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Project from './Project';
 
-import { fetchUserPorts } from '../../actions/portfolio';
+import { fetchPortfolios } from '../../actions/portfolio';
 import { connect } from 'react-redux';
 
-const Portfolio = ({ portfolio, fetchUserPorts }) => {
+const Portfolio = ({ portfolio, fetchPortfolios }) => {
   useEffect(() => {
-    fetchUserPorts("5db0f009713473288793f118");
-  }, [fetchUserPorts]);
+    fetchPortfolios("5db0f009713473288793f118");
+  }, []);
 
-  const { loading, userPortfolios } = portfolio;
+  const { loading, portfolios } = portfolio;
   return (
     <div className="portfolio">
       { loading ? (
@@ -19,7 +19,7 @@ const Portfolio = ({ portfolio, fetchUserPorts }) => {
         <Fragment>
           <h1>My Portfolio</h1>
           {
-            userPortfolios.map(project => {
+            portfolios.map(project => {
               return <Project
                 key={project._id}
                 id={project._id}
@@ -48,5 +48,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchUserPorts }
+  { fetchPortfolios }
 )(Portfolio);

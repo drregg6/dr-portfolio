@@ -1,26 +1,26 @@
 import {
-  GET_PORTFOLIOS,
+  GET_USERS,
   GET_PORTFOLIO,
-  GET_USER_PORTFOLIOS,
+  GET_PORTFOLIOS,
   UPDATE_PORTFOLIO,
   DELETE_PORTFOLIO,
   CLEAR_PORTFOLIO
 } from '../actions/types';
 
 const initialState = {
-  portfolios: [],
+  users: [],
   editPort: {},
-  userPortfolios: [],
+  portfolios: [],
   loading: true
 }
 
 export default function(state = initialState, action) {
   const { type, payload } = action;
   switch(type) {
-    case GET_PORTFOLIOS:
+    case GET_USERS:
       return {
         ...state,
-        portfolios: [...payload],
+        users: [...payload],
         loading: false
       };
     case GET_PORTFOLIO:
@@ -29,22 +29,22 @@ export default function(state = initialState, action) {
         editPort: payload,
         loading: false
       }
-    case GET_USER_PORTFOLIOS:
+    case GET_PORTFOLIOS:
       return {
         ...state,
-        userPortfolios: [...payload],
+        portfolios: [...payload],
         loading: false
       };
     case UPDATE_PORTFOLIO:
       return {
         ...state,
-        userPortfolios: [...payload],
+        portfolios: [...payload],
         loading: false
       };
     case DELETE_PORTFOLIO:
       return {
         ...state,
-        userPortfolios: state.userPortfolios.filter(project => project.id !== payload),
+        portfolios: state.portfolios.filter(project => project._id !== payload),
         loading: false
       }
     case CLEAR_PORTFOLIO:
