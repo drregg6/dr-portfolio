@@ -13,8 +13,10 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const GET_USERS = 'GET_USERS';
 export const GET_PORTFOLIO = 'GET_PORTFOLIO';
 export const GET_PORTFOLIOS = 'GET_PORTFOLIOS';
-export const UPDATE_PORTFOLIO = 'UPDATED_PORTFOLIO';
+export const UPDATE_PORTFOLIO = 'UPDATE_PORTFOLIO';
 export const DELETE_PORTFOLIO = 'DELETE_PORTFOLIO';
 export const CLEAR_PORTFOLIO = 'CLEAR_PORTFOLIO';
 
 // Resume types
+export const GET_RESUME = 'GET_RESUME';
+export const CREATE_RESUME = 'CREATE_RESUME';

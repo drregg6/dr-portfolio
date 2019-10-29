@@ -28,6 +28,12 @@ router.post('/', auth, async (req, res) => {
   let {
     name,
     phone,
+    number,
+    street,
+    apartment,
+    city,
+    state,
+    zip,
     website,
     technologies,
     bio
@@ -37,7 +43,6 @@ router.post('/', auth, async (req, res) => {
   newResume.user = req.user.id;
   if (name) newResume.name = name;
   if (phone) newResume.phone = phone;
-  if (address) newResume.address = address;
   if (website) newResume.website = website;
   if (bio) newResume.bio = bio;
   if (technologies) {
