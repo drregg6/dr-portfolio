@@ -65,9 +65,6 @@ router.get('/portfolio/:id/', auth, async (req, res) => {
 router.post('/', [auth, [
   check('title', 'Title is required')
   .not()
-  .isEmpty(),
-  check('url', 'URL is required')
-  .not()
   .isEmpty()
 ] ], async (req, res) => {
   const errors = validationResult(req);
@@ -75,7 +72,8 @@ router.post('/', [auth, [
 
   const {
     title,
-    url,
+    live,
+    code,
     technologies,
     image,
     desc,
@@ -84,7 +82,8 @@ router.post('/', [auth, [
 
   const newPortfolio = {};
   if (title) newPortfolio.title = title;
-  if (url) newPortfolio.url = url;
+  if (live) newPortfolio.live = live;
+  if (code) newPortfolio.code = code;
   if (image) newPortfolio.image = image;
   if (desc) newPortfolio.desc = desc;
   if (technologies) {

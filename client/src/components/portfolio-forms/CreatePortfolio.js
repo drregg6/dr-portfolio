@@ -8,12 +8,13 @@ import { connect } from 'react-redux';
 const CreatePortfolio = ({ createPortfolio, history }) => {
   const [ formData, setFormData ] = useState({
     title: '',
-    url: '',
+    live: '',
+    code: '',
     image: '',
     desc: '',
     technologies: ''
   });
-  const { title, url, image, desc, technologies } = formData;
+  const { title, live, code, image, desc, technologies } = formData;
   const handleChange = event => {
     setFormData({
       ...formData,
@@ -29,7 +30,8 @@ const CreatePortfolio = ({ createPortfolio, history }) => {
     // Reset formData
     setFormData({
       title: '',
-      url: '',
+      live: '',
+      code: '',
       image: '',
       desc: '',
       technologies: ''
@@ -50,11 +52,22 @@ const CreatePortfolio = ({ createPortfolio, history }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="url">Url</label>
+          <label htmlFor="live">Live Url</label>
           <input
-            name="url"
-            value={url}
-            placeholder="URL"
+            name="live"
+            value={live}
+            placeholder="Live Url"
+            className="form-input"
+            type="text"
+            onChange={event => handleChange(event)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="code">Code Url</label>
+          <input
+            name="code"
+            value={code}
+            placeholder="Code Url"
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}

@@ -10,9 +10,11 @@ const portfoliosSchema = new Schema({
     type: String,
     required: true
   },
-  url: {
-    type: String,
-    required: true
+  live: {
+    type: String
+  },
+  code: {
+    type: String
   },
   technologies: {
     type: [String]

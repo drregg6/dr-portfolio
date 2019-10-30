@@ -84,7 +84,7 @@ export const deletePortfolio = (id) => async dispatch => {
         type: DELETE_PORTFOLIO,
         payload: id
       });
-      dispatch(setAlert('Portfolio deleted'));
+      dispatch(setAlert('Portfolio deleted', 'success'));
     } catch (err) {
       console.error(err);
     }

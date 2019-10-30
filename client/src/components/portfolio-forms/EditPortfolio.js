@@ -37,7 +37,8 @@ const EditPortfolio = ({
 }) => {
   const [ formData, setFormData ] = useState({
     title: '',
-    url: '',
+    live: '',
+    code: '',
     image: '',
     desc: '',
     technologies: ''
@@ -51,14 +52,15 @@ const EditPortfolio = ({
     }
     setFormData({
       title: loading || !editPort.title ? '' : editPort.title,
-      url: loading || !editPort.url ? '' : editPort.url,
+      live: loading || !editPort.live ? '' : editPort.live,
+      code: loading || !editPort.code ? '' : editPort.code,
       image: loading || !editPort.image ? '' : editPort.image,
       desc: loading || !editPort.desc ? '' : editPort.desc,
       technologies: loading || !editPort.technologies ? '' : newTechs,
     });
   }, [loading]);
 
-  const { title, url, image, desc, technologies } = formData;
+  const { title, live, code, image, desc, technologies } = formData;
   const handleChange = event => {
     setFormData({
       ...formData,
@@ -74,7 +76,8 @@ const EditPortfolio = ({
     // Reset formData
     setFormData({
       title: '',
-      url: '',
+      live: '',
+      code: '',
       image: '',
       desc: '',
       technologies: ''
@@ -95,11 +98,22 @@ const EditPortfolio = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="url">Url</label>
+          <label htmlFor="live">Live Url</label>
           <input
-            name="url"
-            placeholder="URL"
-            value={url}
+            name="live"
+            value={live}
+            placeholder="Live Url"
+            className="form-input"
+            type="text"
+            onChange={event => handleChange(event)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="code">Code Url</label>
+          <input
+            name="code"
+            value={code}
+            placeholder="Code Url"
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}
