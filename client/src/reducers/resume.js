@@ -1,6 +1,6 @@
 import {
   GET_RESUME,
-  CREATE_RESUME
+  UPDATE_RESUME
 } from '../actions/types';
 
 const initialState = {
@@ -17,7 +17,7 @@ export default function(state = initialState, action) {
         resume: payload,
         loading: false
       };
-    case CREATE_RESUME:
+    case UPDATE_RESUME:
       return {
         ...state,
         resume: payload,

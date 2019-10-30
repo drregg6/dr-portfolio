@@ -104,7 +104,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Phone</label>
+          <label htmlFor="phone">Phone</label>
           <input
             name="phone"
             value={phone}
@@ -115,7 +115,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">House Number</label>
+          <label htmlFor="number">House Number</label>
           <input
             placeholder="House Number"
             name="number"
@@ -126,7 +126,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Street</label>
+          <label htmlFor="street">Street</label>
           <input
             placeholder="Street"
             name="street"
@@ -137,7 +137,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Apartment</label>
+          <label htmlFor="apartment">Apartment</label>
           <input
             placeholder="Apartment"
             name="apartment"
@@ -148,7 +148,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">City</label>
+          <label htmlFor="city">City</label>
           <input
             placeholder="City"
             name="city"
@@ -159,7 +159,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">State</label>
+          <label htmlFor="state">State</label>
           <input
             placeholder="State"
             name="state"
@@ -170,7 +170,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Zipcode</label>
+          <label htmlFor="zip">Zipcode</label>
           <input
             placeholder="Zipcode"
             name="zip"
@@ -181,7 +181,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Website</label>
+          <label htmlFor="website">Website</label>
           <input
             placeholder="Website"
             name="website"
@@ -192,7 +192,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Bio</label>
+          <label htmlFor="bio">Bio</label>
           <input
             placeholder="Bio"
             name="bio"
@@ -203,7 +203,7 @@ const EditResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Technologies</label>
+          <label htmlFor="technologies">Technologies</label>
           <input
             placeholder="Technologies"
             name="technologies"

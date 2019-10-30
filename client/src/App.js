@@ -20,6 +20,9 @@ import Login from './components/auth/Login';
 
 import CreatePortfolio from './components/portfolio-forms/CreatePortfolio';
 import EditPortfolio from './components/portfolio-forms/EditPortfolio';
+import AddEmployment from './components/resume-forms/AddEmployment';
+import AddExperience from './components/resume-forms/AddExperience';
+import AddEducation from './components/resume-forms/AddEducation';
 import CreateResume from './components/resume-forms/CreateResume';
 import EditResume from './components/resume-forms/EditResume';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -51,6 +54,9 @@ function App() {
           <PrivateRoute path='/portfolios/:id/edit' component={EditPortfolio} />
           <PrivateRoute path='/new-resume' component={CreateResume} />
           <PrivateRoute path='/edit-resume' component={EditResume} />
+          <PrivateRoute path='/new-experience' component={AddExperience} />
+          <PrivateRoute path='/new-employment' component={AddEmployment} />
+          <PrivateRoute path='/new-education' component={AddEducation} />
         </Switch>
         <Footer />
       </div>

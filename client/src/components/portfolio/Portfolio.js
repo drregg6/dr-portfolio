@@ -38,7 +38,7 @@ const Portfolio = ({ portfolio, fetchPortfolios }) => {
 }
 
 Portfolio.propTypes = {
-  fetchUserPorts: PropTypes.func.isRequired,
+  fetchPortfolios: PropTypes.func.isRequired,
   portfolio: PropTypes.object
 };
 

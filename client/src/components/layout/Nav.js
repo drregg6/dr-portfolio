@@ -46,6 +46,15 @@ const Nav = ({
                   </Fragment>
                 )
               }
+              <li>
+                <Link to="new-employment">Add Employer</Link>
+              </li>
+              <li>
+                <Link to="new-experience">Add Experience</Link>
+              </li>
+              <li>
+                <Link to="new-education">Add Education</Link>
+              </li>
             </Fragment>
           ) }
         </ul>

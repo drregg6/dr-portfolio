@@ -19,4 +19,4 @@ export const CLEAR_PORTFOLIO = 'CLEAR_PORTFOLIO';
 
 // Resume types
 export const GET_RESUME = 'GET_RESUME';
-export const CREATE_RESUME = 'CREATE_RESUME';
+export const UPDATE_RESUME = 'UPDATE_RESUME';
