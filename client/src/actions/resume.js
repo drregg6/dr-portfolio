@@ -9,7 +9,7 @@ import { setAlert } from './alert';
 // Get the first resume
 export const fetchResume = () => async dispatch => {
   try {
-    const res = await axios.get('/api/resume');
+    const res = await axios.get('/api/resumes');
     dispatch({
       type: GET_RESUME,
       payload: res.data
@@ -27,7 +27,7 @@ export const createResume = (formData, history) => async dispatch => {
     }
   }
   try {
-    const res = await axios.post('/api/resume', formData, config);
+    const res = await axios.post('/api/resumes', formData, config);
     dispatch({
       type: CREATE_RESUME,
       payload: res.data
