@@ -56,7 +56,7 @@ const EditPortfolio = ({
       desc: loading || !editPort.desc ? '' : editPort.desc,
       technologies: loading || !editPort.technologies ? '' : newTechs,
     });
-  }, [editPort]);
+  }, [loading]);
 
   const { title, url, image, desc, technologies } = formData;
   const handleChange = event => {
@@ -148,7 +148,8 @@ const EditPortfolio = ({
 EditPortfolio.propTypes = {
   createPortfolio: PropTypes.func.isRequired,
   fetchPort: PropTypes.func.isRequired,
-  portfolio: PropTypes.object
+  portfolio: PropTypes.object,
+  history: PropTypes.object
 };
 
 const mapStateToProps = state => ({

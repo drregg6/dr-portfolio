@@ -20,7 +20,7 @@ export const fetchResume = () => async dispatch => {
 }
 
 // Create or update a resume
-export const createResume = (formData, history) => async dispatch => {
+export const createResume = (formData, history, edit=false) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ export const createResume = (formData, history) => async dispatch => {
       type: CREATE_RESUME,
       payload: res.data
     });
-    dispatch(setAlert('Resume created!'));
+    dispatch(setAlert((!edit ? 'Resume created!' : 'Resume edited!')));
 
     history.push('/');
   } catch (err) {

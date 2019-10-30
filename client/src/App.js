@@ -50,7 +50,7 @@ function App() {
           <PrivateRoute exact path='/new-portfolio' component={CreatePortfolio} />
           <PrivateRoute path='/portfolios/:id/edit' component={EditPortfolio} />
           <PrivateRoute path='/new-resume' component={CreateResume} />
-          <PrivateRoute path='/resumes/:id/edit' component={EditResume} />
+          <PrivateRoute path='/edit-resume' component={EditResume} />
         </Switch>
         <Footer />
       </div>
