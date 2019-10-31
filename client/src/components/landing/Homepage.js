@@ -6,6 +6,8 @@ import { fetchResume } from '../../actions/resume';
 import { connect } from 'react-redux';
 
 import Header from './Header';
+import About from './About';
+import Portfolio from './Portfolio';
 
 const Homepage = ({
   fetchPortfolios,
@@ -24,13 +26,17 @@ const Homepage = ({
     fetchResume();
   }, [])
   return (
-    <div>
+    <div className="content">
       { loading ? (
         <h1>Loading...</h1>
       ) : (
-        <Header
-          name={resume.name}
-        />
+        <Fragment>
+          <Header
+            name={resume.name}
+          />
+          <About />
+          <Portfolio />
+        </Fragment>
       )}
     </div>
   )

@@ -23,7 +23,6 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 import Nav from './components/layout/Nav';
-import Alert from './components/layout/Alert';
 import Footer from './components/layout/Footer';
 
 import Homepage from './components/landing/Homepage';
@@ -56,7 +55,6 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Alert />
         <Switch>
           <Route exact path='/' component={Homepage} />
           <Route exact path='/resume' component={Resume} />

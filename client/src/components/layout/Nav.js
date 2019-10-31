@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import { fetchResume } from '../../actions/resume';
 import { connect } from 'react-redux';
 
+import Alert from './Alert';
+
 const Nav = ({
   isAuthenticated,
   fetchResume,
@@ -59,6 +61,7 @@ const Nav = ({
           ) }
         </ul>
       </nav>
+      <Alert />
     </div>
   )
 };
