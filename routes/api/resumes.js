@@ -36,7 +36,11 @@ router.post('/', auth, async (req, res) => {
     zip,
     website,
     technologies,
-    bio
+    bio,
+    github,
+    facebook,
+    twitter,
+    linkedin
   } = req.body;
 
   let newResume = {};
@@ -55,6 +59,11 @@ router.post('/', auth, async (req, res) => {
   if (city) newResume.address.city = city;
   if (state) newResume.address.state = state;
   if (zip) newResume.address.zip = zip;
+  newResume.social = {};
+  if (github) newResume.social.github = github;
+  if (facebook) newResume.social.facebook = facebook;
+  if (linkedin) newResume.social.linkedin = linkedin;
+  if (twitter) newResume.social.twitter = twitter;
 
   try {
     let resume = await Resume.findOne({ user: req.user.id });

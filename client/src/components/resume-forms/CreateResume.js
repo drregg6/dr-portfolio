@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { createResume } from '../../actions/resume';
@@ -17,10 +17,15 @@ const CreateResume = ({
     city: '',
     state: '',
     zip: '',
+    github: '',
+    instagram: '',
+    linkedin: '',
+    twitter: '',
     website: '',
     technologies: '',
     bio: ''
   });
+  const [ displaySocialInputs, toggleSocialInputs ] = useState(false);
   const {
     name,
     phone,
@@ -30,6 +35,10 @@ const CreateResume = ({
     city,
     state,
     zip,
+    github,
+    instagram,
+    linkedin,
+    twitter,
     website,
     technologies,
     bio
@@ -49,7 +58,7 @@ const CreateResume = ({
 
     // Reset formData
     setFormData({
-      name: '',
+    name: '',
     phone: '',
     number: '',
     street: '',
@@ -57,6 +66,10 @@ const CreateResume = ({
     city: '',
     state: '',
     zip: '',
+    github: '',
+    instagram: '',
+    linkedin: '',
+    twitter: '',
     website: '',
     technologies: '',
     bio: ''
@@ -78,7 +91,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Phone</label>
+          <label htmlFor="phone">Phone</label>
           <input
             name="phone"
             value={phone}
@@ -89,7 +102,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">House Number</label>
+          <label htmlFor="number">House Number</label>
           <input
             placeholder="House Number"
             name="number"
@@ -100,7 +113,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Street</label>
+          <label htmlFor="street">Street</label>
           <input
             placeholder="Street"
             name="street"
@@ -111,7 +124,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Apartment</label>
+          <label htmlFor="apartment">Apartment</label>
           <input
             placeholder="Apartment"
             name="apartment"
@@ -122,7 +135,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">City</label>
+          <label htmlFor="city">City</label>
           <input
             placeholder="City"
             name="city"
@@ -133,7 +146,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">State</label>
+          <label htmlFor="state">State</label>
           <input
             placeholder="State"
             name="state"
@@ -144,7 +157,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Zipcode</label>
+          <label htmlFor="zip">Zipcode</label>
           <input
             placeholder="Zipcode"
             name="zip"
@@ -155,7 +168,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Website</label>
+          <label htmlFor="website">Website</label>
           <input
             placeholder="Website"
             name="website"
@@ -166,7 +179,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Bio</label>
+          <label htmlFor="bio">Bio</label>
           <input
             placeholder="Bio"
             name="bio"
@@ -177,7 +190,7 @@ const CreateResume = ({
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Technologies</label>
+          <label htmlFor="technologies">Technologies</label>
           <input
             placeholder="Technologies"
             name="technologies"
@@ -188,6 +201,62 @@ const CreateResume = ({
           />
           <small>Separate values with commas(,)</small>
         </div>
+        <div>
+          <button
+            type="button"
+            onClick={() => toggleSocialInputs(!displaySocialInputs)}
+            className="btn"
+          >Add Social Media Links</button>
+          <span>Optional</span>
+        </div>
+        { displaySocialInputs && (
+          <Fragment>
+            <div className="form-group">
+              <label htmlFor="github">Github</label>
+              <input
+                placeholder="Github"
+                name="github"
+                value={github}
+                className="form-input"
+                type="text"
+                onChange={event => handleChange(event)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="instagram">Instagram</label>
+              <input
+                placeholder="Instagram"
+                name="instagram"
+                value={instagram}
+                className="form-input"
+                type="text"
+                onChange={event => handleChange(event)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="linkedin">Linkedin</label>
+              <input
+                placeholder="Linkedin"
+                name="linkedin"
+                value={linkedin}
+                className="form-input"
+                type="text"
+                onChange={event => handleChange(event)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="twitter">Twitter</label>
+              <input
+                placeholder="Twitter"
+                name="twitter"
+                value={twitter}
+                className="form-input"
+                type="text"
+                onChange={event => handleChange(event)}
+              />
+            </div>
+          </Fragment>
+        )}
         <input type="submit" value="Submit" className="btn" />
       </form>
     </div>

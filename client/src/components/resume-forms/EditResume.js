@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { createResume, fetchResume } from '../../actions/resume';
@@ -22,6 +22,10 @@ const EditResume = ({
     city: '',
     state: '',
     zip: '',
+    github: '',
+    instagram: '',
+    linkedin: '',
+    twitter: '',
     website: '',
     technologies: '',
     bio: ''
@@ -43,11 +47,16 @@ const EditResume = ({
       city: loading || !resume.address ? '' : resume.address.city,
       state: loading || !resume.address ? '' : resume.address.state,
       zip: loading || !resume.address ? '' : resume.address.zip,
+      github: loading || !resume.social ? '' : resume.social.github,
+      instagram: loading || !resume.social ? '' : resume.social.instagram,
+      linkedin: loading || !resume.social ? '' : resume.social.linkedin,
+      twitter: loading || !resume.social ? '' : resume.social.twitter,
       website: loading || !resume.website ? '' : resume.website,
       bio: loading || !resume.bio ? '' : resume.bio,
       technologies: loading || !resume.technologies ? '' : newTechs
     });
   }, [loading]);
+  const [ displaySocialInputs, toggleSocialInputs ] = useState(false);
 
   const {
     name,
@@ -58,6 +67,10 @@ const EditResume = ({
     city,
     state,
     zip,
+    github,
+    twitter,
+    instagram,
+    linkedin,
     website,
     bio,
     technologies
@@ -84,6 +97,10 @@ const EditResume = ({
       city: '',
       state: '',
       zip: '',
+      github: '',
+      instagram: '',
+      linkedin: '',
+      twitter: '',
       website: '',
       technologies: '',
       bio: ''
@@ -214,6 +231,62 @@ const EditResume = ({
           />
           <small>Separate values with commas(,)</small>
         </div>
+        <div>
+          <button
+            type="button"
+            onClick={() => toggleSocialInputs(!displaySocialInputs)}
+            className="btn"
+          >Add Social Media Links</button>
+          <span>Optional</span>
+        </div>
+        { displaySocialInputs && (
+          <Fragment>
+            <div className="form-group">
+              <label htmlFor="github">Github</label>
+              <input
+                placeholder="Github"
+                name="github"
+                value={github}
+                className="form-input"
+                type="text"
+                onChange={event => handleChange(event)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="instagram">Instagram</label>
+              <input
+                placeholder="Instagram"
+                name="instagram"
+                value={instagram}
+                className="form-input"
+                type="text"
+                onChange={event => handleChange(event)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="linkedin">Linkedin</label>
+              <input
+                placeholder="Linkedin"
+                name="linkedin"
+                value={linkedin}
+                className="form-input"
+                type="text"
+                onChange={event => handleChange(event)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="twitter">Twitter</label>
+              <input
+                placeholder="Twitter"
+                name="twitter"
+                value={twitter}
+                className="form-input"
+                type="text"
+                onChange={event => handleChange(event)}
+              />
+            </div>
+          </Fragment>
+        )}
         <input type="submit" value="Submit" className="btn" />
       </form>
     </div>

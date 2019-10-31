@@ -32,6 +32,20 @@ const resumeSchema = new Schema({
       type: String
     }
   },
+  social: {
+    github: {
+      type: String
+    },
+    instagram: {
+      type: String
+    },
+    linkedin: {
+      type: String
+    },
+    twitter: {
+      type: String
+    }
+  },
   website: {
     type: String
   },

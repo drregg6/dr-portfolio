@@ -2,9 +2,20 @@
 
 === EXAMPLES ===
 http://raymond-jay.herokuapp.com/
+http://www.georgiemcdaniel.uk
+https://juliaryan.io/
+https://dean451.github.io/
 
 === TODOS ===
 - Resume should change to CV
+- Work on design
+    - Start with forms
+    - Color scheme
+    - Effects
+- README.md
+- Error messages
+- Contact form and sending to my email
+- Resume design (or PDF version?)
 
 */
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -12,11 +23,10 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 import Nav from './components/layout/Nav';
-import Header from './components/layout/Header';
 import Alert from './components/layout/Alert';
 import Footer from './components/layout/Footer';
 
-import Portfolio from './components/portfolio/Portfolio';
+import Homepage from './components/landing/Homepage';
 import Contact from './components/contact/Contact';
 import Resume from './components/resume/Resume';
 import Login from './components/auth/Login';
@@ -46,10 +56,9 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Header />
         <Alert />
         <Switch>
-          <Route exact path='/' component={Portfolio} />
+          <Route exact path='/' component={Homepage} />
           <Route exact path='/resume' component={Resume} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/login' component={Login} />
