@@ -5,6 +5,7 @@ import { fetchPortfolios } from '../../actions/portfolio';
 import { fetchResume } from '../../actions/resume';
 import { connect } from 'react-redux';
 
+import Spinner from '../layout/Spinner';
 import Header from './Header';
 import About from './About';
 import Portfolio from './Portfolio';
@@ -28,7 +29,7 @@ const Homepage = ({
   return (
     <div className="content">
       { loading ? (
-        <h1>Loading...</h1>
+        <Spinner />
       ) : (
         <Fragment>
           <Header
