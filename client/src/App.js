@@ -1,6 +1,7 @@
 /*
 
 === EXAMPLES ===
+https://www.juniordevelopercentral.com/16-junior-web-developer-portfolio-examples/
 http://raymond-jay.herokuapp.com/
 http://www.georgiemcdaniel.uk
 https://juliaryan.io/

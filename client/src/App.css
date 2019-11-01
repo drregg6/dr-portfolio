@@ -152,6 +152,18 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.tech-logos {
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+.tech-logo {
+  margin-right: 25px;
+}
+.tech-logo:last-child {
+  margin-right: 0;
 }
 
 
@@ -184,6 +196,11 @@ li {
     font-size: 2.5rem;
   }
   .header .social-icon i {
+    font-size: 1.2rem;
+  }
+
+  .tech-logos {
+    margin: 1rem;
     font-size: 1.2rem;
   }
 
