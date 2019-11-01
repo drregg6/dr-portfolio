@@ -38,7 +38,8 @@ const CreatePortfolio = ({ createPortfolio, history }) => {
     });
   }
   return (
-    <div className="portfolio-form container">
+    <div className="form container">
+      <h1>Create a Portfolio Project</h1>
       <form onSubmit={event => handleSubmit(event)}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
@@ -107,7 +108,7 @@ const CreatePortfolio = ({ createPortfolio, history }) => {
           />
           <small>Please split technologies with commas(,)</small>
         </div>
-        <input type="submit" value="Submit" />
+        <input className="btn" type="submit" value="Submit" />
       </form>
     </div>
   )

@@ -29,18 +29,24 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <div className="auth container">
       <form onSubmit={event => handleSubmit(event)} className="login-form">
-        <input 
-          type="email"
-          placeholder="Email"
-          name="email"
-          onChange={event => handleChange(event)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          onChange={event => handleChange(event)}
-        />
+        <div className="form-group">
+          <input 
+            type="email"
+            placeholder="Email"
+            name="email"
+            onChange={event => handleChange(event)}
+            className="form-input"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={event => handleChange(event)}
+            className="form-input"
+          />
+        </div>
         <input
           type="submit"
           value="Login"

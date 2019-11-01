@@ -34,7 +34,8 @@ const AddExperience = ({ createExperience, history }) => {
     // Reset formData
   }
   return (
-    <div className="employment-form container">
+    <div className="form container">
+      <h1>Add to Your Experiences</h1>
       <form onSubmit={event => handleSubmit(event)}>
         <div className="form-group">
           <label htmlFor="title">Title</label>

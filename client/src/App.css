@@ -48,10 +48,11 @@ li {
 /* === Custom === */
 .container {
   padding-top: 45px;
+  min-height: 85vh;
 }
 .btn {
   border: 1px solid black;
-  padding: 5px;
+  padding: 6px 12px;
   border-radius: 5px;
   text-decoration: none;
   background: white;
@@ -246,8 +247,47 @@ li {
 
 
 
+/* === Form === */
+form {
+  max-width: 1100px;
+  margin-bottom: 3rem;
+}
+
+.form h1 {
+  margin: 2rem;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin: 1rem;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+}
+
+.form-input {
+  margin: 0 auto;
+  width: 38%;
+  outline: 0;
+  border: 1px solid black;
+
+  padding: 6px 12px;
+  font-size: 1rem;
+}
+ form small {
+   display: block;
+   font-size: 14px;
+ }
+
+
+
+
+
+
 /* === Mobile === */
 @media screen and (max-width: 600px) {
+  /* === Header === */
   .header h1 {
     font-size: 1.25rem;
   }
@@ -258,11 +298,13 @@ li {
     font-size: 1.2rem;
   }
 
+  /* === About === */
   .tech-logos {
     margin: 1rem;
     font-size: 1.2rem;
   }
 
+  /* === Portfolio === */
   .portfolio-project {
     flex-direction: column;
   }
@@ -270,10 +312,16 @@ li {
     margin-bottom: 1rem;
   }
 
+  /* === Footer === */
   .footer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+
+  /* === Form === */
+  .form-input {
+    width: 80%;
   }
 }

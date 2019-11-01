@@ -44,7 +44,8 @@ const AddEmployment = ({
     // Reset formData
   }
   return (
-    <div className="employment-form container">
+    <div className="form container">
+      <h1>Add to Your Employments</h1>
       <form onSubmit={event => handleSubmit(event)}>
         <div className="form-group">
           <label htmlFor="title">Title</label>

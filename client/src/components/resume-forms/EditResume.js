@@ -107,7 +107,8 @@ const EditResume = ({
     });
   }
   return (
-    <div className="resume-form container">
+    <div className="form container">
+      <h1>Edit Your Resume</h1>
       <form onSubmit={event => handleSubmit(event)}>
       <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -231,13 +232,12 @@ const EditResume = ({
           />
           <small>Separate values with commas(,)</small>
         </div>
-        <div>
+        <div className="form-group">
           <button
             type="button"
             onClick={() => toggleSocialInputs(!displaySocialInputs)}
             className="btn"
           >Add Social Media Links</button>
-          <span>Optional</span>
         </div>
         { displaySocialInputs && (
           <Fragment>

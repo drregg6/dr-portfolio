@@ -77,7 +77,8 @@ const CreateResume = ({
   }
 
   return (
-    <div className="resume-form container">
+    <div className="form container">
+      <h1>Create a Resume</h1>
       <form onSubmit={event => handleSubmit(event)}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -201,13 +202,12 @@ const CreateResume = ({
           />
           <small>Separate values with commas(,)</small>
         </div>
-        <div>
+        <div className="form-group">
           <button
             type="button"
             onClick={() => toggleSocialInputs(!displaySocialInputs)}
             className="btn"
           >Add Social Media Links</button>
-          <span>Optional</span>
         </div>
         { displaySocialInputs && (
           <Fragment>
