@@ -36,7 +36,7 @@ const AddEducation = ({ createEducation, history }) => {
     // Reset formData
   }
   return (
-    <div className="education-form">
+    <div className="education-form container">
       <form onSubmit={event => handleSubmit(event)}>
         <div className="form-group">
           <label htmlFor="school">School</label>

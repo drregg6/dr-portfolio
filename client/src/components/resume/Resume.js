@@ -12,7 +12,7 @@ const Resume = ({
     fetchResume();
   }, []);
   return (
-    <div>
+    <div className="resume container">
       { loading ? (
         <h1>Loading...</h1>
       ) : (

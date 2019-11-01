@@ -107,7 +107,7 @@ const EditResume = ({
     });
   }
   return (
-    <div className="resume-form">
+    <div className="resume-form container">
       <form onSubmit={event => handleSubmit(event)}>
       <div className="form-group">
           <label htmlFor="name">Name</label>

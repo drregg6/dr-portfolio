@@ -27,7 +27,7 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <div>
+    <div className="auth container">
       <form onSubmit={event => handleSubmit(event)} className="login-form">
         <input 
           type="email"

@@ -27,7 +27,7 @@ const Homepage = ({
     fetchResume();
   }, [])
   return (
-    <div className="content">
+    <div className="content container">
       { loading ? (
         <Spinner />
       ) : (

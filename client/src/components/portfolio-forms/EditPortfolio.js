@@ -84,7 +84,7 @@ const EditPortfolio = ({
     });
   }
   return (
-    <div className="portfolio-form">
+    <div className="portfolio-form container">
       <form onSubmit={event => handleSubmit(event)}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
