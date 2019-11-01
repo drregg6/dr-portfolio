@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
+
+import Spinner from '../layout/Spinner';
 import Project from './Project';
 
 import { fetchPortfolios } from '../../actions/portfolio';
@@ -14,10 +16,9 @@ const Portfolio = ({ portfolio, fetchPortfolios }) => {
   return (
     <div className="portfolio">
       { loading ? (
-        <h1>Loading</h1>
+        <Spinner />
       ) : (
         <Fragment>
-          <h1>My Portfolio</h1>
           {
             portfolios.map(project => {
               return <Project
