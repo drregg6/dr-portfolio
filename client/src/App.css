@@ -57,6 +57,14 @@ li {
 }
 .splash {
   min-height: 60vh;
+  background: darkorange;
+}
+.splash h1 {
+  font-size: 4rem;
+}
+.head {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 .btn {
   border: 1px solid black;
@@ -384,7 +392,20 @@ form small {
 
 /* === Contact === */
 .contact-content {
-  margin: 2rem auto;
+  margin: 5rem auto;
+}
+
+.contact-p {
+  padding: 0 125px;
+}
+
+.contact-email {
+  padding: 2.5rem 0;
+  border: 25px solid darkorange;
+}
+
+.contact-form {
+  margin: 0 auto;
 }
 
 
@@ -394,6 +415,14 @@ form small {
 
 /* === Mobile === */
 @media screen and (max-width: 600px) {
+  /* === Custom === */
+  .splash h1 {
+    font-size: 2.25rem;
+  }
+  .head {
+    font-size: 1.2rem;
+  }
+
   /* === Nav === */
   .top-nav nav { display: none; }
   .nav-icon {
@@ -501,5 +530,17 @@ form small {
   /* === Form === */
   .form-input {
     width: 80%;
+  }
+
+  /* === Contact === */
+  .contact-p {
+    padding: 0 25px;
+  }
+  .contact-email {
+    padding: 1rem 0;
+    border: 5px solid darkorange;
+  }
+  .contact-content {
+    margin: 2rem auto;
   }
 }

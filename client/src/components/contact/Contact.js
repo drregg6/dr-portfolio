@@ -44,14 +44,14 @@ const Contact = ({
       </div>
       <div className="contact-content-container">
         <div className="contact-content">
-          <h2 className="head secondary">Please Contact Me!</h2>
-          <p className="text-p">
+          <h2 className="head">Feel free to chat</h2>
+          <p className="contact-p">
             I would love to be hired! I am free to assist people with their open-source projects! If you are new to the programming world, I would love to help ya out! If you have any questions, comments, or suggestions for <span className="highlight">Phila Brews</span>, please feel free to let me know. I am also in the early stages of developing a sister app for <span className="highlight">Phila Brews</span>. Check out the <Link to="/about">About</Link> page for more information, and if you would like to contribute, please shoot me an email!
           </p>
         </div>
-        <div className="contact-content">
-          <h2 className="secondary">Email Me</h2>
-          <form onSubmit={event => {handleSubmit(event)}}>
+        <div className="contact-content contact-email">
+          <h2 className="head">Email me</h2>
+          <form className="contact-form" onSubmit={event => {handleSubmit(event)}}>
             <div className="form-group">
               <input
                 type="email"
@@ -92,6 +92,7 @@ const Contact = ({
           </form>
         </div>
         <div className="contact-content">
+          <h2 className="head">Socialize with me</h2>
           { loading ? (<Spinner />) : (
             <div className="social-component-icons">
               <a href={resume.social.github} target="_blank" rel="noopener noreferrer" className="social-component-icon">
