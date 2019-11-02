@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import Header from './Header';
 import About from './About';
+import Logos from './Logos';
 import Portfolio from './Portfolio';
 import Social from './Social';
 
@@ -40,6 +41,7 @@ const Homepage = ({
             instagram={resume.social.instagram}
           />
           <About />
+          <Logos />
           <Portfolio />
           <Social />
         </Fragment>

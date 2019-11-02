@@ -26,7 +26,8 @@ const Portfolio = ({ portfolio, fetchPortfolios }) => {
                   key={project._id}
                   id={project._id}
                   title={project.title}
-                  url={project.url}
+                  live={project.live}
+                  code={project.code}
                   desc={project.desc}
                   image={project.image}
                   technologies={project.technologies}

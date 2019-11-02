@@ -21,17 +21,17 @@ const Social = ({
       ) : (
         <Fragment>
           <div className="social-component-icons">
-            <a href={social.github} target="_blank" className="social-component-icon">
-              <i class="fab fa-github"></i>
+            <a href={social.github} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
+              <i className="fab fa-github"></i>
             </a>
-            <a href={social.twitter} target="_blank" className="social-component-icon">
-              <i class="fab fa-twitter"></i>
+            <a href={social.twitter} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
+              <i className="fab fa-twitter"></i>
             </a>
-            <a href={social.instagram} target="_blank" className="social-component-icon">
-              <i class="fab fa-instagram"></i>
+            <a href={social.instagram} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
+              <i className="fab fa-instagram"></i>
             </a>
             <Link to="/contact" className="social-component-icon">
-              <i class="far fa-paper-plane"></i>
+              <i className="far fa-paper-plane"></i>
             </Link>
           </div>
         </Fragment>

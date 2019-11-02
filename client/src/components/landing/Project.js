@@ -11,14 +11,19 @@ const Project = ({
   deletePortfolio,
   id,
   title,
-  url,
+  live,
+  code,
   image,
   desc,
   technologies
 }) => {
   return (
     <div className="portfolio-project">
-      <img src={ image ? ( image ) : "http://www.placehold.it/250x250"} />
+      <div className="project-img">
+        <img src={ image ? ( image ) : "http://www.placehold.it/250x250"} />
+        <a rel="noopener noreferrer" href={live} target="_blank" className="btn img-btn live">Live</a>
+        <a rel="noopener noreferrer" href={code} target="_blank" className="btn img-btn code">Code</a>
+      </div>
       <div className="project-info">
         <div className="project-header">
           <h1>{ title }</h1>
@@ -30,8 +35,8 @@ const Project = ({
           </p>
         </div>
         <div className="project-techs">
-          { technologies.map(tech => {
-              return <span className="project-tech">{ tech }</span>
+          { technologies.map((tech, i) => {
+              return <span className="project-tech" key={i}>{ tech }</span>
           }) }
         </div>
       </div>
