@@ -410,6 +410,16 @@ form small {
 
 
 
+/* === Resume === */
+.resume {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-left: 25px solid orange;
+  border-right: 25px solid orange;
+}
+
+
+
 
 
 

@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
+import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
 import { fetchResume } from '../../actions/resume';
+import formatPhone from '../../utils/formatPhone';
 import { connect } from 'react-redux';
 
 const Resume = ({
@@ -11,13 +13,40 @@ const Resume = ({
   useEffect(() => {
     fetchResume();
   }, []);
+  let name, phone, address, social, website, technologies, bio, employment, education, experience;
+
+  if (resume) {
+    name = resume.name;
+    phone = resume.phone;
+    address = resume.address;
+    social = resume.social;
+    website = resume.website;
+    technologies = resume.technologies;
+    bio = resume.bio;
+    employment = resume.employment;
+    education = resume.education;
+    experience = resume.experience;
+  }
+
   return (
     <div className="resume container">
       { loading ? (
-        <h1>Loading...</h1>
+        <Spinner />
       ) : (
         resume ? (
-          <h1>Welcome {resume.name}</h1>
+          <Fragment>
+            <div className="resume-header">
+              <h1 className="resume-name">{ name }</h1>
+              <div className="resume-contact">
+                <span className="address">
+                  { address.number } { address.street }, { address.city } { address.state }, { address.zip }
+                </span> | <span className="phone">{ formatPhone(phone) }</span> | <span className="email">drregg6@gmail.com</span>
+              </div>
+            </div>
+            <div className="resume-content">
+
+            </div>
+          </Fragment>
         ) : (
           <h1>No resume exists!</h1>
         )

@@ -45,6 +45,7 @@ const resumeSchema = new Schema({
     twitter: {
       type: String
     }
+    // email: { type: String }
   },
   website: {
     type: String
@@ -80,6 +81,7 @@ const resumeSchema = new Schema({
         type: Boolean,
         default: false
       },
+      // Tasks separated by dashes
       desc: {
         type: String
       }

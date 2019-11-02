@@ -25,6 +25,7 @@ const portfoliosSchema = new Schema({
   desc: {
     type: String
   }
+  // year: { type: String }
 });
 
 const portfolioSchema = new Schema({
