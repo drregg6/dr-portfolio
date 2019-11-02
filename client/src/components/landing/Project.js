@@ -18,7 +18,7 @@ const Project = ({
 }) => {
   return (
     <div className="portfolio-project">
-      <img src="http://www.placehold.it/250x250" />
+      <img src={ image ? ( image ) : "http://www.placehold.it/250x250"} />
       <div className="project-info">
         <div className="project-header">
           <h1>{ title }</h1>
@@ -35,6 +35,16 @@ const Project = ({
           }) }
         </div>
       </div>
+      { isAuthenticated && (
+          <button className="delete-portfolio" onClick={() => deletePortfolio(id)}>
+            x
+          </button>
+      )}
+      { isAuthenticated && (
+        <Link className="edit-portfolio" to={`/portfolios/${id}/edit`}>
+          Edit
+        </Link>
+      )}
     </div>
   )
 }
@@ -57,15 +67,3 @@ export default connect(
   mapStateToProps,
   { deletePortfolio }
 )(Project);
-
-
-// { isAuthenticated && (
-//   <Fragment>
-//     <button className="btn">
-//       <Link to={`/portfolios/${id}/edit`}>Edit</Link>
-//     </button>
-//     <button className="btn" onClick={() => deletePortfolio(id)}>
-//       Delete
-//     </button>
-//   </Fragment>
-// )}
