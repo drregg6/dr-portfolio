@@ -174,8 +174,8 @@ li {
 
 
 /* === Portfolio === */
-.portfolio {
-
+.portfolio-projects {
+  border: 25px solid darkorange;
 }
 
 
@@ -183,7 +183,7 @@ li {
 /* === Project === */
 .portfolio-project {
   padding: 2rem;
-  border-bottom: 1px dashed lightsalmon;
+  border-bottom: 1px dashed darkorange;
 
   display: flex;
 }
@@ -305,6 +305,9 @@ form {
   }
 
   /* === Portfolio === */
+  .portfolio-projects {
+    border: 5px solid darkorange;
+  }
   .portfolio-project {
     flex-direction: column;
   }

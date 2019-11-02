@@ -14,26 +14,28 @@ const Portfolio = ({ portfolio, fetchPortfolios }) => {
 
   const { loading, portfolios } = portfolio;
   return (
-    <div className="portfolio">
-      { loading ? (
-        <Spinner />
-      ) : (
-        <Fragment>
-          {
-            portfolios.map(project => {
-              return <Project
-                key={project._id}
-                id={project._id}
-                title={project.title}
-                url={project.url}
-                desc={project.desc}
-                image={project.image}
-                technologies={project.technologies}
-              />
-            })
-          }
-        </Fragment>
-      ) }
+    <div className="portfolio" id="portfolio">
+      <div className="portfolio-projects">
+        { loading ? (
+          <Spinner />
+        ) : (
+          <Fragment>
+            {
+              portfolios.map(project => {
+                return <Project
+                  key={project._id}
+                  id={project._id}
+                  title={project.title}
+                  url={project.url}
+                  desc={project.desc}
+                  image={project.image}
+                  technologies={project.technologies}
+                />
+              })
+            }
+          </Fragment>
+        ) }
+      </div>
     </div>
   )
 }
