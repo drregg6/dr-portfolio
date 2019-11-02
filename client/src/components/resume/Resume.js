@@ -38,13 +38,36 @@ const Resume = ({
             <div className="resume-header">
               <h1 className="resume-name">{ name }</h1>
               <div className="resume-contact">
-                <span className="address">
+                <div className="address">
                   { address.number } { address.street }, { address.city } { address.state }, { address.zip }
-                </span> | <span className="phone">{ formatPhone(phone) }</span> | <span className="email">drregg6@gmail.com</span>
+                </div><span>|</span><div className="phone">{ formatPhone(phone) }</div><span>|</span><div className="email">drregg6@gmail.com</div>
               </div>
             </div>
             <div className="resume-content">
-
+              <div className="column-left">Projects</div>
+              <div className="column-right">
+                { 
+                  resume.experience.map((project, i) => {
+                    return <div key={i}>{ project.title }</div>
+                  }) 
+                }
+              </div>
+              <div className="column-left">Work History</div>
+              <div className="column-right">
+                {
+                  resume.employment.map((job, i) => {
+                    return <div key={i}>{ job.title }</div>
+                  })
+                }
+              </div>
+              <div className="column-left">Education</div>
+              <div className="column-right">
+                {
+                  resume.education.map((school, i) => {
+                    return <div key={i}>{ school.school }</div>
+                  })
+                }
+              </div>
             </div>
           </Fragment>
         ) : (
