@@ -15,22 +15,22 @@ const Social = ({
   }, []);
   const { social } = resume;
   return (
-    <div className="social">
+    <div className="social center">
       { loading ? (
         <Spinner />
       ) : (
         <Fragment>
-          <div className="header-social">
-            <a href={social.github} target="_blank" className="social-icon">
+          <div className="social-component-icons">
+            <a href={social.github} target="_blank" className="social-component-icon">
               <i class="fab fa-github"></i>
             </a>
-            <a href={social.twitter} target="_blank" className="social-icon">
+            <a href={social.twitter} target="_blank" className="social-component-icon">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href={social.instagram} target="_blank" className="social-icon">
+            <a href={social.instagram} target="_blank" className="social-component-icon">
               <i class="fab fa-instagram"></i>
             </a>
-            <Link to="/contact" className="social-icon">
+            <Link to="/contact" className="social-component-icon">
               <i class="far fa-paper-plane"></i>
             </Link>
           </div>

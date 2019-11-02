@@ -50,6 +50,11 @@ li {
   padding-top: 45px;
   min-height: 85vh;
 }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .btn {
   border: 1px solid black;
   padding: 6px 12px;
@@ -236,13 +241,32 @@ li {
 
 
 
+/* === Social === */
+.social {
+  min-height: 40vh;
+}
+
+.social-component-icon {
+  margin-right: 50px;
+}
+.social-component-icon:last-child {
+  margin-right: 0;
+}
+
+.social-component-icon i {
+  font-size: 5rem;
+}
+
+
+
 /* === Footer === */
 .footer {
-  padding: 2.5rem 0;
+  padding: .25rem 0;
   background: darkorange;
 
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 
