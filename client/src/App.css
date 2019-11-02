@@ -339,12 +339,35 @@ form {
     margin-bottom: 1rem;
   }
 
+  /* === Social === */
+  .social {
+    margin: 2rem auto;
+  }
+  .social-component-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .social-component-icon {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  .social-component-icon:last-child {
+    margin-bottom: 0;
+  }
+
   /* === Footer === */
   .footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    flex-direction: column;
+  }
+  .footer h1,
+  .footer h1 a,
+  .footer .login-btn,
+  .footer .logout-btn {
+    font-size: .8rem;
   }
 
   /* === Form === */
