@@ -61,14 +61,13 @@ const AddExperience = ({ createExperience, history }) => {
         </div>
         <div className="form-group">
           <label htmlFor="desc">Description</label>
-          <input
-            className="form-input"
+          <textarea
             placeholder="Description"
             name="desc"
             value={desc}
-            type="text"
+            className="form-input textarea"
             onChange={event => handleChange(event)}
-          />
+          ></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="technologies">Technologies</label>
@@ -80,7 +79,7 @@ const AddExperience = ({ createExperience, history }) => {
             type="text"
             onChange={event => handleChange(event)}
           />
-          <small>Separate values with commas(,)</small>
+          <small>Separate each value with a comma(,)</small>
         </div>
         <input
           type="submit"

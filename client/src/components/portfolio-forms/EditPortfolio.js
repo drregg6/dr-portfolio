@@ -133,14 +133,13 @@ const EditPortfolio = ({
         </div>
         <div className="form-group">
           <label htmlFor="desc">Description</label>
-          <input
-            name="desc"
+          <textarea
             placeholder="Description"
+            name="desc"
             value={desc}
-            className="form-input"
-            type="text"
+            className="form-input textarea"
             onChange={event => handleChange(event)}
-          />
+          ></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="technologies">Technologies</label>
@@ -152,9 +151,9 @@ const EditPortfolio = ({
             type="text"
             onChange={event => handleChange(event)}
           />
-          <small>Please split technologies with commas(,)</small>
+          <small>Separate each value with a comma(,)</small>
         </div>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="btn" />
       </form>
     </div>
   )

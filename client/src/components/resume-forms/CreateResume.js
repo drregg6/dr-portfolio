@@ -181,14 +181,13 @@ const CreateResume = ({
         </div>
         <div className="form-group">
           <label htmlFor="bio">Bio</label>
-          <input
+          <textarea
             placeholder="Bio"
             name="bio"
             value={bio}
-            className="form-input"
-            type="text"
+            className="form-input textarea"
             onChange={event => handleChange(event)}
-          />
+          ></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="technologies">Technologies</label>
@@ -200,7 +199,7 @@ const CreateResume = ({
             type="text"
             onChange={event => handleChange(event)}
           />
-          <small>Separate values with commas(,)</small>
+          <small>Separate each value with a comma(,)</small>
         </div>
         <div className="form-group">
           <button

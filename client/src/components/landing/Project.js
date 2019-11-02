@@ -17,10 +17,24 @@ const Project = ({
   desc,
   technologies
 }) => {
+  let img;
+  if (image) {
+    img = image;
+  } else {
+    img = `http://www.placehold.it/250x250`;
+  }
   return (
     <div className="portfolio-project">
-      <div className="project-img">
-        <img src={ image ? ( image ) : "http://www.placehold.it/250x250"} />
+      <div
+        className="project-img"
+        style={
+          {
+            backgroundImage: `url(${img})`,
+            width: 250,
+            height: 250
+          }
+        }
+      >
         <a rel="noopener noreferrer" href={live} target="_blank" className="btn img-btn live">Live</a>
         <a rel="noopener noreferrer" href={code} target="_blank" className="btn img-btn code">Code</a>
       </div>
@@ -31,7 +45,7 @@ const Project = ({
         </div>
         <div className="project-desc">
           <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Montes nascetur ridiculus mus mauris vitae ultricies. Neque viverra justo nec ultrices dui. Enim eu turpis egestas pretium aenean pharetra magna ac. Amet aliquam id diam maecenas ultricies mi eget. Tempor orci eu lobortis elementum nibh tellus.
+            { desc }
           </p>
         </div>
         <div className="project-techs">

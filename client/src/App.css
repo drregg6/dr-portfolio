@@ -335,9 +335,8 @@ li {
 
 
 /* === Form === */
-form {
-  max-width: 1100px;
-  margin-bottom: 3rem;
+.form {
+  min-height: 95vh;
 }
 
 .form h1 {
@@ -345,8 +344,13 @@ form {
   font-size: 1.2rem;
 }
 
+form {
+  max-width: 1100px;
+  margin: 3rem auto;
+}
+
 .form-group {
-  margin: 1rem;
+  margin: 1rem auto;
 }
 .form-group label {
   display: block;
@@ -362,10 +366,16 @@ form {
   padding: 6px 12px;
   font-size: 1rem;
 }
- form small {
-   display: block;
-   font-size: 14px;
- }
+form small {
+  display: block;
+  font-size: 14px;
+}
+
+.textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  height: 125px;
+}
 
 
 

@@ -87,14 +87,13 @@ const CreatePortfolio = ({ createPortfolio, history }) => {
         </div>
         <div className="form-group">
           <label htmlFor="desc">Description</label>
-          <input
+          <textarea
+            placeholder="Description"
             name="desc"
             value={desc}
-            placeholder="Description"
-            className="form-input"
-            type="text"
+            className="form-input textarea"
             onChange={event => handleChange(event)}
-          />
+          ></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="technologies">Technologies</label>
@@ -106,7 +105,7 @@ const CreatePortfolio = ({ createPortfolio, history }) => {
             type="text"
             onChange={event => handleChange(event)}
           />
-          <small>Please split technologies with commas(,)</small>
+          <small>Separate each value with a comma(,)</small>
         </div>
         <input className="btn" type="submit" value="Submit" />
       </form>

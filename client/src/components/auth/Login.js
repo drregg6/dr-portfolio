@@ -27,7 +27,8 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <div className="auth container">
+    <div className="form container">
+      <h1>Login</h1>
       <form onSubmit={event => handleSubmit(event)} className="login-form">
         <div className="form-group">
           <input 

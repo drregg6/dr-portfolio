@@ -118,14 +118,13 @@ const AddEmployment = ({
         </div>
         <div className="form-group">
           <label htmlFor="desc">Description</label>
-          <input
-            className="form-input"
+          <textarea
             placeholder="Description"
             name="desc"
             value={desc}
-            type="text"
+            className="form-input textarea"
             onChange={event => handleChange(event)}
-          />
+          ></textarea>
         </div>
         <input
           type="submit"
