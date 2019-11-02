@@ -113,6 +113,10 @@ li {
   border-bottom: 1px solid #333;
 }
 
+.nav-icon {
+  display: none;
+}
+
 
 
 /* === Header === */
@@ -370,6 +374,35 @@ form {
 
 /* === Mobile === */
 @media screen and (max-width: 600px) {
+  /* === Nav === */
+  .top-nav nav { display: none; }
+  .nav-icon {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .top-nav.responsive {
+    height: auto;
+  }
+  .top-nav.responsive .nav-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .top-nav.responsive nav {
+    display: block;
+    margin-top: 45px;
+  }
+  .top-nav.responsive nav ul {
+    flex-direction: column;
+    background: #333;
+  }
+  .top-nav.responsive nav ul li {
+    margin: .25rem 0;
+    text-align: left;
+  }
+
   /* === Header === */
   .header h1 {
     font-size: 1.25rem;

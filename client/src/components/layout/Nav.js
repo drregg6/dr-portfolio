@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import responsiveNav from '../../utils/responsiveNav';
 import { fetchResume } from '../../actions/resume';
 import { connect } from 'react-redux';
 
@@ -16,7 +17,7 @@ const Nav = ({
     fetchResume();
   }, [])
   return (
-    <div className="nav">
+    <div className="nav top-nav">
       <nav>
         <ul>
           <li>
@@ -61,6 +62,9 @@ const Nav = ({
           ) }
         </ul>
       </nav>
+      <a href="#" className="nav-icon" onClick={() => responsiveNav()}>
+        <i className="fa fa-bars"></i>
+      </a>
       <Alert />
     </div>
   )
