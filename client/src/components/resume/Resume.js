@@ -6,6 +6,10 @@ import { fetchResume } from '../../actions/resume';
 import formatPhone from '../../utils/formatPhone';
 import { connect } from 'react-redux';
 
+import Employment from './Employment';
+import Experience from './Experience';
+import Education from './Education';
+
 const Resume = ({
   fetchResume,
   resume: { loading, resume }
@@ -46,26 +50,47 @@ const Resume = ({
             <div className="resume-content">
               <div className="column-left">Projects</div>
               <div className="column-right">
-                { 
-                  resume.experience.map((project, i) => {
-                    return <div key={i}>{ project.title }</div>
-                  }) 
+                {
+                  resume.experience.map(project => (
+                    <Experience
+                      id={project.id}
+                      title={project.title}
+                      year={project.year}
+                      desc={project.desc}
+                      technologies={project.technologies}
+                    />
+                  ))
                 }
               </div>
               <div className="column-left">Work History</div>
               <div className="column-right">
-                {
-                  resume.employment.map((job, i) => {
-                    return <div key={i}>{ job.title }</div>
-                  })
+              { 
+                  resume.employment.map(job => (
+                    <Employment
+                      id={job.id}
+                      title={job.title}
+                      company={job.company}
+                      location={job.location}
+                      from={job.from}
+                      to={job.to}
+                      desc={job.desc}
+                    />
+                  ))
                 }
               </div>
               <div className="column-left">Education</div>
               <div className="column-right">
                 {
-                  resume.education.map((school, i) => {
-                    return <div key={i}>{ school.school }</div>
-                  })
+                  resume.education.map(school => (
+                    <Education
+                      id={school.id}
+                      school={school.school}
+                      degree={school.degree}
+                      from={school.from}
+                      to={school.to}
+                      desc={school.desc}
+                    />
+                  ))
                 }
               </div>
             </div>
