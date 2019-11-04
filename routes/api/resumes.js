@@ -128,9 +128,7 @@ router.put('/employment', [auth, [
   if (to) newEmployment.to = to;
   if (current) newEmployment.current = current;
   if (desc) {
-    newEmployment.desc = desc.split('-').map(task => {
-      return task.trim();
-    });
+    newEmployment.desc = desc.split('-').map(task => task.trim()).filter(task => task !== '');
   }
 
   try {

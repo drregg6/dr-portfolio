@@ -67,7 +67,7 @@ export const createEmployment = (formData, history) => async dispatch => {
 // Delete Employment
 export const deleteEmployment = (id) => async dispatch => {
   try {
-    axios.delete(`/employment/${id}`);
+    await axios.delete(`api/resumes/employment/${id}`);
     dispatch({
       type: DELETE_EMPLOYMENT,
       payload: id
@@ -103,7 +103,7 @@ export const createEducation = (formData, history) => async dispatch => {
 // Delete Education
 export const deleteEducation = (id) => async dispatch => {
   try {
-    axios.delete(`/education/${id}`);
+    await axios.delete(`api/resumes/education/${id}`);
     dispatch({
       type: DELETE_EDUCATION,
       payload: id
@@ -137,8 +137,9 @@ export const createExperience = (formData, history) => async dispatch => {
 }
 // Delete Experience
 export const deleteExperience = (id) => async dispatch => {
+  console.log(id);
   try {
-    axios.delete(`/experience/${id}`);
+    await axios.delete(`api/resumes/experience/${id}`);
     dispatch({
       type: DELETE_EXPERIENCE,
       payload: id

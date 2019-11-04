@@ -55,6 +55,23 @@ li {
   justify-content: center;
   align-items: center;
 }
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  font-size: .8rem;
+  background: white;
+  border: 1px solid red;
+  color: red;
+  text-align: center;
+
+  transition: all .15s;
+}
+.delete-button:hover {
+  background: red;
+  color: white;
+}
 .splash {
   min-height: 60vh;
   background: darkorange;
@@ -277,24 +294,6 @@ li {
   background: darkorange;
 }
 
-.delete-portfolio {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-
-  font-size: .8rem;
-  background: white;
-  border: 1px solid red;
-  color: red;
-  text-align: center;
-
-  transition: all .15s;
-}
-.delete-portfolio:hover {
-  background: red;
-  color: white;
-}
-
 .edit-portfolio {
   position: absolute;
   bottom: 5px;
@@ -441,6 +440,12 @@ form small {
 }
 .column-right {
   text-align: left;
+}
+
+.experience,
+.education,
+.employment {
+  position: relative;
 }
 
 

@@ -15,8 +15,9 @@ const Resume = ({
   resume: { loading, resume }
 }) => {
   useEffect(() => {
+    console.log(loading);
     fetchResume();
-  }, []);
+  }, [loading]);
   let name, phone, email, address, social, website, technologies, bio, goals, employment, education, experience;
 
   if (resume) {
@@ -55,7 +56,8 @@ const Resume = ({
                 {
                   resume.experience.map(project => (
                     <Experience
-                      id={project.id}
+                      key={project._id}
+                      id={project._id}
                       title={project.title}
                       year={project.year}
                       desc={project.desc}
@@ -69,7 +71,8 @@ const Resume = ({
               { 
                   resume.employment.map(job => (
                     <Employment
-                      id={job.id}
+                      key={job._id}
+                      id={job._id}
                       title={job.title}
                       company={job.company}
                       location={job.location}
@@ -85,7 +88,8 @@ const Resume = ({
                 {
                   resume.education.map(school => (
                     <Education
-                      id={school.id}
+                      key={school._id}
+                      id={school._id}
                       school={school.school}
                       location={school.location}
                       degree={school.degree}

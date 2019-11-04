@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Spinner from '../layout/Spinner';
 
 import { connect } from 'react-redux';
 import { deletePortfolio } from '../../actions/portfolio';
@@ -56,7 +55,7 @@ const Project = ({
         </div>
       </div>
       { isAuthenticated && (
-          <button className="delete-portfolio" onClick={() => deletePortfolio(id)}>
+          <button className="delete-button" onClick={() => deletePortfolio(id)}>
             x
           </button>
       )}
