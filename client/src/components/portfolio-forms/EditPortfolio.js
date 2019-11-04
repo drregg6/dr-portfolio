@@ -41,6 +41,7 @@ const EditPortfolio = ({
     code: '',
     image: '',
     desc: '',
+    year: '',
     technologies: ''
   });
 
@@ -52,6 +53,7 @@ const EditPortfolio = ({
     }
     setFormData({
       title: loading || !editPort.title ? '' : editPort.title,
+      year: loading || !editPort.year ? '' : editPort.year,
       live: loading || !editPort.live ? '' : editPort.live,
       code: loading || !editPort.code ? '' : editPort.code,
       image: loading || !editPort.image ? '' : editPort.image,
@@ -60,7 +62,7 @@ const EditPortfolio = ({
     });
   }, [loading]);
 
-  const { title, live, code, image, desc, technologies } = formData;
+  const { title, year, live, code, image, desc, technologies } = formData;
   const handleChange = event => {
     setFormData({
       ...formData,
@@ -76,6 +78,7 @@ const EditPortfolio = ({
     // Reset formData
     setFormData({
       title: '',
+      year: '',
       live: '',
       code: '',
       image: '',
@@ -93,6 +96,17 @@ const EditPortfolio = ({
             name="title"
             placeholder="Title"
             value={title}
+            className="form-input"
+            type="text"
+            onChange={event => handleChange(event)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="year">Year</label>
+          <input
+            name="year"
+            placeholder="Year"
+            value={year}
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}

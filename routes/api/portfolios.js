@@ -77,6 +77,7 @@ router.post('/', [auth, [
     technologies,
     image,
     desc,
+    year,
     _id
   } = req.body;
 
@@ -86,6 +87,7 @@ router.post('/', [auth, [
   if (code) newPortfolio.code = code;
   if (image) newPortfolio.image = image;
   if (desc) newPortfolio.desc = desc;
+  if (year) newPortfolio.year = year;
   if (technologies) {
     newPortfolio.technologies = technologies.split(',').map(skill => skill.trim());
   }

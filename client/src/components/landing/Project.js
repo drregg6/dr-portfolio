@@ -11,6 +11,7 @@ const Project = ({
   deletePortfolio,
   id,
   title,
+  year,
   live,
   code,
   image,
@@ -41,7 +42,7 @@ const Project = ({
       <div className="project-info">
         <div className="project-header">
           <h1>{ title }</h1>
-          <span>2019</span>
+          <span>{ !year ? '2019' : year }</span>
         </div>
         <div className="project-desc">
           <p>
