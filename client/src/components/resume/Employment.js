@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
 import { deleteEmployment } from '../../actions/resume';
@@ -13,11 +14,26 @@ const Employment = ({
   location,
   from,
   to,
+  current,
   desc
 }) => {
   return (
-    <div key={id} className="employment">
-      <h1>{ title } | { company }</h1>
+    <div className="employment">
+      <div className="employment-dates">
+        <Moment format="MMM YYYY">{from}</Moment> - { current ? 'Current' : <Moment format="MMM YYYY">{to}</Moment> }
+      </div>
+      <div className="employment-header">
+        <h1 className="bold">{title}</h1>
+        <span className="italic">{company}</span>
+        <span>{location}</span>
+      </div>
+      <ul className="employment-desc">
+        { desc.map(task => {
+          return (
+            <li>- {task}</li>
+          )
+        })}
+      </ul>
       {
         isAuthenticated && (
           <button className="delete-button" onClick={() => deleteEmployment(id)}>

@@ -98,6 +98,12 @@ li {
   background: black;
   color: white;
 }
+.italic {
+  font-style: italic;
+}
+.bold {
+  font-weight: bold;
+}
 
 
 
@@ -437,15 +443,32 @@ form small {
 }
 .column-left {
   text-align: right;
+  margin: 2rem 0;
 }
 .column-right {
   text-align: left;
+  margin: 1rem;
 }
 
 .experience,
 .education,
 .employment {
   position: relative;
+}
+
+.employment {
+  padding: 1rem 0;
+}
+.employment:nth-child(even) {
+  background: #fcfcfc;
+}
+.employment-dates {
+  font-size: .9rem;
+}
+.employment-header {
+  display: flex;
+  justify-content: space-between;
+  margin: .5rem 0;
 }
 
 

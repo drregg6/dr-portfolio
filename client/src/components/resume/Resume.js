@@ -50,9 +50,12 @@ const Resume = ({
                 </div><span>|</span><div className="phone">{ formatPhone(phone) }</div><span>|</span><div className="email">{email}</div>
               </div>
             </div>
+            <div className="resume-goals">
+              {goals}
+            </div>
             <div className="resume-content">
               <div className="column-left">Projects</div>
-              <div className="column-right">
+              <div className="column-right experiences">
                 {
                   resume.experience.map(project => (
                     <Experience
@@ -67,7 +70,7 @@ const Resume = ({
                 }
               </div>
               <div className="column-left">Work History</div>
-              <div className="column-right">
+              <div className="column-right employments">
               { 
                   resume.employment.map(job => (
                     <Employment
@@ -78,13 +81,14 @@ const Resume = ({
                       location={job.location}
                       from={job.from}
                       to={job.to}
+                      current={job.current}
                       desc={job.desc}
                     />
                   ))
                 }
               </div>
               <div className="column-left">Education</div>
-              <div className="column-right">
+              <div className="column-right educations">
                 {
                   resume.education.map(school => (
                     <Education
