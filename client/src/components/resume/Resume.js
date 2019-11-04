@@ -17,16 +17,18 @@ const Resume = ({
   useEffect(() => {
     fetchResume();
   }, []);
-  let name, phone, address, social, website, technologies, bio, employment, education, experience;
+  let name, phone, email, address, social, website, technologies, bio, goals, employment, education, experience;
 
   if (resume) {
     name = resume.name;
     phone = resume.phone;
+    email = resume.email;
     address = resume.address;
     social = resume.social;
     website = resume.website;
     technologies = resume.technologies;
     bio = resume.bio;
+    goals = resume.goals;
     employment = resume.employment;
     education = resume.education;
     experience = resume.experience;
@@ -44,7 +46,7 @@ const Resume = ({
               <div className="resume-contact">
                 <div className="address">
                   { address.number } { address.street }, { address.city } { address.state }, { address.zip }
-                </div><span>|</span><div className="phone">{ formatPhone(phone) }</div><span>|</span><div className="email">drregg6@gmail.com</div>
+                </div><span>|</span><div className="phone">{ formatPhone(phone) }</div><span>|</span><div className="email">{email}</div>
               </div>
             </div>
             <div className="resume-content">
@@ -85,10 +87,11 @@ const Resume = ({
                     <Education
                       id={school.id}
                       school={school.school}
+                      location={school.location}
                       degree={school.degree}
+                      focus={school.focus}
                       from={school.from}
                       to={school.to}
-                      desc={school.desc}
                     />
                   ))
                 }

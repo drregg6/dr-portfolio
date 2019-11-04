@@ -24,7 +24,7 @@ Employment.propTypes = {
   location: PropTypes.string.isRequired,
   from: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired
+  desc: PropTypes.array.isRequired
 }
 
 export default Employment;

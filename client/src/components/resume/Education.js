@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 const Education = ({
   id,
   school,
+  location,
   degree,
+  focus,
   from,
-  to,
-  desc
+  to
 }) => {
   return (
     <div key={id} className="education">
@@ -17,12 +18,13 @@ const Education = ({
 }
 
 Education.propTypes = {
-  id: PropTypes.string.isRequired,
-  school: PropTypes.string.isRequired,
-  degree: PropTypes.string.isRequired,
-  from: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  school: PropTypes.string,
+  location: PropTypes.string,
+  degree: PropTypes.string,
+  focus: PropTypes.string,
+  from: PropTypes.string,
+  to: PropTypes.string
 }
 
 export default Education;

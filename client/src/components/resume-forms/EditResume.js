@@ -16,6 +16,7 @@ const EditResume = ({
   const [ formData, setFormData ] = useState({
     name: '',
     phone: '',
+    email: '',
     number: '',
     street: '',
     apartment: '',
@@ -28,7 +29,8 @@ const EditResume = ({
     twitter: '',
     website: '',
     technologies: '',
-    bio: ''
+    bio: '',
+    goals: ''
   });
 
   useEffect(() => {
@@ -41,6 +43,7 @@ const EditResume = ({
     setFormData({
       name: loading || !resume.name ? '' : resume.name,
       phone: loading || !resume.phone ? '' : resume.phone,
+      email: loading || !resume.email ? '' : resume.email,
       number: loading || !resume.address ? '' : resume.address.number,
       street: loading || !resume.address ? '' : resume.address.street,
       apartment: loading || !resume.address ? '' : resume.address.apartment,
@@ -53,6 +56,7 @@ const EditResume = ({
       twitter: loading || !resume.social ? '' : resume.social.twitter,
       website: loading || !resume.website ? '' : resume.website,
       bio: loading || !resume.bio ? '' : resume.bio,
+      goals: loading || !resume.goals ? '' : resume.goals,
       technologies: loading || !resume.technologies ? '' : newTechs
     });
   }, [loading]);
@@ -61,6 +65,7 @@ const EditResume = ({
   const {
     name,
     phone,
+    email,
     number,
     street,
     apartment,
@@ -73,6 +78,7 @@ const EditResume = ({
     linkedin,
     website,
     bio,
+    goals,
     technologies
   } = formData;
   const handleChange = event => {
@@ -91,6 +97,7 @@ const EditResume = ({
     setFormData({
       name: '',
       phone: '',
+      email: '',
       number: '',
       street: '',
       apartment: '',
@@ -103,7 +110,8 @@ const EditResume = ({
       twitter: '',
       website: '',
       technologies: '',
-      bio: ''
+      bio: '',
+      goals: ''
     });
   }
   return (
@@ -127,6 +135,17 @@ const EditResume = ({
             name="phone"
             value={phone}
             placeholder="Phone"
+            className="form-input"
+            type="text"
+            onChange={event => handleChange(event)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            name="email"
+            value={email}
+            placeholder="Email"
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}
@@ -215,6 +234,16 @@ const EditResume = ({
             placeholder="Bio"
             name="bio"
             value={bio}
+            className="form-input textarea"
+            onChange={event => handleChange(event)}
+          ></textarea>
+        </div>
+        <div className="form-group">
+          <label htmlFor="goals">Goals</label>
+          <textarea
+            placeholder="Goals"
+            name="goals"
+            value={goals}
             className="form-input textarea"
             onChange={event => handleChange(event)}
           ></textarea>

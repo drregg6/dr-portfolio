@@ -11,6 +11,7 @@ const CreateResume = ({
   const [ formData, setFormData ] = useState({
     name: '',
     phone: '',
+    email: '',
     number: '',
     street: '',
     apartment: '',
@@ -23,12 +24,14 @@ const CreateResume = ({
     twitter: '',
     website: '',
     technologies: '',
-    bio: ''
+    bio: '',
+    goals: ''
   });
   const [ displaySocialInputs, toggleSocialInputs ] = useState(false);
   const {
     name,
     phone,
+    email,
     number,
     street,
     apartment,
@@ -41,7 +44,8 @@ const CreateResume = ({
     twitter,
     website,
     technologies,
-    bio
+    bio,
+    goals
   } = formData;
 
   const handleChange = event => {
@@ -60,6 +64,7 @@ const CreateResume = ({
     setFormData({
     name: '',
     phone: '',
+    email: '',
     number: '',
     street: '',
     apartment: '',
@@ -72,7 +77,8 @@ const CreateResume = ({
     twitter: '',
     website: '',
     technologies: '',
-    bio: ''
+    bio: '',
+    goals: ''
     });
   }
 
@@ -97,6 +103,17 @@ const CreateResume = ({
             name="phone"
             value={phone}
             placeholder="Phone"
+            className="form-input"
+            type="text"
+            onChange={event => handleChange(event)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            name="email"
+            value={email}
+            placeholder="Email"
             className="form-input"
             type="text"
             onChange={event => handleChange(event)}
@@ -185,6 +202,16 @@ const CreateResume = ({
             placeholder="Bio"
             name="bio"
             value={bio}
+            className="form-input textarea"
+            onChange={event => handleChange(event)}
+          ></textarea>
+        </div>
+        <div className="form-group">
+          <label htmlFor="goals">Goals</label>
+          <textarea
+            placeholder="Goals"
+            name="goals"
+            value={goals}
             className="form-input textarea"
             onChange={event => handleChange(event)}
           ></textarea>

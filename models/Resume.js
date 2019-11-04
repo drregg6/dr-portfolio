@@ -9,6 +9,9 @@ const resumeSchema = new Schema({
   name: {
     type: String
   },
+  email: {
+    type: String
+  },
   phone: {
     type: String
   },
@@ -45,7 +48,6 @@ const resumeSchema = new Schema({
     twitter: {
       type: String
     }
-    // email: { type: String }
   },
   website: {
     type: String
@@ -54,6 +56,9 @@ const resumeSchema = new Schema({
     type: [String]
   },
   bio: {
+    type: String
+  },
+  goals: {
     type: String
   },
   employment: [
@@ -81,9 +86,8 @@ const resumeSchema = new Schema({
         type: Boolean,
         default: false
       },
-      // Tasks separated by dashes
       desc: {
-        type: String
+        type: [String]
       }
     }
   ],
@@ -96,13 +100,16 @@ const resumeSchema = new Schema({
       degree: {
         type: String
       },
+      focus: {
+        type: String
+      },
+      location: {
+        type: String
+      },
       from: {
         type: Date
       },
       to: {
-        type: String
-      },
-      desc: {
         type: String
       }
     }

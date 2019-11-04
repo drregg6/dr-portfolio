@@ -8,17 +8,19 @@ const AddEducation = ({ createEducation, history }) => {
   const [ formData, setFormData ] = useState({
     school: '',
     degree: '',
+    focus: '',
+    location: '',
     from: '',
-    to: '',
-    desc: ''
+    to: ''
   });
 
   const {
     school,
     degree,
+    focus,
+    location,
     from,
-    to,
-    desc
+    to
   } = formData;
 
   const handleChange = event => {
@@ -32,8 +34,6 @@ const AddEducation = ({ createEducation, history }) => {
     console.log(formData);
     // Send formData
     createEducation(formData, history);
-
-    // Reset formData
   }
   return (
     <div className="form container">
@@ -51,12 +51,34 @@ const AddEducation = ({ createEducation, history }) => {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="location">Location</label>
+          <input
+            className="form-input"
+            placeholder="Location"
+            name="location"
+            value={location}
+            type="text"
+            onChange={event => handleChange(event)}
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="degree">Degree</label>
           <input
             className="form-input"
             placeholder="Degree"
             name="degree"
             value={degree}
+            type="text"
+            onChange={event => handleChange(event)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="focus">Focus</label>
+          <input
+            className="form-input"
+            placeholder="Focus"
+            name="focus"
+            value={focus}
             type="text"
             onChange={event => handleChange(event)}
           />
@@ -81,16 +103,6 @@ const AddEducation = ({ createEducation, history }) => {
             type="date"
             name="to"
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="desc">Description</label>
-          <textarea
-            placeholder="Description"
-            name="desc"
-            value={desc}
-            className="form-input textarea"
-            onChange={event => handleChange(event)}
-          ></textarea>
         </div>
         <input
           type="submit"

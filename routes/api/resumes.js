@@ -27,6 +27,7 @@ router.get('/', async (req, res) => {
 router.post('/', auth, async (req, res) => {
   let {
     name,
+    email,
     phone,
     number,
     street,
@@ -37,6 +38,7 @@ router.post('/', auth, async (req, res) => {
     website,
     technologies,
     bio,
+    goals,
     github,
     facebook,
     twitter,
@@ -47,8 +49,10 @@ router.post('/', auth, async (req, res) => {
   newResume.user = req.user.id;
   if (name) newResume.name = name;
   if (phone) newResume.phone = phone;
+  if (email) newResume.email = email;
   if (website) newResume.website = website;
   if (bio) newResume.bio = bio;
+  if (goals) newResume.goals = goals;
   if (technologies) {
     newResume.technologies = technologies.split(',').map(tech => tech.trim());
   }
@@ -116,16 +120,18 @@ router.put('/employment', [auth, [
     current,
     desc
   } = req.body;
-
-  const newEmployment = {
-    title,
-    company,
-    location,
-    from,
-    to,
-    current,
-    desc
-  };
+  const newEmployment = {};
+  if (title) newEmployment.title = title;
+  if (company) newEmployment.company = company;
+  if (location) newEmployment.location = location;
+  if (from) newEmployment.from = from;
+  if (to) newEmployment.to = to;
+  if (current) newEmployment.current = current;
+  if (desc) {
+    newEmployment.desc = desc.split('-').map(task => {
+      return task.trim();
+    });
+  }
 
   try {
     let resume = await Resume.findOne({ user: req.user.id });
@@ -169,17 +175,18 @@ router.put('/education', [auth, [
   const {
     school,
     degree,
+    focus,
+    location,
     from,
-    to,
-    desc
+    to
   } = req.body;
-  const newEducation = {
-    school,
-    degree,
-    from,
-    to,
-    desc
-  };
+  const newEducation = {};
+  if (school) newEducation.school = school;
+  if (degree) newEducation.degree = degree;
+  if (focus) newEducation.focus = focus;
+  if (location) newEducation.location = location;
+  if (from) newEducation.from = from;
+  if (to) newEducation.to = to;
 
   try {
     let resume = await Resume.findOne({ user: req.user.id });

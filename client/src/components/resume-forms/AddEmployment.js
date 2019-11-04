@@ -125,6 +125,7 @@ const AddEmployment = ({
             className="form-input textarea"
             onChange={event => handleChange(event)}
           ></textarea>
+          <small>Separate values with dashes(-)</small>
         </div>
         <input
           type="submit"
