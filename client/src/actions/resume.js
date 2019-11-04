@@ -1,6 +1,9 @@
 import {
   GET_RESUME,
-  UPDATE_RESUME
+  UPDATE_RESUME,
+  DELETE_EXPERIENCE,
+  DELETE_EMPLOYMENT,
+  DELETE_EDUCATION
 } from './types';
 
 import axios from 'axios';
@@ -62,6 +65,18 @@ export const createEmployment = (formData, history) => async dispatch => {
   }
 }
 // Delete Employment
+export const deleteEmployment = (id) => async dispatch => {
+  try {
+    axios.delete(`/employment/${id}`);
+    dispatch({
+      type: DELETE_EMPLOYMENT,
+      payload: id
+    });
+    dispatch(setAlert('Employment deleted!'));
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 
 // Create Education
@@ -86,7 +101,18 @@ export const createEducation = (formData, history) => async dispatch => {
   }
 }
 // Delete Education
-
+export const deleteEducation = (id) => async dispatch => {
+  try {
+    axios.delete(`/education/${id}`);
+    dispatch({
+      type: DELETE_EDUCATION,
+      payload: id
+    });
+    dispatch(setAlert('Education deleted!'));
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 // Create Experience
 export const createExperience = (formData, history) => async dispatch => {
@@ -110,3 +136,15 @@ export const createExperience = (formData, history) => async dispatch => {
   }
 }
 // Delete Experience
+export const deleteExperience = (id) => async dispatch => {
+  try {
+    axios.delete(`/experience/${id}`);
+    dispatch({
+      type: DELETE_EXPERIENCE,
+      payload: id
+    });
+    dispatch(setAlert('Project deleted!'));
+  } catch (err) {
+    console.error(err);
+  }
+}

@@ -16,11 +16,11 @@ const Experience = ({
 }
 
 Experience.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  technologies: PropTypes.array.isRequired
+  id: PropTypes.string,
+  title: PropTypes.string,
+  year: PropTypes.string,
+  desc: PropTypes.string,
+  technologies: PropTypes.array
 }
 
 export default Experience;

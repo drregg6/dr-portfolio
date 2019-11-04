@@ -18,13 +18,13 @@ const Employment = ({
 }
 
 Employment.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  from: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
-  desc: PropTypes.array.isRequired
+  id: PropTypes.string,
+  title: PropTypes.string,
+  company: PropTypes.string,
+  location: PropTypes.string,
+  from: PropTypes.string,
+  to: PropTypes.string,
+  desc: PropTypes.array
 }
 
 export default Employment;
