@@ -190,7 +190,7 @@ router.put('/education', [auth, [
     let resume = await Resume.findOne({ user: req.user.id });
     resume.education.unshift(newEducation);
     await resume.save();
-    res.json({ resume });
+    res.json(resume);
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
