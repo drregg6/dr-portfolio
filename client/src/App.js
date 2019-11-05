@@ -8,15 +8,16 @@ https://juliaryan.io/
 https://dean451.github.io/
 
 === TODOS ===
-- Resume should change to CV
 - Work on design
-    - Start with forms
     - Color scheme
     - Effects
 - README.md
 - Error messages
 - Contact form and sending to my email
-- Resume design (or PDF version?)
+- Wallpaper type background for Social and Logo
+- Dark opacity for hero image
+- Work on Contact Component
+- Icon size in Header
 
 === BUGS ===
 - Add Education
@@ -28,6 +29,7 @@ https://dean451.github.io/
     - when pushing back to resume
     - will not generate address obj
 - Something to do with useEffect(?)
+- EditProject will not populate inputs until it's refreshed
 
 */
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
