@@ -645,4 +645,38 @@ form small {
   .contact-content {
     margin: 2rem auto;
   }
+
+  /* === Resume === */
+  .resume {
+    font-size: 85%;
+    line-height: 1.25;
+  }
+  .resume-header {
+    text-align: center;
+  }
+  .resume-name {
+    font-size: 2.75rem;
+    margin-bottom: 2rem;
+  }
+  .resume-contact {
+    flex-direction: column;
+  }
+  .resume-goals {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .resume-content {
+    grid-template-columns: 1fr;
+  }
+  .column-left {
+    font-weight: bold;
+    text-align: center;
+    margin: .5rem 0;
+  }
+  .employment-header,
+  .education-header,
+  .experience-header {
+    flex-direction: column;
+    margin: 1rem 0;
+  }
 }

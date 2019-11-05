@@ -25,7 +25,7 @@ const Education = ({
         <h1 className="bold">{school}</h1>
         <span className="italic">{location}</span>
       </div>
-      <div>
+      <div className="education-degree">
         {degree} in {focus}
       </div>
       {
