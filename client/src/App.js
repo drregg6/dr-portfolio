@@ -18,6 +18,7 @@ https://dean451.github.io/
 - Dark opacity for hero image
 - Work on Contact Component
 - Icon size in Header
+- Spinner
 
 === BUGS ===
 - Add Education
