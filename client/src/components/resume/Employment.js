@@ -24,13 +24,13 @@ const Employment = ({
       </div>
       <div className="employment-header">
         <h1 className="bold">{title}</h1>
-        <span className="italic">{company}</span>
-        <span>{location}</span>
+        <span>{company}</span>
+        <span className="italic">{location}</span>
       </div>
       <ul className="employment-desc">
-        { desc.map(task => {
+        { desc.map((task, i) => {
           return (
-            <li>- {task}</li>
+            <li key={i}>- {task}</li>
           )
         })}
       </ul>

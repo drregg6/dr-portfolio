@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
 import { deleteEducation } from '../../actions/resume';
@@ -17,7 +18,16 @@ const Education = ({
 }) => {
   return (
     <div key={id} className="education">
-      <h1>{ school } | New Brunswick, NJ</h1>
+      <div className="education-dates">
+        <Moment format="MMM YYYY">{from}</Moment> - <Moment format="MMM YYYY">{to}</Moment>
+      </div>
+      <div className="education-header">
+        <h1 className="bold">{school}</h1>
+        <span className="italic">{location}</span>
+      </div>
+      <div>
+        {degree} in {focus}
+      </div>
       {
         isAuthenticated && (
           <button className="delete-button" onClick={() => deleteEducation(id)}>x</button>

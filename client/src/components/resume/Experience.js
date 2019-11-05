@@ -15,7 +15,20 @@ const Experience = ({
 }) => {
   return (
     <div key={id} className="experience">
-      <h1>{ title } | { year }</h1>
+      <div className="experience-header">
+        <h1 className="bold">{ title }</h1>
+        <span className="italic">{year}</span>
+      </div>
+      <div className="experience-desc">
+        {desc}
+      </div>
+      <div className="experience-tech">
+        { technologies.map((tech, i) => {
+          return (
+            <span key={i}>{tech}</span>
+          )
+        })}
+      </div>
       {
         isAuthenticated && (
           <button className="delete-button" onClick={() => deleteExperience(id)}>

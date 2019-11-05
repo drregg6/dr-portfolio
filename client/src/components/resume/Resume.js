@@ -104,6 +104,16 @@ const Resume = ({
                   ))
                 }
               </div>
+              <div className="column-left">Skills</div>
+              <div className="column-right skills">
+                <ul>
+                {
+                  technologies.map((tech, i) => {
+                    return <li key={i}>- {tech}</li>
+                  })
+                }
+                </ul>
+              </div>
             </div>
           </Fragment>
         ) : (

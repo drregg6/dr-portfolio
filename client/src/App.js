@@ -18,6 +18,17 @@ https://dean451.github.io/
 - Contact form and sending to my email
 - Resume design (or PDF version?)
 
+=== BUGS ===
+- Add Education
+    - when pushing back to landing page
+    - will not generate social obj
+- Delete Education
+- Delete Employment
+- Delete Experience
+    - when pushing back to resume
+    - will not generate address obj
+- Something to do with useEffect(?)
+
 */
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { useEffect } from 'react';
