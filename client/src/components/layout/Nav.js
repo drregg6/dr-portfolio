@@ -6,12 +6,10 @@ import responsiveNav from '../../utils/responsiveNav';
 import { fetchResume } from '../../actions/resume';
 import { connect } from 'react-redux';
 
-import Alert from './Alert';
-
 const Nav = ({
   isAuthenticated,
   fetchResume,
-  resume: { loading, resume }
+  resume: { resume }
 }) => {
   useEffect(() => {
     fetchResume();

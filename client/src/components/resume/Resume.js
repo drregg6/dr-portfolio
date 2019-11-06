@@ -15,20 +15,16 @@ const Resume = ({
   resume: { loading, resume }
 }) => {
   useEffect(() => {
-    console.log(loading);
     fetchResume();
   }, [loading]);
-  let name, phone, email, address, social, website, technologies, bio, goals, employment, education, experience;
+  let name, phone, email, address, technologies, goals, employment, education, experience;
 
   if (resume) {
     name = resume.name;
     phone = resume.phone;
     email = resume.email;
     address = resume.address;
-    social = resume.social;
-    website = resume.website;
     technologies = resume.technologies;
-    bio = resume.bio;
     goals = resume.goals;
     employment = resume.employment;
     education = resume.education;

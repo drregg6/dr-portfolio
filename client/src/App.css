@@ -150,6 +150,12 @@ li {
 .content-break {
   min-height: 30vh;
 }
+.p-blurb {
+  font-size: 1.25rem;
+}
+.head {
+  font-size: 1.5rem;
+}
 
 
 
@@ -604,6 +610,9 @@ form small {
   .head {
     font-size: 1.2rem;
   }
+  .p-blurb {
+    font-size: 1rem;
+  }
 
   /* === Nav === */
   .nav {
@@ -736,11 +745,11 @@ form small {
     padding: 0 25px;
   }
   .contact-email {
-    padding: 1rem 0;
+    padding: 2rem 0;
     border-width: 5px;
   }
   .contact-content {
-    margin: 2rem auto;
+    margin: 0 auto;
   }
 
   /* === Resume === */

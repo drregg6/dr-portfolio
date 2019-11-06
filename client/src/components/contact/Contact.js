@@ -44,8 +44,8 @@ const Contact = ({
       <div className="contact-content-container">
         <div className="content-break pattern-background center">
           <div>
-            <h2>Lets chat</h2>
-            <p className="contact-p">
+            <h2 className="head">Lets chat</h2>
+            <p className="contact-p p-blurb">
               I am available for hire! I am free to assist people with their open-source projects! If you are new to the programming world, I would love to help ya out! If you have any questions, comments, or suggestions for me, please feel free to let me know. Thanks!
             </p>
           </div>

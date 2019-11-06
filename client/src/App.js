@@ -12,7 +12,6 @@ https://dean451.github.io/
     - Effects(?)
         - Social icons transition up 10px on hover
 - README.md
-- Error messages
 - Contact form and sending to my email
 
 === BUGS ===
