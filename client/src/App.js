@@ -9,8 +9,7 @@ https://dean451.github.io/
 
 === TODOS ===
 - Work on design
-    - Color scheme
-    - Effects
+    - Effects(?)
 - README.md
 - Error messages
 - Contact form and sending to my email

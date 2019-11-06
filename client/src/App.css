@@ -126,14 +126,17 @@ li {
 .light-color {
   color: var(--primary-light);
 }
-.success,
-.failure {
-  color: var(--primary-light);
+.alert {
+  padding: 1rem 0;
 }
-.success {
+.alert-success,
+.alert-danger {
+  color: #ccc;
+}
+.alert-success {
   background: var(--success-color);
 }
-.failure {
+.alert-danger {
   background: var(--danger-color);
 }
 .pattern-background {
