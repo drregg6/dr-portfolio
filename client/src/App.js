@@ -14,11 +14,7 @@ https://dean451.github.io/
 - README.md
 - Error messages
 - Contact form and sending to my email
-- Wallpaper type background for Social and Logo
-- Dark opacity for hero image
 - Work on Contact Component
-- Icon size in Header
-- Spinner
 
 === BUGS ===
 - Add Education

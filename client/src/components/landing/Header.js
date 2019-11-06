@@ -10,7 +10,7 @@ const Header = ({
 }) => {
   return (
     <div className="header">
-      <div className="header-content">
+      <div className="header-content secondary-color">
         <h1>{name}</h1>
         <h2>Web Developer</h2>
         <div className="header-social">

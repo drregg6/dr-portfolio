@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Quicksand&display=swap');
+:root {
+	--primary-color: #80aebd;
+	--secondary-color: #a9bcc2;
+	--primary-light: #cbbc97;
+  --secondary-light: #f9f9f9;
+  --primary-text: #323433;
+	--highlight: #8d6a9f;
+  --danger-color: #bb342f;
+  --success-color: #a7c4a0;
+}
+
 *,
 *:before,
 *:after {
@@ -6,9 +18,10 @@
 
 body {
   font-size: 16px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Lato, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   line-height: 1.3;
   text-align: center;
+  color: var(--primary-text);
 
   margin: 0 auto;
 }
@@ -24,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: lightsteelblue;
+  color: var(--primary-light);
   text-decoration: none;
   font-weight: normal;
   font-size: 1rem;
@@ -33,7 +46,7 @@ a:visited {
   color: auto;
 }
 a:hover {
-  color: lightcyan;
+  color: var(--secondary-light);
 }
 
 ul,
@@ -62,19 +75,19 @@ li {
 
   font-size: .8rem;
   background: white;
-  border: 1px solid red;
-  color: red;
+  border: 1px solid var(--danger-color);
+  color: var(--danger-color);
   text-align: center;
 
   transition: all .15s;
 }
 .delete-button:hover {
-  background: red;
-  color: white;
+  background: var(--danger-color);
+  color: var(--secondary-light);
 }
 .splash {
   min-height: 60vh;
-  background: darkorange;
+  background: var(--primary-color);
 }
 .splash h1 {
   font-size: 4rem;
@@ -84,25 +97,51 @@ li {
   font-size: 1.5rem;
 }
 .btn {
-  border: 1px solid black;
+  border: 1px solid var(--secondary-color);
   padding: 6px 12px;
   border-radius: 5px;
   text-decoration: none;
-  background: white;
-  color: black;
+  background: #fff;
+  color: var(--secondary-text);
   font-size: 1rem;
 
   transition: all .15s;
 }
 .btn:hover {
-  background: black;
-  color: white;
+  background: var(--secondary-color);
+  color: #fff;
 }
 .italic {
   font-style: italic;
 }
 .bold {
   font-weight: bold;
+}
+.primary-color {
+  color: var(--primary-color);
+}
+.secondary-color {
+  color: var(--secondary-color);
+}
+.light-color {
+  color: var(--primary-light);
+}
+.success,
+.failure {
+  color: var(--primary-light);
+}
+.success {
+  background: var(--success-color);
+}
+.failure {
+  background: var(--danger-color);
+}
+.pattern-background {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%2380aebd' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+.content-break {
+  min-height: 30vh;
 }
 
 
@@ -120,7 +159,7 @@ li {
   display: inline-block;
   height: 50px;
   width: 50px;
-  border: 3px solid darkorange;
+  border: 3px solid var(--primary-color);
   border-radius: 50%;
   border-top-color: #fff;
 
@@ -141,7 +180,7 @@ li {
   position: fixed;
   width: 100%;
   height: 45px;
-  background: #333;
+  background: var(--primary-text);
   z-index: 99;
 }
 
@@ -161,7 +200,7 @@ li {
   padding-bottom: 5px;
 }
 .nav nav ul li a:hover {
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--secondary-light);
 }
 
 .nav-icon {
@@ -174,9 +213,12 @@ li {
 .header {
   height: 100vh;
   width: 100vw;
+  position:relative;
+  overflow: hidden;
 
-  background: lightsalmon;
-  background: url('http://s1.1zoom.net/big0/307/USA_Skyscrapers_Rivers_479965.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5) ),
+    url('http://s1.1zoom.net/big0/307/USA_Skyscrapers_Rivers_479965.jpg');
   background-size: cover;
   background-position: center center;
 
@@ -186,6 +228,19 @@ li {
 
   color: #f3f3f3;
 }
+/* .header:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 200%;
+
+  position: absolute;
+  top: 0;
+  left: 30%;
+
+  background: rgba(255,0,0,0.2);
+  transform: rotate(45deg);
+} */
 
 .header h1 {
   font-size: 3rem;
@@ -197,13 +252,13 @@ li {
 }
 
 .social-icon {
-  margin-right: 15px;
+  margin-right: 50px;
 }
 .social-icon:last-child {
   margin-right: 0;
 }
 .social-icon i {
-  font-size: 1.75rem;
+  font-size: 2.5rem;
 }
 
 
@@ -211,7 +266,6 @@ li {
 /* === About === */
 .about {
   margin: 0 auto;
-  /* max-width: 80vw; */
   height: 80vh;
   border: 25px solid black;
   padding: 50px;
@@ -225,11 +279,6 @@ li {
 
 
 /* === Logos === */
-.logos {
-  min-height: 30vh;
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,140,0,1) 100%);
-}
-
 .tech-logo {
   font-size: 2.5rem;
   margin-right: 150px;
@@ -242,7 +291,7 @@ li {
 
 /* === Portfolio === */
 .portfolio-projects {
-  border: 25px solid darkorange;
+  border: 25px solid var(--primary-color);
 }
 
 
@@ -250,13 +299,13 @@ li {
 /* === Project === */
 .portfolio-project {
   padding: 2rem;
-  border-bottom: 1px dashed darkorange;
+  border-bottom: 1px dashed var(--primary-color);
 
   display: flex;
   position: relative;
 }
 .portfolio-project:nth-child(even) {
-  background: #fafafa;
+  background: var(--secondary-light);
 }
 .portfolio-project:last-child {
   border-bottom: none;
@@ -306,7 +355,7 @@ li {
   display: inline-block;
   padding: 7px 15px;
   margin-right: 5px;
-  border: 1px solid darkorange;
+  border: 1px solid var(--secondary-color);
   border-radius: 5px;
 
   transition: all .15s;
@@ -315,8 +364,8 @@ li {
   margin-right: 0;
 }
 .project-tech:hover {
-  color: white;
-  background: darkorange;
+  color: #fff;
+  background: var(--secondary-color);
 }
 
 .edit-portfolio {
@@ -325,16 +374,17 @@ li {
   right: 5px;
 
   font-size: .8rem;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  background: #fff;
   border-radius: 5px;
   padding: 3px 7px;
 
   transition: all .15s;
 }
 .edit-portfolio:hover {
-  color: white;
-  background: black;
+  color: #fff;
+  background: var(--secondary-color);
 }
 
 
@@ -342,7 +392,6 @@ li {
 /* === Social === */
 .social {
   min-height: 30vh;
-  background: linear-gradient(180deg, rgba(255,140,0,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 .social-component-icon {
@@ -362,11 +411,13 @@ li {
 .footer {
   padding: .25rem 0;
   background: black;
-  color: white;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.footer h1 {
+  color: var(--secondary-light);
 }
 
 
@@ -418,7 +469,7 @@ form small {
 
 /* === Contact === */
 .contact-content {
-  margin: 5rem auto;
+  padding: 5rem auto;
 }
 
 .contact-p {
@@ -427,7 +478,7 @@ form small {
 
 .contact-email {
   padding: 2.5rem 0;
-  border: 25px solid darkorange;
+  border: 25px solid var(--primary-color);
 }
 
 .contact-form {
@@ -445,7 +496,7 @@ form small {
   text-align: left;
   padding: 2rem 0;
 
-  border-bottom: 10px solid darkorange;
+  border-bottom: 10px solid var(--primary-color);
 }
 .resume-name {
   font-size: 4.25rem;
@@ -489,9 +540,6 @@ form small {
 .skills {
   padding: 1rem 0;
 }
-.employment:nth-child(even) {
-  background: #fcfcfc;
-}
 .employment-dates,
 .education-dates,
 .experience-tech {
@@ -518,7 +566,7 @@ form small {
 }
 .experience-tech span {
   padding: 2px 5px;
-  border: 1px solid darkorange;
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
   margin-right: 5px;
 }
@@ -577,13 +625,19 @@ form small {
 
   /* === Header === */
   .header h1 {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
   }
   .header h2 {
     font-size: 2.5rem;
   }
+  .social-icon {
+    margin-right: 25px;
+  }
+  .social-icon:last-child {
+    margin-right: 0;
+  }
   .header .social-icon i {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   /* === About === */
@@ -634,7 +688,7 @@ form small {
 
   /* === Social === */
   .social {
-    margin: 2rem auto;
+    padding: 2rem auto;
   }
   .social-component-icon {
     margin-right: 25px;
@@ -667,7 +721,7 @@ form small {
   }
   .contact-email {
     padding: 1rem 0;
-    border: 5px solid darkorange;
+    border-width: 5px;
   }
   .contact-content {
     margin: 2rem auto;

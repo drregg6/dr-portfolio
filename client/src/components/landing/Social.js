@@ -15,7 +15,7 @@ const Social = ({
   }, []);
   const { social } = resume;
   return (
-    <div className="social center">
+    <div className="social center pattern-background content-break">
       { loading ? (
         <Spinner />
       ) : (

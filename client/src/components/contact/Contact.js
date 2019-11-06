@@ -43,11 +43,13 @@ const Contact = ({
         <h1>Contact me</h1>
       </div>
       <div className="contact-content-container">
-        <div className="contact-content">
-          <h2 className="head">Feel free to chat</h2>
-          <p className="contact-p">
-            I would love to be hired! I am free to assist people with their open-source projects! If you are new to the programming world, I would love to help ya out! If you have any questions, comments, or suggestions for <span className="highlight">Phila Brews</span>, please feel free to let me know. I am also in the early stages of developing a sister app for <span className="highlight">Phila Brews</span>. Check out the <Link to="/about">About</Link> page for more information, and if you would like to contribute, please shoot me an email!
-          </p>
+        <div className="content-break pattern-background center">
+          <div>
+            <h2>Lets chat</h2>
+            <p className="contact-p">
+              I would love to be hired! I am free to assist people with their open-source projects! If you are new to the programming world, I would love to help ya out! If you have any questions, comments, or suggestions for <span className="highlight">Phila Brews</span>, please feel free to let me know. I am also in the early stages of developing a sister app for <span className="highlight">Phila Brews</span>. Check out the <Link to="/about">About</Link> page for more information, and if you would like to contribute, please shoot me an email!
+            </p>
+          </div>
         </div>
         <div className="contact-content contact-email">
           <h2 className="head">Email me</h2>
@@ -91,24 +93,26 @@ const Contact = ({
               />
           </form>
         </div>
-        <div className="contact-content">
-          <h2 className="head">Socialize with me</h2>
-          { loading ? (<Spinner />) : (
-            <div className="social-component-icons">
-              <a href={resume.social.github} target="_blank" rel="noopener noreferrer" className="social-component-icon">
-                <i className="fab fa-github"></i>
-              </a>
-              <a href={resume.social.twitter} target="_blank" rel="noopener noreferrer" className="social-component-icon">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href={resume.social.instagram}target="_blank" rel="noopener noreferrer" className="social-component-icon">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href={resume.social.linkedin} target="_blank" rel="noopener noreferrer" className="social-component-icon">
-                <i className="fab fa-linkedin"></i>
-              </a>
-            </div>
-          )}
+        <div className="content-break center pattern-background">
+          <div>
+            <h2 className="head">Socialize with me</h2>
+            { loading ? (<Spinner />) : (
+              <div className="social-component-icons">
+                <a href={resume.social.github} target="_blank" rel="noopener noreferrer" className="social-component-icon">
+                  <i className="fab fa-github"></i>
+                </a>
+                <a href={resume.social.twitter} target="_blank" rel="noopener noreferrer" className="social-component-icon">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href={resume.social.instagram}target="_blank" rel="noopener noreferrer" className="social-component-icon">
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a href={resume.social.linkedin} target="_blank" rel="noopener noreferrer" className="social-component-icon">
+                  <i className="fab fa-linkedin"></i>
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
