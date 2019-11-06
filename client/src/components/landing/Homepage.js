@@ -40,7 +40,9 @@ const Homepage = ({
             github={resume.social.github}
             instagram={resume.social.instagram}
           />
-          <About />
+          <About
+            bio={resume.bio}
+          />
           <Logos />
           <Portfolio />
           <Social />

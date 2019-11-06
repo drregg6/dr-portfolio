@@ -403,6 +403,9 @@ li {
 .social-component-icon:last-child {
   margin-right: 0;
 }
+.social-component-icon:hover {
+  color: var(--secondary-color);
+}
 
 .social-component-icon i {
   font-size: 3.8rem;

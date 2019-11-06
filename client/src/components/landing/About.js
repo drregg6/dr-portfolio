@@ -1,12 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const About = () => {
+const About = ({bio}) => {
   return (
     <div className="about">
       <img src="http://placekitten.com/250/250" />
-      <p>Hello world! My name is Dave Regg and I am a Web Developer. I have years of experience building pet projects, and I want to bring my expertise to you!</p>
+      <p>
+        {bio}
+      </p>
     </div>
   )
+}
+
+About.propTypes = {
+  bio: PropTypes.string
 }
 
 export default About;
