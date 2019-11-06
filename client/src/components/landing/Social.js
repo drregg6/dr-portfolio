@@ -1,5 +1,4 @@
 import React, { useEffect, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
@@ -30,9 +29,9 @@ const Social = ({
             <a href={social.instagram} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
               <i className="fab fa-instagram"></i>
             </a>
-            <Link to="/contact" className="social-component-icon">
-              <i className="far fa-paper-plane"></i>
-            </Link>
+            <a href={social.linkedin} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
+              <i className="fab fa-linkedin"></i>
+            </a>
           </div>
         </Fragment>
       ) }

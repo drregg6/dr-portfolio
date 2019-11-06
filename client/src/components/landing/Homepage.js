@@ -36,6 +36,7 @@ const Homepage = ({
         <Fragment>
           <Header
             name={resume.name}
+            linkedin={resume.social.linkedin}
             twitter={resume.social.twitter}
             github={resume.social.github}
             instagram={resume.social.instagram}

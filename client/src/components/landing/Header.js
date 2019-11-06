@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 const Header = ({
   name,
   twitter,
+  linkedin,
   github,
   instagram
 }) => {
@@ -23,9 +23,9 @@ const Header = ({
           <a href={instagram} target="_blank" rel="noopener noreferrer"  className="social-icon">
             <i className="fab fa-instagram"></i>
           </a>
-          <Link to="/contact" className="social-icon">
-            <i className="far fa-paper-plane"></i>
-          </Link>
+          <a href={linkedin} target="_blank" rel="noopener noreferrer"  className="social-icon">
+            <i className="fab fa-linkedin"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -36,6 +36,7 @@ Header.propTypes = {
   name: PropTypes.string,
   twitter: PropTypes.string,
   github: PropTypes.string,
+  linkedin: PropTypes.string,
   instagram: PropTypes.string
 }
 

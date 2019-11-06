@@ -674,6 +674,7 @@ form small {
   }
   .project-info {
     padding: 0;
+    padding-top: 10px;
   }
   .live,
   .code {
