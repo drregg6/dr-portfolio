@@ -16,16 +16,8 @@ https://dean451.github.io/
 - Work on Contact Component
 
 === BUGS ===
-- Add Education
-    - when pushing back to landing page
-    - will not generate social obj
-- Delete Education
-- Delete Employment
-- Delete Experience
-    - when pushing back to resume
-    - will not generate address obj
-- Something to do with useEffect(?)
 - EditProject will not populate inputs until it's refreshed
+- Mobile Nav
 
 */
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';

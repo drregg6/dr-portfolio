@@ -29,19 +29,28 @@ export default function(state = initialState, action) {
     case DELETE_EXPERIENCE:
       return {
         ...state,
-        resume: state.resume.experience.filter(project => project.id !== payload),
+        resume: {
+          ...state.resume,
+          experience: state.resume.experience.filter(project => project._id !== payload)
+        },
         loading: false
       }
     case DELETE_EMPLOYMENT:
       return {
         ...state,
-        resume: state.resume.employment.filter(job => job.id !== payload),
+        resume: {
+          ...state.resume,
+          employment: state.resume.employment.filter(job => job._id !== payload)
+        },
         loading: false
       }
     case DELETE_EDUCATION:
       return {
         ...state,
-        resume: state.resume.education.filter(school => school.id !== payload),
+        resume: {
+          ...state.resume,
+          education: state.resume.education.filter(school => school._id !== payload)
+        },
         loading: false
       }
     default:

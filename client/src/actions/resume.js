@@ -58,7 +58,7 @@ export const createEmployment = (formData, history) => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert('Employment created!'), 'success');
+    dispatch(setAlert('Employment created!', 'success'));
     history.push('/');
   } catch (err) {
     console.error(err);
@@ -72,7 +72,7 @@ export const deleteEmployment = (id) => async dispatch => {
       type: DELETE_EMPLOYMENT,
       payload: id
     });
-    dispatch(setAlert('Employment deleted!'), 'danger');
+    dispatch(setAlert('Employment deleted!', 'danger'));
   } catch (err) {
     console.error(err);
   }
@@ -94,7 +94,7 @@ export const createEducation = (formData, history) => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert('Education created!'), 'success');
+    dispatch(setAlert('Education created!', 'success'));
     history.push('/');
   } catch (err) {
     console.error(err);
@@ -108,7 +108,7 @@ export const deleteEducation = (id) => async dispatch => {
       type: DELETE_EDUCATION,
       payload: id
     });
-    dispatch(setAlert('Education deleted!'), 'danger');
+    dispatch(setAlert('Education deleted!', 'danger'));
   } catch (err) {
     console.error(err);
   }
@@ -129,7 +129,7 @@ export const createExperience = (formData, history) => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert('Experience created!'), 'success');
+    dispatch(setAlert('Experience created!', 'success'));
     history.push('/');
   } catch (err) {
     console.error(err);
@@ -144,7 +144,7 @@ export const deleteExperience = (id) => async dispatch => {
       type: DELETE_EXPERIENCE,
       payload: id
     });
-    dispatch(setAlert('Project deleted!'), 'danger');
+    dispatch(setAlert('Project deleted!', 'danger'));
   } catch (err) {
     console.error(err);
   }
