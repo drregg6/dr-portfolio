@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { fetchResume } from '../../actions/resume';
 import formatPhone from '../../utils/formatPhone';
+import capitalize from '../../utils/capitalize';
 import { connect } from 'react-redux';
 
 import Employment from './Employment';
@@ -105,7 +106,7 @@ const Resume = ({
                 <ul>
                 {
                   technologies.map((tech, i) => {
-                    return <li key={i}>- {tech}</li>
+                    return <li key={i}>- {capitalize(tech)}</li>
                   })
                 }
                 </ul>
