@@ -131,7 +131,7 @@ li {
 }
 .alert-success,
 .alert-danger {
-  color: #ccc;
+  color: #fff;
 }
 .alert-success {
   background: var(--success-color);

@@ -40,7 +40,7 @@ router.post('/', auth, async (req, res) => {
     bio,
     goals,
     github,
-    facebook,
+    instagram,
     twitter,
     linkedin
   } = req.body;
@@ -64,8 +64,8 @@ router.post('/', auth, async (req, res) => {
   if (state) newResume.address.state = state;
   if (zip) newResume.address.zip = zip;
   newResume.social = {};
+  if (instagram) newResume.social.instagram = instagram;
   if (github) newResume.social.github = github;
-  if (facebook) newResume.social.facebook = facebook;
   if (linkedin) newResume.social.linkedin = linkedin;
   if (twitter) newResume.social.twitter = twitter;
 
