@@ -10,14 +10,13 @@ https://dean451.github.io/
 === TODOS ===
 - Work on design
     - Effects(?)
+        - Social icons transition up 10px on hover
 - README.md
 - Error messages
 - Contact form and sending to my email
-- Work on Contact Component
 
 === BUGS ===
 - EditProject will not populate inputs until it's refreshed
-- Mobile Nav
 
 */
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -25,6 +24,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 import Nav from './components/layout/Nav';
+import Alert from './components/layout/Alert';
 import Footer from './components/layout/Footer';
 
 import Homepage from './components/landing/Homepage';
@@ -57,6 +57,7 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
+        <Alert />
         <Switch>
           <Route exact path='/' component={Homepage} />
           <Route exact path='/resume' component={Resume} />

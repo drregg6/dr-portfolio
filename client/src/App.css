@@ -127,6 +127,10 @@ li {
   color: var(--primary-light);
 }
 .alert {
+  margin-top: 45px;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
   padding: 1rem 0;
 }
 .alert-success,

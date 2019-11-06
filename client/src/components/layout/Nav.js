@@ -65,7 +65,6 @@ const Nav = ({
         </Fragment>
       ) }
       </div>
-      <Alert />
     </div>
   )
 };

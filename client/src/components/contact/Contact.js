@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
@@ -47,7 +46,7 @@ const Contact = ({
           <div>
             <h2>Lets chat</h2>
             <p className="contact-p">
-              I would love to be hired! I am free to assist people with their open-source projects! If you are new to the programming world, I would love to help ya out! If you have any questions, comments, or suggestions for <span className="highlight">Phila Brews</span>, please feel free to let me know. I am also in the early stages of developing a sister app for <span className="highlight">Phila Brews</span>. Check out the <Link to="/about">About</Link> page for more information, and if you would like to contribute, please shoot me an email!
+              I am available for hire! I am free to assist people with their open-source projects! If you are new to the programming world, I would love to help ya out! If you have any questions, comments, or suggestions for me, please feel free to let me know. Thanks!
             </p>
           </div>
         </div>
