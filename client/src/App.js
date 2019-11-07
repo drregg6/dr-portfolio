@@ -8,7 +8,6 @@ https://juliaryan.io/
 https://dean451.github.io/
 
 === TODOS ===
-- Contact form and sending to my email
 
 === BUGS ===
 - EditProject will not populate inputs until it's refreshed
