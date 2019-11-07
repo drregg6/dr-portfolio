@@ -6,7 +6,7 @@ const About = ({bio}) => {
     <div className="about">
       <img src="http://placekitten.com/250/250" alt="Dave Regg" />
       <p className="p-blurb">
-        {bio}
+        {bio ? bio : 'Hello world!'}
       </p>
     </div>
   )

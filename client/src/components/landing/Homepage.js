@@ -30,7 +30,7 @@ const Homepage = ({
   }, [])
   return (
     <div className="content container">
-      { loading ? (
+      { loading || !resume ? (
         <Spinner />
       ) : (
         <Fragment>

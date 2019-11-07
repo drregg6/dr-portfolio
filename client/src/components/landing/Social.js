@@ -20,16 +20,16 @@ const Social = ({
       ) : (
         <Fragment>
           <div className="social-component-icons">
-            <a href={social.github} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
+            <a href={social ? social.github : 'https://github.com'} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
               <i className="fab fa-github"></i>
             </a>
-            <a href={social.twitter} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
+            <a href={social ? social.twitter : 'https://twitter.com'} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
               <i className="fab fa-twitter"></i>
             </a>
-            <a href={social.instagram} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
+            <a href={social ? social.instagram : 'https://instagram.com'} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
               <i className="fab fa-instagram"></i>
             </a>
-            <a href={social.linkedin} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
+            <a href={social ? social.linkedin : 'https://linkedin.com'} target="_blank" rel="noopener noreferrer"  className="social-component-icon">
               <i className="fab fa-linkedin"></i>
             </a>
           </div>

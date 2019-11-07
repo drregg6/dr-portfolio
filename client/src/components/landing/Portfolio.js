@@ -9,14 +9,14 @@ import { connect } from 'react-redux';
 
 const Portfolio = ({ portfolio, fetchPortfolios }) => {
   useEffect(() => {
-    fetchPortfolios("5db0f009713473288793f118");
+    fetchPortfolios("5dc3685ea9b5b7107dec9315");
   }, []);
 
   const { loading, portfolios } = portfolio;
   return (
     <div className="portfolio" id="portfolio">
       <div className="portfolio-projects">
-        { loading ? (
+        { loading || !portfolios ? (
           <Spinner />
         ) : (
           <Fragment>
