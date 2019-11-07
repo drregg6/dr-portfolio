@@ -6,9 +6,6 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-app.get('/', (req, res) => {
-  res.send('Hello from server! :)');
-});
 app.use(express.json({ extended: false }));
 
 // Get the routes
