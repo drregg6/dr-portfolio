@@ -8,10 +8,6 @@ https://juliaryan.io/
 https://dean451.github.io/
 
 === TODOS ===
-- Work on design
-    - Effects(?)
-        - Social icons transition up 10px on hover
-- README.md
 - Contact form and sending to my email
 
 === BUGS ===

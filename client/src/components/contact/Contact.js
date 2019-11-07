@@ -3,11 +3,13 @@ import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
 import { fetchResume } from '../../actions/resume';
+import { sendEmail } from '../../actions/contact';
 import { connect } from 'react-redux';
 
 const Contact = ({
   resume: { resume, loading },
-  fetchResume
+  fetchResume,
+  sendEmail
 }) => {
   useEffect(() => {
     fetchResume();
@@ -29,7 +31,9 @@ const Contact = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
+    sendEmail(formData);
 
+    // Reset form data
     setFormData({
       email: '',
       subject: '',
@@ -129,5 +133,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchResume }
+  { fetchResume, sendEmail }
 )(Contact);
