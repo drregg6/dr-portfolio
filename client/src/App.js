@@ -8,6 +8,9 @@ https://juliaryan.io/
 https://dean451.github.io/
 
 === TODOS ===
+- Skills in Resume loses layout on mobile
+- favicon and cat image need to be replaced
+- host images and post them with portfolio
 
 === BUGS ===
 - EditProject will not populate inputs until it's refreshed

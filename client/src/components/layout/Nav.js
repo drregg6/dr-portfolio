@@ -18,7 +18,7 @@ const Nav = ({
     <div className="nav">
       <div className="nav-toggle">
         <a href="#!" className="nav-icon" onClick={() => responsiveNav()}>
-          Menu
+          <i class="fas fa-bars"></i>
         </a>
       </div>
       <div className="nav-link">

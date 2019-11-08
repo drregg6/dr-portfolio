@@ -46,7 +46,7 @@ const Contact = ({
         <h1>Contact me</h1>
       </div>
       <div className="contact-content-container">
-        <div className="content-break pattern-background center">
+        <div className="content-break pattern-background center chat">
           <div>
             <h2 className="head">Lets chat</h2>
             <p className="contact-p p-blurb">
