@@ -31,10 +31,12 @@ const Project = ({
           {
             backgroundImage: `url(${img})`,
             width: 250,
+            height: 'auto',
             backgroundSize: 'cover'
           }
         }
       >
+        <img src={img} style={{visibility: 'hidden'}} alt={title} />
         <a rel="noopener noreferrer" href={live} target="_blank" className="btn img-btn live">Live</a>
         <a rel="noopener noreferrer" href={code} target="_blank" className="btn img-btn code">Code</a>
       </div>
