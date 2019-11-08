@@ -8,7 +8,7 @@ https://juliaryan.io/
 https://dean451.github.io/
 
 === TODOS ===
-- Skills in Resume loses layout on mobile
+- Newer version is not up to date with heroku
 - favicon and cat image need to be replaced
 - host images and post them with portfolio
 

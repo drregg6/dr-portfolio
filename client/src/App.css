@@ -290,6 +290,11 @@ li {
   flex-direction: column;
 }
 
+.about img {
+  width: 425px;
+  height: auto;
+}
+
 
 
 /* === Logos === */
@@ -673,14 +678,21 @@ form small {
   }
 
   /* === About === */
-  .tech-logos {
-    margin: 1rem;
-    font-size: 1.2rem;
+  .about {
+    padding: 25px;
+  }
+  .about img {
+    width: 225px;
+    height: auto;
   }
 
   /* === Logo === */
   .logo {
     margin: 2rem auto;
+  }
+  .tech-logos {
+    margin: 1rem;
+    font-size: 1.2rem;
   }
   .tech-logo {
     font-size: 1.75rem;

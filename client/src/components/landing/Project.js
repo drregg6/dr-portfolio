@@ -31,7 +31,7 @@ const Project = ({
           {
             backgroundImage: `url(${img})`,
             width: 250,
-            height: 250
+            backgroundSize: 'cover'
           }
         }
       >
