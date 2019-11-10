@@ -8,9 +8,6 @@ https://juliaryan.io/
 https://dean451.github.io/
 
 === TODOS ===
-- Newer version is not up to date with heroku
-- favicon and cat image need to be replaced
-- host images and post them with portfolio
 
 === BUGS ===
 - EditProject will not populate inputs until it's refreshed

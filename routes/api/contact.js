@@ -4,8 +4,8 @@ const express = require('express');
 const router = express.Router();
 
 require('dotenv').config();
-const USER = process.env.GUSER;
-const PASS = process.env.GPASS;
+const USER = process.env.DUSER;
+const PASS = process.env.DPASS;
 
 router.post('/', [
   check('email', 'Email is required')
@@ -40,7 +40,7 @@ router.post('/', [
   });
 
   const mailBody = {
-    to: 'drregg6@gmail.com',
+    to: 'dave.r.regg@gmail.com',
     from: email,
     subject: subject,
     text: `From: <${email}>\nMessage: ${msg}`
