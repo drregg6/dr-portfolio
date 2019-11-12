@@ -9,15 +9,13 @@ const Footer = ({ isAuthenticated, logout }) => {
   return (
     <div className="footer">
       <h1>&copy;2019 <a href="https://github.com/drregg6" target="_blank" rel="noopener noreferrer">Dave Regg</a></h1>
-      { isAuthenticated ? (
+      { isAuthenticated && (
         <button
           className="btn logout-btn"
           onClick={() => {logout()}}
         >
           Logout
         </button>
-      ) : (
-        <Link to="/login" className="btn login-btn">Login</Link>
       )}
     </div>
   )
