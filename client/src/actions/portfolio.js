@@ -39,6 +39,7 @@ export const fetchPortfolios = (id) => async dispatch => {
 export const fetchPort = (id) => async dispatch => {
   try {
     const res = await axios.get(`/api/portfolios/portfolio/${id}`);
+    console.log(res.data);
     dispatch({
       type: GET_PORTFOLIO,
       payload: res.data.portfolio
