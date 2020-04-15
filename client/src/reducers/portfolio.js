@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   users: [],
-  editPort: {},
+  editPort: null,
   portfolios: [],
   loading: true
 }
@@ -50,7 +50,7 @@ export default function(state = initialState, action) {
     case CLEAR_PORTFOLIO:
       return {
         ...state,
-        editPort: {},
+        editPort: null,
         loading: false
       };
     default:

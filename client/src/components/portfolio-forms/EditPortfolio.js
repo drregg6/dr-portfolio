@@ -16,6 +16,25 @@ In this case, editPort is the dependent
 fetchPort would CLEAR editPort when called, and then recall to fill that obj
 I had to remove the action that would clear editPort
 
+---
+OR TRY
+---
+
+useEffect(() => {
+    async function fetchData() {
+        try {
+            const response = await fetch(
+                `https://www.reddit.com/r/${subreddit}.json`
+            );
+            const json = await response.json();
+            setPosts(json.data.children.map(it => it.data));
+        } catch (e) {
+            console.error(e);
+        }
+    };
+    fetchData();
+}, []);
+
 */
 
 import React, { useEffect, useState } from 'react';
@@ -60,7 +79,7 @@ const EditPortfolio = ({
       desc: loading || !editPort.desc ? '' : editPort.desc,
       technologies: loading || !editPort.technologies ? '' : newTechs,
     });
-  }, [loading]);
+  }, [match.params.id]);
 
   const { title, year, live, code, image, desc, technologies } = formData;
   const handleChange = event => {
