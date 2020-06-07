@@ -21,7 +21,7 @@ const Portfolio = ({ portfolio, fetchPortfolios }) => {
         ) : (
           <Fragment>
             {
-              portfolios.map(project => {
+              portfolios.slice(0,6).map(project => {
                 return <Project
                   key={project._id}
                   id={project._id}
