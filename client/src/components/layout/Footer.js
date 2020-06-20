@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 const Footer = ({ isAuthenticated, logout }) => {
   return (
     <div className="footer">
-      <h1>&copy;2019 <a href="https://github.com/drregg6" target="_blank" rel="noopener noreferrer">Dave Regg</a></h1>
+      <h1>&copy;{new Date().getFullYear()} <a href="https://github.com/drregg6" target="_blank" rel="noopener noreferrer">Dave Regg</a></h1>
       { isAuthenticated && (
         <button
           className="btn logout-btn"
