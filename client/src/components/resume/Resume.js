@@ -41,11 +41,6 @@ const Resume = ({
           <Fragment>
             <div className="resume-header">
               <h1 className="resume-name">{ name }</h1>
-              <div className="resume-contact">
-                <div className="address">
-                  { address.number } { address.street }, { address.city } { address.state }, { address.zip }
-                </div><span>-</span><div className="phone">{ formatPhone(phone) }</div><span>-</span><div className="email">{email}</div>
-              </div>
             </div>
             <div className="resume-goals">
               {goals}
