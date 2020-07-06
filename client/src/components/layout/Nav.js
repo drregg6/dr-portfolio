@@ -13,12 +13,12 @@ const Nav = ({
 }) => {
   useEffect(() => {
     fetchResume();
-  }, [])
+  }, [fetchResume])
   return (
     <div className="nav">
       <div className="nav-toggle">
         <a href="#!" className="nav-icon" onClick={() => responsiveNav()}>
-          <i class="fas fa-bars"></i>
+          <i className="fas fa-bars"></i>
         </a>
       </div>
       <div className="nav-link">

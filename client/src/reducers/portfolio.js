@@ -30,6 +30,7 @@ export default function(state = initialState, action) {
         loading: false
       }
     case GET_PORTFOLIOS:
+      console.log(payload);
       return {
         ...state,
         portfolios: [...payload],

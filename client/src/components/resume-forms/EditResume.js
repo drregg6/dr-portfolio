@@ -59,7 +59,19 @@ const EditResume = ({
       goals: loading || !resume.goals ? '' : resume.goals,
       technologies: loading || !resume.technologies ? '' : newTechs
     });
-  }, [loading]);
+  }, [
+    fetchResume,
+    loading,
+    resume.address,
+    resume.bio,
+    resume.email,
+    resume.goals,
+    resume.name,
+    resume.phone,
+    resume.social,
+    resume.technologies,
+    resume.website
+  ]);
   const [ displaySocialInputs, toggleSocialInputs ] = useState(false);
 
   const {

@@ -13,7 +13,7 @@ const Contact = ({
 }) => {
   useEffect(() => {
     fetchResume();
-  }, []);
+  }, [fetchResume]);
   const [ formData, setFormData ] = useState({
     email: '',
     subject: '',

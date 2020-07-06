@@ -13,7 +13,7 @@ const Portfolio = ({ portfolio, fetchPortfolios }) => {
   // Grab users portfolio, in this case the only Port that exists
   useEffect(() => {
     fetchPortfolios("5dc3685ea9b5b7107dec9315");
-  }, []);
+  }, [fetchPortfolios]);
 
   /*
     Check for loading

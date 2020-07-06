@@ -25,7 +25,7 @@ const Homepage = ({
   useEffect(() => {
     fetchPortfolios("5dc36bd460f321113e814551");
     fetchResume();
-  }, [])
+  }, [fetchPortfolios, fetchResume])
   return (
     /*
       Before each component, ensure that store is populated with data

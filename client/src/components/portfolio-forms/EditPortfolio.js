@@ -79,7 +79,18 @@ const EditPortfolio = ({
       desc: loading || !editPort.desc ? '' : editPort.desc,
       technologies: loading || !editPort.technologies ? '' : newTechs,
     });
-  }, [match.params.id]);
+  }, [
+    match.params.id,
+    editPort.code,
+    editPort.desc,
+    editPort.image,
+    editPort.live,
+    editPort.technologies,
+    editPort.title,
+    editPort.year,
+    fetchPort,
+    loading
+  ]);
 
   const { title, year, live, code, image, desc, technologies } = formData;
   const handleChange = event => {

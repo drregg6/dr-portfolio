@@ -11,7 +11,7 @@ const Social = ({
 }) => {
   useEffect(() => {
     fetchResume();
-  }, []);
+  }, [fetchResume]);
   const { social } = resume;
   return (
     <div className="social center pattern-background content-break">

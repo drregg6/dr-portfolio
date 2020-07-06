@@ -3,7 +3,6 @@ import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
 import { fetchResume } from '../../actions/resume';
-import formatPhone from '../../utils/formatPhone';
 import capitalize from '../../utils/capitalize';
 import { connect } from 'react-redux';
 
@@ -17,7 +16,7 @@ const Resume = ({
 }) => {
   useEffect(() => {
     fetchResume();
-  }, [loading]);
+  }, [fetchResume]);
   let name, phone, email, address, technologies, goals, employment, education, experience;
 
   if (resume) {
