@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Redux
 import { connect } from 'react-redux';
 import { deletePortfolio } from '../../actions/portfolio';
 
@@ -42,7 +43,7 @@ const Project = ({
       </div>
       <div className="project-info">
         <div className="project-header">
-          <h1>{ title }</h1>
+          <h1><a className="project-title" href={live} target="_blank" rel="noopener noreferrer">{ title }</a></h1>
           <span>{ !year ? '2019' : year }</span>
         </div>
         <div className="project-desc">

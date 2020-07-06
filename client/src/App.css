@@ -338,6 +338,13 @@ li {
 .project-header h1 {
   font-weight: bold;
 }
+.project-title {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.project-title:hover {
+  color: var(--secondary-color);
+}
 .project-header span {
   font-style: italic;
 }

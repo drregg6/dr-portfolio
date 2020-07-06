@@ -1,10 +1,12 @@
 import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+// Redux
 import { fetchPortfolios } from '../../actions/portfolio';
 import { fetchResume } from '../../actions/resume';
 import { connect } from 'react-redux';
 
+// Child Components
 import Spinner from '../layout/Spinner';
 import Header from './Header';
 import About from './About';
@@ -15,20 +17,20 @@ import Social from './Social';
 const Homepage = ({
   fetchPortfolios,
   fetchResume,
-  portfolio: {
-    portfolios
-  },
   resume: {
     loading,
     resume
-  },
-  isAuthenticated
+  }
 }) => {
   useEffect(() => {
     fetchPortfolios("5dc36bd460f321113e814551");
     fetchResume();
   }, [])
   return (
+    /*
+      Before each component, ensure that store is populated with data
+      <loading> exists in all stores, check for its existence and run spinner when loading
+    */
     <div className="content container">
       { loading || !resume ? (
         <Spinner />

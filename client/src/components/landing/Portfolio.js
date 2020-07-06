@@ -1,17 +1,27 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+// Reusable and child components
 import Spinner from '../layout/Spinner';
 import Project from './Project';
 
+// Redux tools
 import { fetchPortfolios } from '../../actions/portfolio';
 import { connect } from 'react-redux';
 
 const Portfolio = ({ portfolio, fetchPortfolios }) => {
+  // Grab users portfolio, in this case the only Port that exists
   useEffect(() => {
     fetchPortfolios("5dc3685ea9b5b7107dec9315");
   }, []);
 
+  /*
+    Check for loading
+    if
+      loading, show Spinner
+    else
+      populate data
+  */
   const { loading, portfolios } = portfolio;
   return (
     <div className="portfolio" id="portfolio">
@@ -20,6 +30,7 @@ const Portfolio = ({ portfolio, fetchPortfolios }) => {
           <Spinner />
         ) : (
           <Fragment>
+            {/* only the first six portfolio projects will populate */}
             {
               portfolios.slice(0,6).map(project => {
                 return <Project
