@@ -31,6 +31,9 @@ const Nav = ({
       <div>
         <Link to="/contact">Contact</Link>
       </div>
+      <div>
+        <a href="https://blog.daveregg.com/">Blog</a>
+      </div>
       { isAuthenticated && (
         <Fragment>
           <div>
