@@ -3,6 +3,7 @@ import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
 import { fetchResume } from '../../actions/resume';
+import formatPhone from '../../utils/formatPhone';
 import capitalize from '../../utils/capitalize';
 import { connect } from 'react-redux';
 
@@ -40,6 +41,11 @@ const Resume = ({
           <Fragment>
             <div className="resume-header">
               <h1 className="resume-name">{ name }</h1>
+              <div className="resume-contact">
+                <div className="address">
+                  { address.number } { address.street }, { address.apartment  }, { address.city } { address.state }, { address.zip }
+                </div><span>-</span><div className="phone">{ formatPhone(phone) }</div><span>-</span><div className="email">{email}</div>
+              </div>
             </div>
             <div className="resume-goals">
               {goals}
