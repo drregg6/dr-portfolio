@@ -1,12 +1,11 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { createResume, fetchResume } from '../../actions/resume';
+import { createResume } from '../../actions/resume';
 import { connect } from 'react-redux';
 
 const EditResume = ({
   createResume,
-  fetchResume,
   history,
   resume: {
     loading,
@@ -32,49 +31,7 @@ const EditResume = ({
     bio: '',
     goals: ''
   });
-
-  useEffect(() => {
-    fetchResume();
-
-    let newTechs = '';
-    if (resume.technologies) {
-      newTechs = resume.technologies.join(',');
-    }
-    setFormData({
-      name: loading || !resume.name ? '' : resume.name,
-      phone: loading || !resume.phone ? '' : resume.phone,
-      email: loading || !resume.email ? '' : resume.email,
-      number: loading || !resume.address ? '' : resume.address.number,
-      street: loading || !resume.address ? '' : resume.address.street,
-      apartment: loading || !resume.address ? '' : resume.address.apartment,
-      city: loading || !resume.address ? '' : resume.address.city,
-      state: loading || !resume.address ? '' : resume.address.state,
-      zip: loading || !resume.address ? '' : resume.address.zip,
-      github: loading || !resume.social ? '' : resume.social.github,
-      instagram: loading || !resume.social ? '' : resume.social.instagram,
-      linkedin: loading || !resume.social ? '' : resume.social.linkedin,
-      twitter: loading || !resume.social ? '' : resume.social.twitter,
-      website: loading || !resume.website ? '' : resume.website,
-      bio: loading || !resume.bio ? '' : resume.bio,
-      goals: loading || !resume.goals ? '' : resume.goals,
-      technologies: loading || !resume.technologies ? '' : newTechs
-    });
-  }, [
-    fetchResume,
-    loading,
-    resume.address,
-    resume.bio,
-    resume.email,
-    resume.goals,
-    resume.name,
-    resume.phone,
-    resume.social,
-    resume.technologies,
-    resume.website
-  ]);
-  const [ displaySocialInputs, toggleSocialInputs ] = useState(false);
-
-  const {
+  let {
     name,
     phone,
     email,
@@ -93,6 +50,39 @@ const EditResume = ({
     goals,
     technologies
   } = formData;
+
+  useEffect(() => {
+    let newTechs = '';
+    if (resume) {
+      if (resume.technologies) {
+        newTechs = resume.technologies.join(',');
+      }
+      setFormData({
+        name: loading || !resume.name ? '' : resume.name,
+        phone: loading || !resume.phone ? '' : resume.phone,
+        email: loading || !resume.email ? '' : resume.email,
+        number: loading || !resume.address ? '' : resume.address.number,
+        street: loading || !resume.address ? '' : resume.address.street,
+        apartment: loading || !resume.address ? '' : resume.address.apartment,
+        city: loading || !resume.address ? '' : resume.address.city,
+        state: loading || !resume.address ? '' : resume.address.state,
+        zip: loading || !resume.address ? '' : resume.address.zip,
+        github: loading || !resume.social ? '' : resume.social.github,
+        instagram: loading || !resume.social ? '' : resume.social.instagram,
+        linkedin: loading || !resume.social ? '' : resume.social.linkedin,
+        twitter: loading || !resume.social ? '' : resume.social.twitter,
+        website: loading || !resume.website ? '' : resume.website,
+        bio: loading || !resume.bio ? '' : resume.bio,
+        goals: loading || !resume.goals ? '' : resume.goals,
+        technologies: loading || !resume.technologies ? '' : newTechs
+      });
+    }
+  }, [
+    loading,
+    resume
+  ]);
+  const [ displaySocialInputs, toggleSocialInputs ] = useState(false);
+
   const handleChange = event => {
     setFormData({
       ...formData,
@@ -334,7 +324,6 @@ const EditResume = ({
 }
 
 EditResume.propTypes = {
-  fetchResume: PropTypes.func.isRequired,
   createResume: PropTypes.func.isRequired,
   resume: PropTypes.object,
   history: PropTypes.object
@@ -346,5 +335,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createResume, fetchResume }
+  { createResume }
 )(EditResume);
