@@ -1,42 +1,3 @@
-/*
-
-fetchPort will grab the portfolio
-but it will not populate editPort
-therefore will not populate form until reload
----
-useEffect is constantly running unless there's a dependent that stops it
-I'm trying to use loading, but loading won't work for me
-
----
-SOLUTION
----
-useEffect is constantly running and stops once the dependent is equal
-In this case, editPort is the dependent
-
-fetchPort would CLEAR editPort when called, and then recall to fill that obj
-I had to remove the action that would clear editPort
-
----
-OR TRY
----
-
-useEffect(() => {
-    async function fetchData() {
-        try {
-            const response = await fetch(
-                `https://www.reddit.com/r/${subreddit}.json`
-            );
-            const json = await response.json();
-            setPosts(json.data.children.map(it => it.data));
-        } catch (e) {
-            console.error(e);
-        }
-    };
-    fetchData();
-}, []);
-
-*/
-
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -63,36 +24,29 @@ const EditPortfolio = ({
     year: '',
     technologies: ''
   });
+  const { title, year, live, code, image, desc, technologies } = formData;
 
   useEffect(() => {
     fetchPort(match.params.id);
+  }, [fetchPort, match.params.id]);
+  useEffect(() => {
     let newTechs = '';
-    if (editPort.technologies) {
-      newTechs = editPort.technologies.join(',');
+    if (editPort) {
+      if (editPort.technologies) {
+        newTechs = editPort.technologies.join(',');
+      }
+      setFormData({
+        title: loading || !editPort.title ? '' : editPort.title,
+        year: loading || !editPort.year ? '' : editPort.year,
+        live: loading || !editPort.live ? '' : editPort.live,
+        code: loading || !editPort.code ? '' : editPort.code,
+        image: loading || !editPort.image ? '' : editPort.image,
+        desc: loading || !editPort.desc ? '' : editPort.desc,
+        technologies: loading || !editPort.technologies ? '' : newTechs
+      })
     }
-    setFormData({
-      title: loading || !editPort.title ? '' : editPort.title,
-      year: loading || !editPort.year ? '' : editPort.year,
-      live: loading || !editPort.live ? '' : editPort.live,
-      code: loading || !editPort.code ? '' : editPort.code,
-      image: loading || !editPort.image ? '' : editPort.image,
-      desc: loading || !editPort.desc ? '' : editPort.desc,
-      technologies: loading || !editPort.technologies ? '' : newTechs,
-    });
-  }, [
-    match.params.id,
-    editPort.code,
-    editPort.desc,
-    editPort.image,
-    editPort.live,
-    editPort.technologies,
-    editPort.title,
-    editPort.year,
-    fetchPort,
-    loading
-  ]);
+  }, [editPort, loading]);
 
-  const { title, year, live, code, image, desc, technologies } = formData;
   const handleChange = event => {
     setFormData({
       ...formData,
@@ -117,88 +71,90 @@ const EditPortfolio = ({
     });
   }
   return (
-    <div className="form container">
-      <h1>Edit { title }</h1>
-      <form onSubmit={event => handleSubmit(event)}>
-        <div className="form-group">
-          <label htmlFor="title">Title</label>
-          <input
-            name="title"
-            placeholder="Title"
-            value={title}
-            className="form-input"
-            type="text"
-            onChange={event => handleChange(event)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="year">Year</label>
-          <input
-            name="year"
-            placeholder="Year"
-            value={year}
-            className="form-input"
-            type="text"
-            onChange={event => handleChange(event)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="live">Live Url</label>
-          <input
-            name="live"
-            value={live}
-            placeholder="Live Url"
-            className="form-input"
-            type="text"
-            onChange={event => handleChange(event)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="code">Code Url</label>
-          <input
-            name="code"
-            value={code}
-            placeholder="Code Url"
-            className="form-input"
-            type="text"
-            onChange={event => handleChange(event)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="image">Image</label>
-          <input
-            name="image"
-            placeholder="Image"
-            value={image}
-            className="form-input"
-            type="text"
-            onChange={event => handleChange(event)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="desc">Description</label>
-          <textarea
-            placeholder="Description"
-            name="desc"
-            value={desc}
-            className="form-input textarea"
-            onChange={event => handleChange(event)}
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label htmlFor="technologies">Technologies</label>
-          <input
-            name="technologies"
-            placeholder="Technologies"
-            value={technologies}
-            className="form-input"
-            type="text"
-            onChange={event => handleChange(event)}
-          />
-          <small>Separate each value with a comma(,)</small>
-        </div>
-        <input type="submit" value="Submit" className="btn" />
-      </form>
+    <div>
+      <div className="form container">
+        <h1>Edit { title }</h1>
+        <form onSubmit={event => handleSubmit(event)}>
+          <div className="form-group">
+            <label htmlFor="title">Title</label>
+            <input
+              name="title"
+              placeholder="Title"
+              value={title}
+              className="form-input"
+              type="text"
+              onChange={event => handleChange(event)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="year">Year</label>
+            <input
+              name="year"
+              placeholder="Year"
+              value={year}
+              className="form-input"
+              type="text"
+              onChange={event => handleChange(event)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="live">Live Url</label>
+            <input
+              name="live"
+              value={live}
+              placeholder="Live Url"
+              className="form-input"
+              type="text"
+              onChange={event => handleChange(event)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="code">Code Url</label>
+            <input
+              name="code"
+              value={code}
+              placeholder="Code Url"
+              className="form-input"
+              type="text"
+              onChange={event => handleChange(event)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="image">Image</label>
+            <input
+              name="image"
+              placeholder="Image"
+              value={image}
+              className="form-input"
+              type="text"
+              onChange={event => handleChange(event)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="desc">Description</label>
+            <textarea
+              placeholder="Description"
+              name="desc"
+              value={desc}
+              className="form-input textarea"
+              onChange={event => handleChange(event)}
+            ></textarea>
+          </div>
+          <div className="form-group">
+            <label htmlFor="technologies">Technologies</label>
+            <input
+              name="technologies"
+              placeholder="Technologies"
+              value={technologies}
+              className="form-input"
+              type="text"
+              onChange={event => handleChange(event)}
+            />
+            <small>Separate each value with a comma(,)</small>
+          </div>
+          <input type="submit" value="Submit" className="btn" />
+        </form>
+      </div>
     </div>
   )
 }
