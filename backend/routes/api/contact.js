@@ -3,7 +3,6 @@ const nodemailer = require('nodemailer');
 const express = require('express');
 const router = express.Router();
 
-require('dotenv').config();
 const USER = process.env.DUSER;
 const PASS = process.env.DPASS;
 

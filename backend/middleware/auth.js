@@ -1,6 +1,4 @@
 // Will be used in creating and editing the user portfolio and resume
-
-require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
