@@ -1,13 +1,12 @@
-require('dotenv').config();
-
 const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
-const JWT_SECRET = process.env.JWT_SECRET;
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const express = require('express');
 const router = express.Router();
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // @route  GET /api/auth
 // @desc   Get user token
@@ -23,7 +22,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 // @route  POST /api/auth
-// @desc   Log in user
+// @desc   Login user
 // @access Public
 router.post('/', [
   check('email', 'Valid email required')
