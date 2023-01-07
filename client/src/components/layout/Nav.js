@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import responsiveNav from '../../utils/responsiveNav';
+import utils from '../../utils/utils';
 import { fetchResume } from '../../actions/resume';
 import { connect } from 'react-redux';
 
@@ -17,7 +17,7 @@ const Nav = ({
   return (
     <div className="nav">
       <div className="nav-toggle">
-        <a href="#!" className="nav-icon" onClick={() => responsiveNav()}>
+        <a href="#!" className="nav-icon" onClick={() => utils.responsiveNav()}>
           <i className="fas fa-bars"></i>
         </a>
       </div>
