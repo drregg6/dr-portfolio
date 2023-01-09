@@ -4,10 +4,13 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+const error = require('./middleware/error');
+
 // Connect to MongoDB
 connectDB();
 
 app.use(express.json({ extended: false }));
+app.use(error);
 
 // Get the routes
 app.use('/api/portfolios', require('./routes/api/portfolios'));

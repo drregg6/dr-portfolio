@@ -14,7 +14,7 @@ const initialState = {
   loading: true
 }
 
-export default function(state = initialState, action) {
+const portfolioReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch(type) {
     case GET_USERS:
@@ -57,3 +57,9 @@ export default function(state = initialState, action) {
       return state;
   }
 }
+
+const portfolio = {
+  portfolioReducer
+}
+
+export default portfolio;
