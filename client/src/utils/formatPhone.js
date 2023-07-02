@@ -1,4 +1,4 @@
-export default function(phone) {
+export default function formatPhone(phone) {
   if (phone[0] === '1') {
     phone = phone.slice(1);
   }
