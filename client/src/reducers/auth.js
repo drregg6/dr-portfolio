@@ -13,7 +13,7 @@ const initialState = {
   loading: true
 };
 
-const authReducer = (state = initialState, action) => {
+export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case USER_LOADED:
@@ -46,9 +46,3 @@ const authReducer = (state = initialState, action) => {
       return state;
   }
 }
-
-const auth = {
-  authReducer
-}
-
-export default auth;
