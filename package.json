@@ -4,10 +4,12 @@
   "description": "Professional portfolio",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
