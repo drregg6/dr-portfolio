@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { deleteExperience } from '../../features/resume/resumeSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { deleteExperience } from '../../actions/resume';
+import { connect } from 'react-redux';
 
 const Experience = ({
+  deleteExperience,
+  isAuthenticated,
   id,
   title,
   year,
   desc,
   technologies
 }) => {
-  const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
-
   return (
     <div key={id} className="experience">
       <div className="experience-header">
@@ -31,8 +30,8 @@ const Experience = ({
         })}
       </div>
       {
-        user && (
-          <button className="delete-button" onClick={() => dispatch(deleteExperience(id))}>
+        isAuthenticated && (
+          <button className="delete-button" onClick={() => deleteExperience(id)}>
             x
           </button>
         )
@@ -42,6 +41,8 @@ const Experience = ({
 }
 
 Experience.propTypes = {
+  deleteExperience: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
   id: PropTypes.string,
   title: PropTypes.string,
   year: PropTypes.string,
@@ -49,4 +50,11 @@ Experience.propTypes = {
   technologies: PropTypes.array
 }
 
-export default Experience;
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(
+  mapStateToProps,
+  { deleteExperience }
+)(Experience);
