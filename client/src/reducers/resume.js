@@ -11,7 +11,7 @@ const initialState = {
   loading: true
 };
 
-const resumeReducer = (state = initialState, action) => {
+export default function(state = initialState, action) {
   const { type, payload } = action;
   switch(type) {
     case GET_RESUME:
@@ -57,9 +57,3 @@ const resumeReducer = (state = initialState, action) => {
       return state;
   }
 }
-
-const resume = {
-  resumeReducer
-}
-
-export default resume;
