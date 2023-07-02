@@ -35,14 +35,14 @@ import CreateResume from './components/resume-forms/CreateResume';
 import EditResume from './components/resume-forms/EditResume';
 import PrivateRoute from './components/routing/PrivateRoute';
 
-import utils from './utils/utils';
+import setAuthToken from './utils/setAuthToken';
 import { loadUser } from './actions/auth';
 import store from './store';
 
 function App() {
   useEffect(() => {
     if (localStorage.token) {
-      utils.setAuthToken(localStorage.token);
+      setAuthToken(localStorage.token);
     }
     store.dispatch(loadUser());
   }, []);

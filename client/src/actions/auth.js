@@ -14,14 +14,14 @@ import {
   AUTH_ERROR,
   LOGIN_FAIL
 } from './types';
-import utils from '../utils/utils';
+import setAuthToken from '../utils/setAuthToken';
 import axios from 'axios';
 import { setAlert } from './alert';
 
 // Load user
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
-    utils.setAuthToken(localStorage.token);
+    setAuthToken(localStorage.token);
   }
 
   try {

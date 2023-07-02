@@ -3,7 +3,8 @@ import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
 import { fetchResume } from '../../actions/resume';
-import utils from '../../utils/utils';
+import formatPhone from '../../utils/formatPhone';
+import capitalize from '../../utils/capitalize';
 import { connect } from 'react-redux';
 
 import Employment from './Employment';
@@ -17,7 +18,7 @@ const Resume = ({
   useEffect(() => {
     fetchResume();
   }, [fetchResume]);
-  let name, phone, email, address, technologies, goals;
+  let name, phone, email, address, technologies, goals, employment, education, experience;
 
   if (resume) {
     name = resume.name;
@@ -26,6 +27,9 @@ const Resume = ({
     address = resume.address;
     technologies = resume.technologies;
     goals = resume.goals;
+    employment = resume.employment;
+    education = resume.education;
+    experience = resume.experience;
   }
 
   return (
@@ -40,7 +44,7 @@ const Resume = ({
               <div className="resume-contact">
                 <div className="address">
                   { address.number } { address.street }, { address.apartment  }, { address.city } { address.state }, { address.zip }
-                </div><span>-</span><div className="phone">{ utils.formatPhone(phone) }</div><span>-</span><div className="email">{email}</div>
+                </div><span>-</span><div className="phone">{ formatPhone(phone) }</div><span>-</span><div className="email">{email}</div>
               </div>
             </div>
             <div className="resume-goals">
@@ -102,7 +106,7 @@ const Resume = ({
                 <ul>
                 {
                   technologies.map((tech, i) => {
-                    return <li key={i}>- {utils.capitalize(tech)}</li>
+                    return <li key={i}>- {capitalize(tech)}</li>
                   })
                 }
                 </ul>
