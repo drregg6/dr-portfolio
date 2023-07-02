@@ -7,15 +7,18 @@ import { connect } from 'react-redux';
 const Footer = ({ isAuthenticated, logout }) => {
   return (
     <div className="footer">
-      <h1>&copy;{new Date().getFullYear()} <a href="https://github.com/drregg6" target="_blank" rel="noopener noreferrer">Dave Regg</a></h1>
-      { isAuthenticated && (
-        <button
-          className="btn logout-btn"
-          onClick={() => {logout()}}
-        >
-          Logout
-        </button>
-      )}
+      <div className="footer-top">
+        <h1>&copy;{new Date().getFullYear()} <a href="https://github.com/drregg6" target="_blank" rel="noopener noreferrer">Dave Regg</a></h1>
+        { isAuthenticated && (
+          <button
+            className="btn logout-btn"
+            onClick={() => {logout()}}
+          >
+            Logout
+          </button>
+        )}
+      </div>
+      <p>Thanks <a href="https://unsplash.com/@actionvance" target="_blank" rel="noopener noreferrer">ActionVance</a> for the header image!</p>
     </div>
   )
 }

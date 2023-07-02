@@ -232,7 +232,7 @@ li {
 
   background: linear-gradient( rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.5) ),
-    url('http://s1.1zoom.net/big0/307/USA_Skyscrapers_Rivers_479965.jpg');
+    url('../public/images/actionvance-guy5aS3GvgA-unsplash.jpg');
   background-size: cover;
   background-position: center center;
 
@@ -750,6 +750,9 @@ form small {
 
   /* === Footer === */
   .footer {
+    padding: 0.25rem 0;
+  }
+  .footer-top {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -759,6 +762,9 @@ form small {
   .footer .login-btn,
   .footer .logout-btn {
     font-size: .8rem;
+  }
+  .footer p {
+    font-size: .5rem;
   }
 
   /* === Form === */
