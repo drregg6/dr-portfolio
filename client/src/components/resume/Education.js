@@ -2,12 +2,10 @@ import React from 'react';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
-import { deleteEducation } from '../../actions/resume';
-import { connect } from 'react-redux';
+import { deleteEducation } from '../../features/resume/resumeSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Education = ({
-  deleteEducation,
-  isAuthenticated,
   id,
   school,
   location,
@@ -16,6 +14,8 @@ const Education = ({
   from,
   to
 }) => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   return (
     <div key={id} className="education">
       <div className="education-dates">
@@ -29,8 +29,8 @@ const Education = ({
         {degree} in {focus}
       </div>
       {
-        isAuthenticated && (
-          <button className="delete-button" onClick={() => deleteEducation(id)}>x</button>
+        user && (
+          <button className="delete-button" onClick={() => dispatch(deleteEducation(id))}>x</button>
         )
       }
     </div>
@@ -38,8 +38,6 @@ const Education = ({
 }
 
 Education.propTypes = {
-  deleteEducation: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
   id: PropTypes.string,
   school: PropTypes.string,
   location: PropTypes.string,
@@ -49,11 +47,4 @@ Education.propTypes = {
   to: PropTypes.string
 }
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
-})
-
-export default connect(
-  mapStateToProps,
-  { deleteEducation }
-)(Education);
+export default Education;

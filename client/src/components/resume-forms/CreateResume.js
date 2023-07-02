@@ -1,13 +1,17 @@
-import React, { useState, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { createResume, reset } from '../../features/resume/resumeSlice';
 
-import { createResume } from '../../actions/resume';
-import { connect } from 'react-redux';
+import Spinner from '../layout/Spinner';
 
-const CreateResume = ({
-  createResume,
-  history
-}) => {
+const CreateResume = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { resume, isSuccess, isError, isLoading, message } = useSelector((state) => state.resume);
+
   const [ formData, setFormData ] = useState({
     name: '',
     phone: '',
@@ -57,8 +61,8 @@ const CreateResume = ({
   const handleSubmit = event => {
     event.preventDefault();
     console.log(formData);
-    // Send formData and history to createResume
-    createResume(formData, history);
+
+    dispatch(createResume);
 
     // Reset formData
     setFormData({
@@ -81,6 +85,17 @@ const CreateResume = ({
     goals: ''
     });
   }
+
+  useEffect(() => {
+    if (isError) toast.error(message);
+    if (isSuccess) {
+      navigate('/');
+    }
+
+    dispatch(reset);
+  }, [resume, isError, isSuccess, message, navigate, dispatch]);
+
+  if (isLoading) <Spinner />
 
   return (
     <div className="form container">
@@ -236,7 +251,7 @@ const CreateResume = ({
           >Add Social Media Links</button>
         </div>
         { displaySocialInputs && (
-          <Fragment>
+          <>
             <div className="form-group">
               <label htmlFor="github">Github</label>
               <input
@@ -281,7 +296,7 @@ const CreateResume = ({
                 onChange={event => handleChange(event)}
               />
             </div>
-          </Fragment>
+          </>
         )}
         <input type="submit" value="Submit" className="btn" />
       </form>
@@ -289,12 +304,4 @@ const CreateResume = ({
   )
 }
 
-CreateResume.propTypes = {
-  createResume: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
-}
-
-export default connect(
-  null,
-  { createResume }
-)(CreateResume);
+export default CreateResume;

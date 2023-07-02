@@ -2,12 +2,10 @@ import React from 'react';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
-import { deleteEmployment } from '../../actions/resume';
-import { connect } from 'react-redux';
+import { deleteEmployment } from '../../features/resume/resumeSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Employment = ({
-  isAuthenticated,
-  deleteEmployment,
   id,
   title,
   company,
@@ -17,6 +15,8 @@ const Employment = ({
   current,
   desc
 }) => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   return (
     <div className="employment">
       <div className="employment-dates">
@@ -35,8 +35,8 @@ const Employment = ({
         })}
       </ul>
       {
-        isAuthenticated && (
-          <button className="delete-button" onClick={() => deleteEmployment(id)}>
+        user && (
+          <button className="delete-button" onClick={() => dispatch(deleteEmployment(id))}>
             x
           </button>
         )
@@ -46,8 +46,6 @@ const Employment = ({
 }
 
 Employment.propTypes = {
-  isAuthenticated: PropTypes.bool,
-  deleteEmployment: PropTypes.func.isRequired,
   id: PropTypes.string,
   title: PropTypes.string,
   company: PropTypes.string,
@@ -57,11 +55,4 @@ Employment.propTypes = {
   desc: PropTypes.array
 }
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
-})
-
-export default connect(
-  mapStateToProps,
-  { deleteEmployment }
-)(Employment);
+export default Employment;
