@@ -302,14 +302,14 @@ li {
   font-size: 2.5rem;
   margin-right: 150px;
 
-  transition: font-size .5s;
+  /* transition: font-size .5s; */
 }
 .tech-logo:last-child {
   margin-right: 0;
 }
-.tech-logo:hover {
+/* .tech-logo:hover {
   font-size: 3rem;
-}
+} */
 
 
 
