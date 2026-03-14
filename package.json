@@ -24,10 +24,13 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.9.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.9",
-    "nodemailer": "^6.4.17",
-    "nodemon": "^2.0.22",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.3.0",
+    "nodemailer": "^8.0.2",
+    "nodemon": "^3.1.14",
     "uuid": "^3.4.0"
+  },
+  "engines": {
+    "node": "24.14.0"
   }
 }
