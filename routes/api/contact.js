@@ -26,8 +26,6 @@ router.post('/', [
   }
 
   const { email, subject, msg } = req.body;
-  console.log(`FormData from server: ${email} - ${subject} - ${msg}`);
-
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
@@ -50,7 +48,7 @@ router.post('/', [
     await transporter.sendMail(mailBody);
     res.json({ msg: 'Email sent!' });
   } catch (err) {
-    console.log(`Error from transporter: ${err.message}`);
+    console.error(`Error from transporter: ${err.message}`);
   }
 });
 
