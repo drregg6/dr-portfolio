@@ -1,36 +1,35 @@
 {
-  "name": "dr-portfolio",
-  "version": "1.0.0",
-  "description": "Professional portfolio",
-  "main": "server.js",
-  "scripts": {
-    "server": "nodemon server",
-    "client": "npm start --prefix client",
-    "build": "cd client && npm run build",
-    "install-client": "cd client && npm install",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "dr-portfolio"
-  },
-  "author": "Dave Regg <drregg6@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "concurrently": "^9.2.1",
-    "dotenv": "^17.3.1",
-    "express": "^5.2.1",
-    "express-validator": "^7.3.1",
-    "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.3.0",
-    "nodemailer": "^8.0.2",
-    "nodemon": "^3.1.14",
-    "uuid": "^13.0.0"
-  },
-  "engines": {
-    "node": "24.14.0"
-  }
+	"name": "dr-portfolio",
+	"version": "1.0.0",
+	"description": "Professional portfolio",
+	"main": "server.js",
+	"scripts": {
+		"server": "nodemon server",
+		"client": "npm start --prefix client",
+		"build": "cd client && npm run build",
+		"install-client": "cd client && npm install",
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"heroku-postbuild": "npm run install-client && npm run build",
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "dr-portfolio"
+	},
+	"author": "Dave Regg <drregg6@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"bcryptjs": "^3.0.3",
+		"concurrently": "^9.2.1",
+		"dotenv": "^17.3.1",
+		"express": "^5.2.1",
+		"express-validator": "^7.3.1",
+		"jsonwebtoken": "^9.0.3",
+		"mongoose": "^9.3.0",
+		"nodemailer": "^8.0.4",
+		"nodemon": "^3.1.14"
+	},
+	"engines": {
+		"node": "24.14.0"
+	}
 }
