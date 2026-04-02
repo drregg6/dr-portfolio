@@ -49,7 +49,6 @@ router.get('/portfolio/:id/', auth, async (req, res) => {
       return res.json({ msg: 'User portfolio is not found' });
     }
     const portfolio = userPortfolio.portfolios.filter(project => project.id === req.params.id)[0];
-    console.log(portfolio);
     if (!portfolio) {
       return res.json({ msg: 'Portfolio could not be found' });
     }
@@ -91,7 +90,7 @@ router.post('/', [auth, [
   if (technologies) {
     newPortfolio.technologies = technologies.split(',').map(skill => skill.trim());
   }
-  if (_id) newPortfolio._id = mongoose.Types.ObjectId(_id);
+  if (_id) newPortfolio._id = new mongoose.Types.ObjectId(_id);
 
   // If the user's portfolio does not exist yet
   try {
@@ -135,7 +134,7 @@ router.delete('/:id', auth, async (req, res) => {
     if (!userPortfolio) {
       return res.status(400).json({ msg: 'User cannot be found' });
     }
-    let index = userPortfolio.portfolios.map(project => mongoose.Types.ObjectId(project.id)).indexOf(req.params.id);
+    let index = userPortfolio.portfolios.map(project => new mongoose.Types.ObjectId(project.id)).indexOf(req.params.id);
 
     userPortfolio.portfolios.splice(index, 1);
     await userPortfolio.save();
