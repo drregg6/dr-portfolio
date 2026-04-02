@@ -6,8 +6,8 @@ import alert from './alert';
 import auth from './auth';
 
 export default combineReducers({
-  portfolio,
-  resume,
-  alert,
-  auth
+	portfolio,
+	resume,
+	alert,
+	auth,
 });

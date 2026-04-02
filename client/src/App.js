@@ -13,8 +13,8 @@ https://dean451.github.io/
 - EditProject will not populate inputs until it's refreshed
 
 */
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router';
+import { useEffect } from 'react';
 import './App.css';
 
 import Nav from './components/layout/Nav';
@@ -40,35 +40,84 @@ import { loadUser } from './actions/auth';
 import store from './store';
 
 function App() {
-  useEffect(() => {
-    if (localStorage.token) {
-      setAuthToken(localStorage.token);
-    }
-    store.dispatch(loadUser());
-  }, []);
+	useEffect(() => {
+		if (localStorage.token) {
+			setAuthToken(localStorage.token);
+		}
+		store.dispatch(loadUser());
+	}, []);
 
-  return (
-    <Router>
-      <div className="App">
-        <Nav />
-        <Alert />
-        <Switch>
-          <Route exact path='/' component={Homepage} />
-          <Route exact path='/resume' component={Resume} />
-          <Route exact path='/contact' component={Contact} />
-          <Route exact path='/login' component={Login} />
-          <PrivateRoute exact path='/new-portfolio' component={CreatePortfolio} />
-          <PrivateRoute path='/portfolios/:id/edit' component={EditPortfolio} />
-          <PrivateRoute path='/new-resume' component={CreateResume} />
-          <PrivateRoute path='/edit-resume' component={EditResume} />
-          <PrivateRoute path='/new-experience' component={AddExperience} />
-          <PrivateRoute path='/new-employment' component={AddEmployment} />
-          <PrivateRoute path='/new-education' component={AddEducation} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
-  );
+	return (
+		<Router>
+			<div className="App">
+				<Nav />
+				<Alert />
+				<Routes>
+					<Route path="/" element={<Homepage />} />
+					<Route path="/resume" element={<Resume />} />
+					<Route path="/contact" element={<Contact />} />
+					<Route path="/login" element={<Login />} />
+					<Route
+						path="/new-portfolio"
+						render={() => (
+							<PrivateRoute>
+								<CreatePortfolio />
+							</PrivateRoute>
+						)}
+					/>
+					<Route
+						path="/portfolios/:id/edit"
+						render={() => (
+							<PrivateRoute>
+								<EditPortfolio />
+							</PrivateRoute>
+						)}
+					/>
+					<Route
+						path="/new-resume"
+						render={() => (
+							<PrivateRoute>
+								<CreateResume />
+							</PrivateRoute>
+						)}
+					/>
+					<Route
+						path="/new-education"
+						render={() => (
+							<PrivateRoute>
+								<AddEducation />
+							</PrivateRoute>
+						)}
+					/>
+					<Route
+						path="/new-employment"
+						render={() => (
+							<PrivateRoute>
+								<AddEmployment />
+							</PrivateRoute>
+						)}
+					/>
+					<Route
+						path="/new-experience"
+						render={() => (
+							<PrivateRoute>
+								<AddExperience />
+							</PrivateRoute>
+						)}
+					/>
+					<Route
+						path="/edit-resume"
+						render={() => (
+							<PrivateRoute>
+								<EditResume />
+							</PrivateRoute>
+						)}
+					/>
+				</Routes>
+				<Footer />
+			</div>
+		</Router>
+	);
 }
 
 export default App;
