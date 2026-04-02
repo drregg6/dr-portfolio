@@ -4,7 +4,7 @@ const About = ({ bio }) => {
 	return (
 		<div className="about">
 			<img
-				src="https://drive.google.com/uc?id=1eucDCjZpZzUOkZ8uT7-aLr4bln6EameF"
+				src="https://res.cloudinary.com/duaddi9yp/image/upload/v1775135579/suit-selfie_mzzzif.jpg"
 				alt="Dave Regg"
 			/>
 			<p className="p-blurb">{bio ? bio : 'Hello world!'}</p>
