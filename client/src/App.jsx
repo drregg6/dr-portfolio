@@ -35,7 +35,7 @@ import CreateResume from './components/resume-forms/CreateResume';
 import EditResume from './components/resume-forms/EditResume';
 import PrivateRoute from './components/routing/PrivateRoute';
 
-import setAuthToken from './utils/setAuthToken';
+import { setAuthToken } from './utils/helpers';
 import { loadUser } from './actions/auth';
 import store from './store';
 
