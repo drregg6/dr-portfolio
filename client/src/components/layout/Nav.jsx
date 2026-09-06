@@ -1,0 +1,75 @@
+import { Link } from 'react-router';
+import { Fragment, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { responsiveNav } from '../../utils/helpers';
+import { fetchResume } from '../../actions/resume';
+
+const Nav = () => {
+	const dispatch = useDispatch();
+	const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+	const resume = useSelector((state) => state.resume.resume);
+
+	useEffect(() => {
+		dispatch(fetchResume());
+	}, [dispatch]);
+
+	return (
+		<div className="nav">
+			<div className="nav-toggle">
+				<a
+					href="#!"
+					className="nav-icon"
+					onClick={() => responsiveNav()}
+				>
+					<i className="fas fa-bars"></i>
+				</a>
+			</div>
+			<div className="nav-link">
+				<div>
+					<Link to="/">Portfolio</Link>
+				</div>
+				<div>
+					<Link to="/resume">Resume</Link>
+				</div>
+				<div>
+					<Link to="/contact">Contact</Link>
+				</div>
+				<div>
+					<a href="https://blog.daveregg.com/">Blog</a>
+				</div>
+				{isAuthenticated && (
+					<Fragment>
+						<div>
+							<Link to="/new-portfolio">New Portfolio</Link>
+						</div>
+						{!resume ? (
+							<Fragment>
+								<div>
+									<Link to="/new-resume">New Resume</Link>
+								</div>
+							</Fragment>
+						) : (
+							<Fragment>
+								<div>
+									<Link to="/edit-resume">Edit Resume</Link>
+								</div>
+							</Fragment>
+						)}
+						<div>
+							<Link to="new-employment">Add Employer</Link>
+						</div>
+						<div>
+							<Link to="new-experience">Add Experience</Link>
+						</div>
+						<div>
+							<Link to="new-education">Add Education</Link>
+						</div>
+					</Fragment>
+				)}
+			</div>
+		</div>
+	);
+};
+
+export default Nav;
