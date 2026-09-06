@@ -1,5 +1,5 @@
 import { userLoaded, loginSuccess, clearAuth } from '../slices/authSlice';
-import setAuthToken from '../utils/setAuthToken';
+import { setAuthToken } from '../utils/helpers';
 import axios from 'axios';
 import { setAlert } from './alert';
 

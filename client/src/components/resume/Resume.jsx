@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Spinner from '../layout/Spinner';
 
 import { fetchResume } from '../../actions/resume';
-import formatPhone from '../../utils/formatPhone';
-import capitalize from '../../utils/capitalize';
+import { formatPhone, capitalize } from '../../utils/helpers';
 
 import Employment from './Employment';
 import Experience from './Experience';

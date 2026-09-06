@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import { Fragment, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import responsiveNav from '../../utils/responsiveNav';
+import { responsiveNav } from '../../utils/helpers';
 import { fetchResume } from '../../actions/resume';
 
 const Nav = () => {
